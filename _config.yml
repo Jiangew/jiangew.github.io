@@ -1,6 +1,6 @@
 # main text of home
-name: John Doe
-bio: A Man who travels the world eating noodles
+name: JamesiWorks
+bio: 梦想珍贵，天生无畏。
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -14,9 +14,9 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume-url: 
 
-url: https://koppl.in/indigo
+url: https://jiangew.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -49,7 +49,7 @@ github: mygithub
 # reddit: username
 medium: medium
 # vimeo: myvimeo
-email: myemail@gmail.com
+email: jiangew@aliyun.com
 
 authors:
     johndoe:
