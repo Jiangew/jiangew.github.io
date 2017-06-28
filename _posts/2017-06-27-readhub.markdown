@@ -1,3 +1,17 @@
+---
+title: "甘罗 ReadHub"
+layout: post
+date: 2017-06-28 09:06
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- ReadHub
+category: blog
+author: JamesiWorks
+description: Markdown summary with different options
+# jemoji: '<img class="emoji" title=":ramen:" alt=":ramen:" src="https://assets.github.com/images/icons/emoji/unicode/1f35c.png" height="20" width="20" align="absmiddle">'
+---
+
 ### 2017.06.27
 - [关于 Java 框架 Vert.x 的一点思考](http://vertxer.org/intro/2015/05/14/vertx3-introduction.html)
 - [Vertx-rpc 框架](http://vertxer.org/intro/2015/08/19/vertx-rpc.html)
