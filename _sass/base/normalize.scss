@@ -408,6 +408,12 @@ textarea {
   opacity: 0.54;
 }
 
+::-webkit-any-link {
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: initial;
+}
+
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
