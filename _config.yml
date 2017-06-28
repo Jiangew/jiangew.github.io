@@ -29,9 +29,8 @@ permalink: /:title/
 
 # if you don't have any of social below, comment the line
 # facebook: facebook
-twitter: JamesiWorks
 weibo: Jiangew
-pinterest: JamesiWorks
+twitter: JamesiWorks
 github: Jiangew
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
@@ -41,7 +40,7 @@ github: Jiangew
 authors:
     JamesiWorks:
         name: JamesiWorks
-        bio: 梦想珍贵，天生无畏。
+        bio: Natural fearless, Dream precious.
         external-image: false
         picture: assets/images/profile.png
         twitter: JamesiWorks
