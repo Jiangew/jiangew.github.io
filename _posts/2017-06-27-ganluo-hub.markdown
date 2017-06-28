@@ -1,11 +1,12 @@
 ---
-title: "甘罗 ReadHub"
+title: "Ganluo Hub"
 layout: post
 date: 2017-06-28 09:06
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- ReadHub
+- Hub
+- Ganluo
 category: blog
 author: JamesiWorks
 description: Markdown summary with different options
