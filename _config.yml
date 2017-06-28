@@ -1,9 +1,9 @@
 # main text of home
 name: JamesiWorks
-bio: 梦想珍贵，天生无畏。
+bio: Natural fearless, Dream precious.
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: Natural fearless, Dream precious.
 
 # if it's an external image, update below for true
 # better with square images
@@ -28,8 +28,8 @@ disqus:
   categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-facebook: facebook
-twitter: twitter
+# facebook: facebook
+twitter: JamesiWorks
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
@@ -43,7 +43,7 @@ github: Jiangew
 # reddit: username
 # medium: medium
 # vimeo: myvimeo
-email: jiangew@aliyun.com
+# email: jiangew@aliyun.com
 
 authors:
     JamesiWorks:
