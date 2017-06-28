@@ -8,7 +8,7 @@ description: A blog about technology and stuff related
 # if it's an external image, update below for true
 # better with square images
 external-image: false
-picture: assets/images/profile.jpg
+picture: assets/images/profile.png
 
 url: https://jiangew.github.io
 # your url: http://USERNAME.github.io
@@ -50,7 +50,7 @@ authors:
         name: JamesiWorks
         bio: 梦想珍贵，天生无畏。
         external-image: false
-        picture: assets/images/profile.jpg
+        picture: assets/images/profile.png
         twitter: JamesiWorks
 
 # do you want a larger site? change the option below
