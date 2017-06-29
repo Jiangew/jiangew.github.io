@@ -150,6 +150,7 @@ dfn {
  */
 
 h1 {
+  font-family: $fontSans;
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -168,6 +169,7 @@ mark {
  */
 
 small {
+  font-family: $fontSans;
   font-size: 80%;
 }
 
@@ -178,6 +180,7 @@ small {
 
 sub,
 sup {
+  font-family: $fontSans;
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -223,7 +226,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Monaco,Menlo,monospace,"Helvetica Neue",Helvetica,Arial,sans-serif; /* 1 */
+  font-family: Monaco,Menlo,"Helvetica Neue",Helvetica,Arial,sans-serif; /* 1 */
   font-size: 1em; /* 2 */
 }
 
