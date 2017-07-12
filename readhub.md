@@ -4,6 +4,10 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.07.12
+- [Vert.x Core 文档手册](https://vertxchina.github.io/vertx-translation-chinese/core/Core.html)
+- [Vert.x Core 简介](https://my.oschina.net/zhhzhfya/blog/662480)
+
 ### 2017.07.04
 - [高性能 I/O 设计模式：Reactor && Proactor](http://www.cnblogs.com/daoluanxiaozi/p/3274925.html)
 - [高性能 I/O 设计模式：Reactor vs Proactor](https://segmentfault.com/a/1190000002715832)
