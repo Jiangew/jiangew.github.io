@@ -4,6 +4,14 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.07.13
+- [Vert.x 技术内幕系列](http://www.sczyh30.com/categories/Vert-x/)
+- [Vert.x 技术内幕：线程模型](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-demystifying-thread-model/)
+- [Vert.x 技术内幕：executeBlocking 实现原理](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-execute-blocking-internal/)
+- [Vert.x 技术内幕：异步 RPC 实现原理](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-async-rpc/)
+- [Vert.x 技术内幕：EventBus 源码分析「Cluster 模式」](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-clustered-event-bus-internal/)
+- [Vert.x 技术内幕：EventBus 源码分析「Local 模式」](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-local-event-bus-internal/)
+
 ### 2017.07.12
 - [Vert.x Core 文档手册](https://vertxchina.github.io/vertx-translation-chinese/core/Core.html)
 - [Vert.x Core 简介](https://my.oschina.net/zhhzhfya/blog/662480)
