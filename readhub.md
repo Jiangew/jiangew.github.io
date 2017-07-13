@@ -342,7 +342,3 @@ layout: page
 - [如何快速构建基于 Spring 4.0 的 Rest API](http://www.importnew.com/7903.html)
 - [Spring 4.1 与 Java 8 java.util.Optional](http://www.importnew.com/13169.html)
 - [Spring 实践：AOP 面向切面编程](http://blog.csdn.net/zjf280441589/article/details/50816802)
-
-### 2016.05.24
-- [Golang 基础学习系列](http://xhrwang.me/2014/12/22/golang-fundamentals-1-types-variables-constants.html)
-- [Logback：旨在取代 log4j 的日志组件](http://hao.jobbole.com/logback/)
