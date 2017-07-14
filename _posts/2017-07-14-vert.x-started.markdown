@@ -11,13 +11,13 @@ category: blog
 author: JamesiWorks
 ---
 
-### What is Vert.x ?
-Vert.x is a tool-kit for building reactive applications on the JVM.
+## What is Vert.x ?
+### Vert.x is a tool-kit for building reactive applications on the JVM.
 
-### Maven Verticle Project
-#### 01 使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖
-「maven:maven-shade-plugin」
-```java
+## Maven Verticle Project
+### 01 使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖
+#### 「maven:maven-shade-plugin」
+----
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -47,36 +47,36 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
             </execution>
         </executions>
     </plugin>
-```
-```java
+----
+----
     mvn clean package
-```
+----
 
-#### 02 运行 fat-jar
-```java
+### 02 运行 fat-jar
+----
     java -jar target/maven-verticle-3.4.2-fat.jar
-```
+----
 
-#### 03 通过 -instances 参数部署多个 verticle 实例来释放多核的能力
-```java
+### 03 通过 -instances 参数部署多个 verticle 实例来释放多核的能力
+----
     java -jar target/maven-verticle-3.4.2-fat.jar -instances 8
-```
+----
 
-#### 04 通过 -cluster && -ha 参数部署 verticle 实例，开启集群和高可用模式
-```java
+### 04 通过 -cluster && -ha 参数部署 verticle 实例，开启集群和高可用模式
+----
     java -jar target/maven-verticle-3.4.2-fat.jar -cluster
     java -jar target/maven-verticle-3.4.2-fat.jar -ha
-```
+----
 
-#### 05 通过 -conf 部署 verticle 实例时加载配置文件
-```java
+### 05 通过 -conf 部署 verticle 实例时加载配置文件
+----
     java -jar target/maven-verticle-3.4.2-fat.jar -conf src/conf/conf.json
-```
+----
 
-### blockingHandler|executeBlocking vs WorkerVerticle
-每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
-「executeBlocking 示例」
-```java
+## BlockingHandler | ExecuteBlocking vs WorkerVerticle
+### 每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
+### 「executeBlocking 示例」
+----
     vertx.createHttpServer().requestHandler(request -> vertx.<String>executeBlocking(future -> {
             // do blocking operation
             try {
@@ -94,16 +94,16 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
                 res.cause().printStackTrace();
             }
         })).listen(8080);
-```
-「blockingHandler 示例」
-```java
+----
+### 「blockingHandler 示例」
+----
         // blocking handler && ordered false && future
         router.get("/chaptersAsync").blockingHandler(this::handleGetChaptersAsync, false).failureHandler(this::handleWorkerTimeout);
-```
+----
 
-### Dynamic Deploy Verticle
-通过动态部署 Verticle 实例，可是指定 DeploymentOptions 的各种属性，可以对比 VertxOptions，包括 workerPoolSize, isWorker, isHA 等。
-```java
+## Dynamic Deploy Verticle
+### 通过动态部署 Verticle 实例，可是指定 DeploymentOptions 的各种属性，可以对比 VertxOptions，包括 workerPoolSize, isWorker, isHA 等。
+----
         // different ways of deploying verticles
         // 01 deploy a verticle and do not wait for it to start
         vertx.deployVerticle("com.qq.reader.ts.verticle.DownloadVerticle");
@@ -126,14 +126,14 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
                         .setWorkerPoolSize(core * 50)
                         .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME)
         );    
-```
+----
 
-### 健康检查「Health Checks」
+## 健康检查「Health Checks」
 
-### 监控「Dropwizard | Hawkular」
+## 监控「Dropwizard | Hawkular」
 
-### 日志
+## 日志
 
-### 参考
+## 参考
 - [Vert.x Official Document](http://vertx.io/docs/)
 - [Vert.x Official Examples](https://github.com/vert-x3/vertx-examples)
