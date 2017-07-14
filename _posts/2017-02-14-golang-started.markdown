@@ -8,11 +8,9 @@ tag:
 - Golang
 category: blog
 author: JamesiWorks
-description: Golang started step by step.
 ---
 
 ### Install Go & GVM
-
 #### install GVM
 ```sh
     zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
