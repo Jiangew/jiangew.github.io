@@ -10,56 +10,55 @@ category: blog
 author: JamesiWorks
 ---
 
-## Install Go & GVM
+## Install Go && GVM
 ### 01 install GVM
-----
+```sh
     zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-----
+```
 ### 02 Go 可用版本
-----
+```sh
     gvm listall
-----
+```
 ### 03 Go 已安装版本
-----
+```sh
     gvm list
-----
+```
 ### 04 install Go
-----
+```sh
     gvm install go1.7.5
     gvm use go1.7.5 --default
-----
+```
 ## GOPATH env variable
-----
+```sh
     $ mkdir $HOME/go
     $ export GOPATH=$HOME/go
     $ export PATH=$PATH:$GOPATH/bin
-----
+```
 ## Uninstall Go
-----
+```sh
     sudo vi /etc/profile
     rm -rf /usr/local/go
     rm -rf /etc/paths.d/go
-----
+```
 ## Import Paths
-----
+```sh
     $ mkdir -p $GOPATH/src/github.com/user
-----
+```
 ## Package
-----
+```sh
     $ mkdir $GOPATH/src/github.com/user/hello
-----
+```
 ## Build and Install
-----
+```sh
     $ go install github.com/user/hello
-
     $ cd $GOPATH/src/github.com/user/hello
     $ go install
-----
+```
 ## Run
-----
+```sh
     $ $GOPATH/bin/hello
     $ hello
-----
+```
 
 ## Tutorials
 - [A Tour of Go](http://tour.golang.org) - Interactive tour of Go.
