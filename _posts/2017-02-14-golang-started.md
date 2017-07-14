@@ -1,7 +1,7 @@
 ---
 title: "Golang Started"
 layout: post
-date: 2017-i02-14 09:06
+date: 2017-02-14 09:06
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
