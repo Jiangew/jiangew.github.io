@@ -12,11 +12,11 @@ author: JamesiWorks
 ---
 
 ### What is Vert.x ?
-### Vert.x is a tool-kit for building reactive applications on the JVM.
+Vert.x is a tool-kit for building reactive applications on the JVM.
 
 ### Maven Verticle Project
 #### 01 使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖
-maven:maven-shade-plugin
+「maven:maven-shade-plugin」
 ```java
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -74,9 +74,8 @@ maven:maven-shade-plugin
 ```
 
 ### blockingHandler|executeBlocking vs WorkerVerticle
-#### 每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
-
-executeBlocking 示例
+每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
+「executeBlocking 示例」
 ```java
     vertx.createHttpServer().requestHandler(request -> vertx.<String>executeBlocking(future -> {
             // do blocking operation
@@ -96,14 +95,14 @@ executeBlocking 示例
             }
         })).listen(8080);
 ```
-blockingHandler 示例
+「blockingHandler 示例」
 ```java
         // blocking handler && ordered false && future
         router.get("/chaptersAsync").blockingHandler(this::handleGetChaptersAsync, false).failureHandler(this::handleWorkerTimeout);
 ```
 
 ### Dynamic Deploy Verticle
-#### 通过动态部署 Verticle 实例，可是指定 DeploymentOptions 的各种属性，可以对比 VertxOptions，包括 workerPoolSize, isWorker, isHA 等。
+通过动态部署 Verticle 实例，可是指定 DeploymentOptions 的各种属性，可以对比 VertxOptions，包括 workerPoolSize, isWorker, isHA 等。
 ```java
         // different ways of deploying verticles
         // 01 deploy a verticle and do not wait for it to start
