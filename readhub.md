@@ -4,6 +4,10 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.07.19
+- [Vert.x 入坑概览](https://segmentfault.com/a/1190000008441871)
+- [Vert.x Blueprint 系列：微服务应用实战](https://segmentfault.com/a/1190000006803854)
+
 ### 2017.07.13
 - [Vert.x 技术内幕系列](http://www.sczyh30.com/categories/Vert-x/)
 - [Vert.x 技术内幕：线程模型](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-demystifying-thread-model/)
