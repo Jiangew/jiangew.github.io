@@ -6,6 +6,8 @@ layout: page
 
 ### 2017.07.19
 - [Vert.x 入坑概览](https://segmentfault.com/a/1190000008441871)
+- [Vert.x Blueprint 系列：代办事项服务](https://segmentfault.com/a/1190000005733665)
+- [Vert.x Blueprint 系列：基于消息的应用](https://segmentfault.com/a/1190000006070510)
 - [Vert.x Blueprint 系列：微服务应用实战](https://segmentfault.com/a/1190000006803854)
 
 ### 2017.07.13
