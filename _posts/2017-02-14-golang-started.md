@@ -1,5 +1,5 @@
 ---
-title: "Golang Started"
+title: "Golang 上手环境搭建"
 layout: post
 date: 2017-02-14 09:06
 image: /assets/images/markdown.jpg

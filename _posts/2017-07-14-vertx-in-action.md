@@ -1,5 +1,5 @@
 ---
-title: "Vert.x in Action"
+title: "Vert.x 实战：Part 1"
 layout: post
 date: 2017-07-14 15:45
 image: /assets/images/markdown.jpg
@@ -225,7 +225,7 @@ public class DeployVerticle extends AbstractVerticle {
 ```sh
     java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar
 ```
-或者
+或
 ```sh
     java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar
     -Dvertx.metrics.options.enabled=true
@@ -257,13 +257,12 @@ java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar x
 check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean vertx:name=vertx.event-loop-size --attribute Value --warning 4
 ```
 #### 参考
-- [Vert.x Metrics](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
-- [Vert.x Monitor Use Jolokia and Hawtio](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
+- [Vert.x Dropwizard Metrics Use Jolokia and Hawtio](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
 - [Jolokia](https://jolokia.org/)
 - [Hawtio](http://hawt.io/getstarted/index.html)
-- [使用 Dropwizard Metrics 对 Vert.x 指标进行监控](http://www.w2bc.com/article/228854)
-- [JMX4Perl](http://search.cpan.org/~roland/jmx4perl/scripts/check_jmx4perl)
-
+- [使用 Dropwizard Metrics 对 Vert.x 性能指标进行监控](http://www.w2bc.com/article/228854)
+- [Vert.x Hawkular Metrics](http://vertx.io/docs/vertx-hawkular-metrics/java/)
+- [Getting started with Hawkular and Grafana](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
 ### 6) 日志
 
 ### 7) 参考
