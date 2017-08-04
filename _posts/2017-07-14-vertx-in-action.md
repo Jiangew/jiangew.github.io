@@ -232,6 +232,10 @@ public class DeployVerticle extends AbstractVerticle {
     -Dvertx.metrics.options.jmxEnabled=true
     -Dvertx.metrics.options.jmxDomain=vertx-metrics-jew
 ```
+参数设置：
+* Dropwizard Metrics 用于指标收集
+* Jmx 暴露桥接接口
+* Jolokia 提供指标数据 Rest 接口
 #### 下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形界面的形式监控 Vert.x 运行状态
 去官网 hawtio app 包，下载有两种方式启动 Hawtio，一种是以 jar 包的形式运行，一种是以 war 包的形式运行。
 jar 包方式启动，指定一个未被占用的端口。
@@ -260,10 +264,47 @@ check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean ver
 - [Vert.x Dropwizard Metrics Use Jolokia and Hawtio](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
 - [Jolokia](https://jolokia.org/)
 - [Hawtio](http://hawt.io/getstarted/index.html)
+- [Hawtio Configuration](http://hawt.io/configuration/index.html)
 - [使用 Dropwizard Metrics 对 Vert.x 性能指标进行监控](http://www.w2bc.com/article/228854)
 - [Vert.x Hawkular Metrics](http://vertx.io/docs/vertx-hawkular-metrics/java/)
 - [Getting started with Hawkular and Grafana](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
+
 ### 6) 日志
+```java
+/**
+ * Author: Jiangew
+ * Date: 20/07/2017
+ */
+public class Launcher extends io.vertx.core.Launcher {
+
+//    private final int core = Runtime.getRuntime().availableProcessors();
+
+    public static void main(String[] args) {
+
+        // Force to use slf4j
+        System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.SLF4JLogDelegateFactory");
+
+        new Launcher().dispatch(args);
+    }
+
+    @Override
+    public void beforeStartingVertx(VertxOptions options) {
+//        options.setClustered(true)
+//                .setHAEnabled(true)
+//                .setWorkerPoolSize(core * 50)
+//                .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME);
+
+        // Start dropwizard monitor
+        options.setMetricsOptions(
+                new DropwizardMetricsOptions()
+                        .setEnabled(true)
+                        .setJmxEnabled(true)
+                        .setJmxDomain("vertx-metrics-minerva")
+        );
+    }
+
+}
+```
 
 ### 7) 参考
 - [Vert.x Official Wiki](http://vertx.io/docs/)
