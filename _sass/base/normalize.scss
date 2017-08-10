@@ -6,7 +6,6 @@
  */
 
 html {
-  /* font-family: "San Francisco", "Liberation Mono", Arial, Mono, "Helvetica Neue", Helvetica, sans-serif; /* 1 */
   font-family: avenir next, avenir, sans-serif;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -224,8 +223,7 @@ code,
 kbd,
 pre,
 samp {
-  /* font-family: "San Francisco", "Liberation Mono", Arial, Mono, "Helvetica Neue", Helvetica, sans-serif; /* 1 */
-  font-family: monaco, Consolas, monospace, monospace;
+  font-family: Consolas, monaco, monospace;
   font-size: 1em; /* 2 */
 }
 
