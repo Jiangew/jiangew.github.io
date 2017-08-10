@@ -6,7 +6,7 @@
  */
 
 html {
-  font-family: Menlo,"Helvetica Neue",Helvetica,Arial,sans-serif; /* 1 */
+  font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -114,8 +114,8 @@ a:hover {
 
 abbr[title] {
   border-bottom: none; /* 1 */
-  /* text-decoration: underline; /* 2 */
-  /* text-decoration: underline dotted; /* 2 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -150,7 +150,6 @@ dfn {
  */
 
 h1 {
-  font-family: $fontSans;
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -169,7 +168,6 @@ mark {
  */
 
 small {
-  font-family: $fontSans;
   font-size: 80%;
 }
 
@@ -180,7 +178,6 @@ small {
 
 sub,
 sup {
-  font-family: $fontSans;
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -226,8 +223,8 @@ code,
 kbd,
 pre,
 samp {
-  font-family: -apple-system,Menlo,"Helvetica Neue",Helvetica,Arial,PingFang SC,Source Han Sans CN,sans-serif; /* 1 */
-  font-size: 1.4em; /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -409,11 +406,6 @@ textarea {
 ::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
-}
-
-a:-webkit-any-link {
-    cursor: auto;
-    text-decoration: initial;
 }
 
 /**

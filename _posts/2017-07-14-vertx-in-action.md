@@ -267,7 +267,8 @@ check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean ver
 - [Hawtio Configuration](http://hawt.io/configuration/index.html)
 - [使用 Dropwizard Metrics 对 Vert.x 性能指标进行监控](http://www.w2bc.com/article/228854)
 - [Vert.x Hawkular Metrics](http://vertx.io/docs/vertx-hawkular-metrics/java/)
-- [Getting started with Hawkular and Grafana](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
+- [Getting started with Hawkular and Grafana Part1](http://www.hawkular.org/hawkular-services/docs/quickstart-guide/)
+- [Getting started with Hawkular and Grafana Part2](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
 
 ### 6) 日志
 ```java
