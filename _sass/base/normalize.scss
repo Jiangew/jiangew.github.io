@@ -6,7 +6,7 @@
  */
 
 html {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; /* 1 */
+  font-family: 'Open Sans', sans-serif, "Helvetica Neue", Helvetica, Arial; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -114,8 +114,8 @@ a:hover {
 
 abbr[title] {
   border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  text-decoration: none; /* 2 */
+  text-decoration: none dotted; /* 2 */
 }
 
 /**
