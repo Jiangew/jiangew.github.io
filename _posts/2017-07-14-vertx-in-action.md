@@ -13,9 +13,11 @@ author: JamesiWorks
 
 ### What is Vert.x ?
 Vert.x is a tool-kit for building reactive applications on the JVM.
+- [Vert.x Official Wiki](http://vertx.io/docs/)
+- [Vert.x Official Examples](https://github.com/vert-x3/vertx-examples)
 
-### 1) Maven Verticle Project
-#### 1.1) 使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖，可以独立运行的包
+### Maven Verticle Project
+#### 使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖，可以独立运行的包
 ```maven
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -51,28 +53,28 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
     mvn clean package
 ```
 
-#### 1.2) 运行 fat-jar
+#### 运行 fat-jar
 ```sh
     java -jar target/maven-verticle-3.4.2-fat.jar
 ```
 
-#### 1.3) 通过 -instances 参数部署多个 Verticle 实例，释放多核的能力
+#### 通过 -instances 参数部署多个 Verticle 实例，释放多核的能力
 ```sh
     java -jar target/maven-verticle-3.4.2-fat.jar -instances 8
 ```
 
-#### 1.4) 通过 -cluster && -ha 参数部署 Verticle 实例，开启集群和高可用模式
+#### 通过 -cluster && -ha 参数部署 Verticle 实例，开启集群和高可用模式
 ```sh
     java -jar target/maven-verticle-3.4.2-fat.jar -cluster
     java -jar target/maven-verticle-3.4.2-fat.jar -ha
 ```
 
-#### 1.5) 通过 -conf 参数部署 Verticle 实例，动态加载配置文件
+#### 通过 -conf 参数部署 Verticle 实例，动态加载配置文件
 ```sh
     java -jar target/maven-verticle-3.4.2-fat.jar -conf src/conf/conf.json
 ```
 
-### 2) BlockingHandler | ExecuteBlocking vs WorkerVerticle
+### BlockingHandler | ExecuteBlocking vs WorkerVerticle
 每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
 #### ExecuteBlocking 示例
 ```java
@@ -100,7 +102,7 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
         router.get("/chaptersAsync").blockingHandler(this::handleGetChaptersAsync, false).failureHandler(this::handleWorkerTimeout);
 ```
 
-### 3) Dynamic Deploy Verticle
+### Dynamic Deploy Verticle
 通过动态部署 Verticle 实例，可以指定 DeploymentOptions 的各种属性，可以对比 VertxOptions，包括 workerPoolSize, isWorker, isHA 等。
 ```java
         // different ways of deploying verticles
@@ -127,9 +129,44 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
         );    
 ```
 
-### 4) 健康检查「Health Checks」
+### 日志
+```java
+/**
+ * Author: Jiangew
+ * Date: 20/07/2017
+ */
+public class Launcher extends io.vertx.core.Launcher {
 
-### 5) 监控「Dropwizard | Hawkular」
+//    private final int core = Runtime.getRuntime().availableProcessors();
+
+    public static void main(String[] args) {
+
+        // Force to use slf4j
+        System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.SLF4JLogDelegateFactory");
+
+        new Launcher().dispatch(args);
+    }
+
+    @Override
+    public void beforeStartingVertx(VertxOptions options) {
+//        options.setClustered(true)
+//                .setHAEnabled(true)
+//                .setWorkerPoolSize(core * 50)
+//                .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME);
+
+        // Start dropwizard monitor
+        options.setMetricsOptions(
+                new DropwizardMetricsOptions()
+                        .setEnabled(true)
+                        .setJmxEnabled(true)
+                        .setJmxDomain("vertx-metrics-minerva")
+        );
+    }
+
+}
+```
+
+### 监控「Dropwizard && Jolokia && Hawtio」
 关于 Vert.x 运行态的性能监控，官方提供了 Dropwizard 和 Hawkular 两种开箱即用的工具。本人实践了使用 Dropwizard Metrics 实现 Vert.x 性能统计的过程「当然踩了很多坑」。
 
 开启 Vert.x 的 Metrics 监控有两种方式，如下：
@@ -140,7 +177,7 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
     -Dvertx.metrics.options.jmxEnabled=true
     -Dvertx.metrics.options.jmxDomain=vertx-metrics-jew
 ```
-#### 通过 VertxOptions 属性
+#### 通过设置 VertxOptions 属性
 要想通过 VertxOptions 属性赋值方式，需要想办法自定义 Vertx 实例，因为运行时 Vertx 实例已经初始化完成，无法修改 VertxOptions 各属性值。由于项目框架搭建时，我是使用 Main Verticle 去动态 deploy 业务 Verticle，这样可以给业务 Verticle 通过 DeploymentOptions 指定 instances、workPoolSize、ha、cluster 等指标，所以最终选择了扩展 Launcher 启动类来实现。方式如下：
 ```java
 public class Launcher extends io.vertx.core.Launcher {
@@ -236,14 +273,15 @@ public class DeployVerticle extends AbstractVerticle {
 * Dropwizard Metrics 用于指标收集
 * Jmx 暴露桥接接口
 * Jolokia 提供指标数据 Rest 接口
-#### 下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形界面的形式监控 Vert.x 运行状态
+#### 下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形化形式监控 Vert.x 运行时状态
 去官网 hawtio app 包，下载有两种方式启动 Hawtio，一种是以 jar 包的形式运行，一种是以 war 包的形式运行。
 jar 包方式启动，指定一个未被占用的端口。
 ```sh
     java -jar hawtio-app-1.5.2.jar -p 9999
 ```
+#### 基于 Tomcat 部署监控图形化
 war 包方式启动，将下载的 hawtio-default-1.5.2.war 重命名为 hawtio.war，放入 tomcat 的 webapps 目录，重新启动 tomcat 即可通过 http://localhost:8080/hawtio/ 来访问。
-#### 图形化监控面板设置
+#### 图形化监控面板
 图形化监控界面启动后，设置监控信息，并保存，可以看到各个维度的监控数据，很赞。。。 <br />
 Portal Menu <br />
 ![](http://ote3hl188.bkt.clouddn.com/hawtio-01.jpg) <br />
@@ -260,53 +298,21 @@ Dashboard <br />
 java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar ...
 check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean vertx:name=vertx.event-loop-size --attribute Value --warning 4
 ```
-#### 参考
+#### Jolokia && Hawtio 监控参考
 - [Vert.x Dropwizard Metrics Use Jolokia and Hawtio](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
 - [Jolokia](https://jolokia.org/)
 - [Hawtio](http://hawt.io/getstarted/index.html)
 - [Hawtio Configuration](http://hawt.io/configuration/index.html)
 - [使用 Dropwizard Metrics 对 Vert.x 性能指标进行监控](http://www.w2bc.com/article/228854)
+
+### 健康检查「Health Checks」
+- [Vert.x Health Check](http://vertx.io/docs/vertx-health-check/java/)
+
+### 统计「Hawkular && Cassandra && Grafana」
 - [Vert.x Hawkular Metrics](http://vertx.io/docs/vertx-hawkular-metrics/java/)
 - [Getting started with Hawkular and Grafana Part1](http://www.hawkular.org/hawkular-services/docs/quickstart-guide/)
-- [Getting started with Hawkular and Grafana Part2](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
-
-### 6) 日志
-```java
-/**
- * Author: Jiangew
- * Date: 20/07/2017
- */
-public class Launcher extends io.vertx.core.Launcher {
-
-//    private final int core = Runtime.getRuntime().availableProcessors();
-
-    public static void main(String[] args) {
-
-        // Force to use slf4j
-        System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.SLF4JLogDelegateFactory");
-
-        new Launcher().dispatch(args);
-    }
-
-    @Override
-    public void beforeStartingVertx(VertxOptions options) {
-//        options.setClustered(true)
-//                .setHAEnabled(true)
-//                .setWorkerPoolSize(core * 50)
-//                .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME);
-
-        // Start dropwizard monitor
-        options.setMetricsOptions(
-                new DropwizardMetricsOptions()
-                        .setEnabled(true)
-                        .setJmxEnabled(true)
-                        .setJmxDomain("vertx-metrics-minerva")
-        );
-    }
-
-}
-```
-
-### 7) 参考
-- [Vert.x Official Wiki](http://vertx.io/docs/)
-- [Vert.x Official Examples](https://github.com/vert-x3/vertx-examples)
+- [Getting started with Hawkular and Grafana Part2](http://www.hawkular.org/hawkular-services/docs/installation-guide/)
+- [Getting started with Hawkular and Grafana Part3](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
+- [Github: hawkular-metrcis](https://github.com/hawkular/hawkular-metrics)
+- [Github: Cassandra](https://github.com/apache/cassandra)
+- [Github: Grafana](https://github.com/grafana/grafana)
