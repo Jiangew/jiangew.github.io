@@ -299,7 +299,7 @@ Vert.x提供的这种Async RPC有着许多优点：
 
 当然，为了考虑多语言支持的兼容性，Vert.x在传递消息的时候依然使用了传统的JSON，这样传输效率可能不如Protobuf高，但是不一定成为瓶颈。「看业务情况，真正的瓶颈一般还是在DB上」<br />
 
-本文标题: Vert.x 技术内幕 | 异步RPC实现原理
-文章作者: sczyh30
-发布时间: 2016年09月07日
-原始链接: http://www.sczyh30.com/posts/Vert-x/vertx-advanced-async-rpc/
+本文标题: Vert.x 技术内幕 | 异步RPC实现原理 <br />
+文章作者: sczyh30 <br />
+发布时间: 2016年09月07日 <br />
+原始链接: http://www.sczyh30.com/posts/Vert-x/vertx-advanced-async-rpc/ <br />
