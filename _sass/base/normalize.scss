@@ -6,7 +6,7 @@
  */
 
 html {
-  font-family: avenir next, avenir, sans-serif;
+  font-family: inherit;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -223,7 +223,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Consolas, monaco, monospace;
+  font-family: Menlo, monaco, monospace;
   font-size: 1em; /* 2 */
 }
 
