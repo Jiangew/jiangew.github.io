@@ -1,5 +1,5 @@
 ---
-title: "Vert.x 实战：Part 1"
+title: "Vert.x 实战"
 layout: post
 date: 2017-07-14 15:45
 image: /assets/images/markdown.jpg
@@ -198,7 +198,7 @@ public class DeployVerticle extends AbstractVerticle {
     @Override
     public void start() {
         System.out.println("Main verticle has started, let's deploy some others ...");
-        
+
         // 03 deploy a verticle with options
         int core = Runtime.getRuntime().availableProcessors();
         vertx.deployVerticle("com.qq.reader.ts.verticle.DownloadVerticle",
