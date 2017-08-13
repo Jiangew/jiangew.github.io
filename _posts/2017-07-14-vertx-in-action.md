@@ -134,10 +134,7 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
  */
 public class Launcher extends io.vertx.core.Launcher {
 
-//    private final int core = Runtime.getRuntime().availableProcessors();
-
     public static void main(String[] args) {
-
         // Force to use slf4j
         System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.SLF4JLogDelegateFactory");
 
@@ -146,11 +143,6 @@ public class Launcher extends io.vertx.core.Launcher {
 
     @Override
     public void beforeStartingVertx(VertxOptions options) {
-//        options.setClustered(true)
-//                .setHAEnabled(true)
-//                .setWorkerPoolSize(core * 50)
-//                .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME);
-
         // Start dropwizard monitor
         options.setMetricsOptions(
                 new DropwizardMetricsOptions()
@@ -178,23 +170,12 @@ public class Launcher extends io.vertx.core.Launcher {
 ```java
 public class Launcher extends io.vertx.core.Launcher {
 
-//    private final int core = Runtime.getRuntime().availableProcessors();
-
     public static void main(String[] args) {
-
-        // Force to use slf4j
-//        System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.SLF4JLogDelegateFactory");
-
         new Launcher().dispatch(args);
     }
 
     @Override
     public void beforeStartingVertx(VertxOptions options) {
-//        options.setClustered(true)
-//                .setHAEnabled(true)
-//                .setWorkerPoolSize(core * 50)
-//                .setMaxWorkerExecuteTime(VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME);
-
         // Start dropwizard monitor
         options.setMetricsOptions(
                 new DropwizardMetricsOptions()
@@ -217,20 +198,7 @@ public class DeployVerticle extends AbstractVerticle {
     @Override
     public void start() {
         System.out.println("Main verticle has started, let's deploy some others ...");
-
-        // different ways of deploying verticles
-
-        // 01 deploy a verticle and do not wait for it to start
-//        vertx.deployVerticle("com.qq.reader.ts.verticle.DownloadVerticle");
-
-        // 02 deploy a verticle and wait for it to start
-//        vertx.deployVerticle("com.qq.reader.ts.verticle.DownloadVerticle", res -> {
-//            if (res.succeeded()) {
-//                String deployId = res.result();
-//                System.out.println("DeployVerticle deployed ok, deployId = " + deployId);
-//            }
-//        });
-
+        
         // 03 deploy a verticle with options
         int core = Runtime.getRuntime().availableProcessors();
         vertx.deployVerticle("com.qq.reader.ts.verticle.DownloadVerticle",
