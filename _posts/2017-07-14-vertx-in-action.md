@@ -165,7 +165,7 @@ public class Launcher extends io.vertx.core.Launcher {
 
 ### Vert.x 运行时性能指标监控「Dropwizard && Jolokia && Hawtio」
 关于 Vert.x 运行态的性能监控，官方提供了 Dropwizard 和 Hawkular 两种开箱即用的工具。本人实践了使用 Dropwizard Metrics 实现 Vert.x 性能统计的过程「当然踩了很多坑」。<br />
-开启 Vert.x 的 Metrics 监控有两种方式，如下：<br />
+开启 Vert.x 的 Metrics 监控有两种方式，如下：
 #### 通过运行 fat-jar 时指定参数
 ```sh
     java -jar xxx-fat.jar
@@ -265,13 +265,13 @@ public class DeployVerticle extends AbstractVerticle {
     -Dvertx.metrics.options.jmxEnabled=true
     -Dvertx.metrics.options.jmxDomain=vertx-metrics-jew
 ```
-备注：部署到服务器环境时，不要忘记把 Host「local」换成「0.0.0.0」，否则内部端口不同，不能外部监听端口。 <br />
 参数设置：
-* Dropwizard Metrics 用于指标收集
-* Jmx 暴露桥接接口
-* Jolokia 提供指标数据 Rest 接口
+    Dropwizard Metrics 用于指标收集 <br />
+    Jmx 暴露桥接接口 <br />
+    Jolokia 提供指标数据 Rest 接口 <br >
+备注：部署到服务器环境时，不要忘记把 Host「local」换成「0.0.0.0」，否则内部端口不同，不能外部监听端口。
 #### 下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形化形式监控 Vert.x 运行时状态
-去官网 hawtio app 包，下载有两种方式启动 Hawtio，一种是以 jar 包的形式运行，一种是以 war 包的形式运行。
+去官网 hawtio app 包，下载有两种方式启动 Hawtio，一种是以 jar 包的形式运行，一种是以 war 包的形式运行。<br />
 jar 包方式启动，指定一个未被占用的端口。
 ```sh
     java -jar hawtio-app-1.5.2.jar -p 9999
@@ -311,28 +311,24 @@ war 包方式启动，将下载的 hawtio-default-1.5.2.war 重命名为 hawtio.
 ```
 还可以设置 jolokia agent 代理服务器 ip 白名单：
 ```xml
- <servlet>
-    <servlet-name>jolokia-proxy</servlet-name>
-    <servlet-class>io.hawt.web.ProxyServlet</servlet-class>
-    <!--
-      Comma-separated list of allowed target hosts. It is required for security.
-      '*' allows all hosts but keep in mind it's vulnerable to security attacks.
-    -->
-    <init-param>
-      <param-name>proxyWhitelist</param-name>
-      <param-value>
-        localhost,
-        127.0.0.1,
-        10.211.0.199,
-        10.211.0.211
-      </param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>jolokia-proxy</servlet-name>
-    <url-pattern>/proxy/*</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>jolokia-proxy</servlet-name>
+        <servlet-class>io.hawt.web.ProxyServlet</servlet-class>
+        <init-param>
+            <param-name>proxyWhitelist</param-name>
+            <param-value>
+                localhost,
+                127.0.0.1,
+                10.211.0.199,
+                10.211.0.211
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jolokia-proxy</servlet-name>
+        <url-pattern>/proxy/*</url-pattern>
+    </servlet-mapping>
 ```
 #### 图形化监控面板示例
 图形化监控界面启动后，设置监控信息，并保存，可以看到各个维度的监控数据，很赞。。。 <br />
@@ -348,8 +344,8 @@ Dashboard <br />
 ![](http://ote3hl188.bkt.clouddn.com/hawtio-05.jpg) <br />
 #### Using Jolokia and JMX4Perl to expose metrics to Nagios
 ```sh
-java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar ...
-check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean vertx:name=vertx.event-loop-size --attribute Value --warning 4
+    java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar ...
+    check_jmx4perl --url http://127.0.0.1:8888/jolokia --name eventloops --mbean vertx:name=vertx.event-loop-size --attribute Value --warning 4
 ```
 #### Jolokia && Hawtio 监控参考
 - [Vert.x Dropwizard Metrics Use Jolokia and Hawtio](http://vertx.io/docs/vertx-dropwizard-metrics/java/)
