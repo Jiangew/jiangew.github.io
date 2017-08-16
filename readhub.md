@@ -4,6 +4,13 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.08.16
+- [Hawkular Metrics: Vert.x Metrics SPI](http://vertx.io/docs/vertx-hawkular-metrics/java/)
+- [Hawkular Services Getting Started Guide](http://www.hawkular.org/hawkular-services/docs/quickstart-guide/)
+- [Setting up Grafana and its Hawkular Plugin](http://www.hawkular.org/hawkular-clients/grafana/docs/quickstart-guide/)
+- [Github: Hawkular Metrics](https://github.com/hawkular/hawkular-metrics)
+- [Learning Cassandra](http://teddymaef.github.io/learncassandra/cn/about/about_cassandra.html)
+
 ### 2017.07.19
 - [Vert.x 入坑概览](https://segmentfault.com/a/1190000008441871)
 - [Vert.x Blueprint 系列：代办事项服务](https://segmentfault.com/a/1190000005733665)
