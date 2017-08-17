@@ -1,5 +1,5 @@
 ---
-title: "Vert.x 异步 RPC 实现解读"
+title: "Vert.x 异步RPC实现解读"
 layout: post
 date: 2017-08-03 15:54
 image: /assets/images/markdown.jpg
