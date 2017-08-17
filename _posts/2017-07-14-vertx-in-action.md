@@ -222,7 +222,7 @@ public class DeployVerticle extends AbstractVerticle {
     </dependency>
 ```
 #### 下载 Jolokia，用来获取运行时 Vert.x 实例的性能指标
-去官网下载 jolokia agent 包，通过「java -javaagent:」方式运行 fat-jar Vert.x 项目，并启动 Jolokia 监控，执行 jolokia 端口和 Vert.x 实例的 host，jolokia-agent.jar 务必是绝对路径。
+去官网下载 jolokia agent 包，通过「java -javaagent:」方式运行 fat-jar Vert.x 项目，并启动 Jolokia 监控，设置 jolokia 端口和 Vert.x 实例的 host，jolokia-agent.jar 务必是绝对路径。
 ```sh
     java -javaagent:/.../jolokia-jvm-1.3.7-agent.jar=port=8888,host=localhost -jar xxx-fat.jar
 ```
@@ -233,7 +233,7 @@ public class DeployVerticle extends AbstractVerticle {
     -Dvertx.metrics.options.jmxEnabled=true
     -Dvertx.metrics.options.jmxDomain=vertx-metrics-jew
 ```
-参数设置：
+参数设置：<br />
     Dropwizard Metrics 用于指标收集 <br />
     Jmx 暴露桥接接口 <br />
     Jolokia 提供指标数据 Rest 接口 <br >
