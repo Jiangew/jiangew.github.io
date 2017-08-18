@@ -4,6 +4,10 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.08.18
+- [Java GC: 如何优化Java垃圾回收机制](http://www.importnew.com/3146.html)
+- [JVM 频繁 Full GC 的情况及应对策略](http://blog.csdn.net/endlu/article/details/51144918)
+
 ### 2017.08.16
 - [Hawkular Metrics: Vert.x Metrics SPI](http://vertx.io/docs/vertx-hawkular-metrics/java/)
 - [Hawkular Services Getting Started Guide](http://www.hawkular.org/hawkular-services/docs/quickstart-guide/)
