@@ -30,6 +30,7 @@ Vert.x用一个Java接口来描述一个 **服务**，这个接口包含的方�
 ```sh
     compile 'io.vertx:vertx-service-proxy:3.4.2'
 ```
+
 要**实现**服务代理「译者注：即生成服务代理类」，还需要加入以下依赖：
 * Maven「在 pom.xml 文件中」：
 ```maven
@@ -44,6 +45,7 @@ Vert.x用一个Java接口来描述一个 **服务**，这个接口包含的方�
 ```sh
     compileOnly 'io.vertx:vertx-codegen:3.4.2'
 ```
+
 注意服务代理机制依赖于代码生成，所以每次修改服务接口以后都需重新执行构建过程来重新生成代码。<br />
 如果需要生成不同语言的服务代理代码，你需要添加对应的语言支持依赖，比如 Groovy 对应 vertx-lang-groovy。
 
@@ -154,6 +156,7 @@ public interface MyDatabaseConnection {
 被 @ProxyGen 注解的服务接口会触发生成对应的服务辅助类：
 * 服务代理类「service proxy」：一个编译时产生的代理类，用 EventBus 通过消息与服务交互。
 * 服务处理器类「service handler」： 一个编译时产生的 EventBus 处理器类，用于响应由服务代理发送的事件。
+
 产生的服务代理和处理器的命名是在类名的后面加相关的字段，例如，如果一个服务接口名为 MyService，则对应的处理器类命名为 MyServiceProxyHandler ，对应的服务代理类命名为 MyServiceVertxEBProxy。<br />
 同时Vert.x Codegen也提供数据对象转换器（data object converter）的生成，这使得在服务代理中处理数据实体更加容易。生成的转换器提供了一个接受 JsonObject 的构造函数（译者注：用于将 JsonObject 转换为数据实体类）以及一个 toJson 函数（译者注：用于将数据实体类转换为 JsonObject），这些函数对于在服务代理中处理数据实体来说都是必要的。<br />
 Codegen 注解处理器「annotation processor」会在编译期生成这些类。这是Java编译器的一个特性，所以不需要额外的步骤，只需要去配置一下对应的构建配置：<br />
@@ -360,6 +363,7 @@ public void foo(String shoeSize, Handler<AsyncResult<JsonObject>> handler) {
 @Fluent
 SomeDatabaseService doSomething();
 ```
+
 这是因为方法不能阻塞，并且如果服务是远程的，不可能立即返回结果而不阻塞。
 #### 参数类型和异步返回类型
 令 JSON = JsonObject | JsonArray，PRIMITIVE = 任意原生类型或包装的原生类型。<br />
@@ -374,6 +378,7 @@ SomeDatabaseService doSomething();
 * Map<String, PRIMITIVE>
 * 任何枚举类型
 * 任何被 @DataObject 注解的类
+
 如果需要返回异步结果，可以提供一个 Handler<AsyncResult<R>> 类型的参数放到最后。其中 类型R 可以是：<br />
 * JSON
 * PRIMITIVE
@@ -384,6 +389,7 @@ SomeDatabaseService doSomething();
 * 任何枚举类型
 * 任何被 @DataObject 注解的类
 * 另一个代理类
+
 #### 重载的方法
 **服务接口中不允许有重载的服务方法「即方法名相同，参数列表不同」。**
 
@@ -393,6 +399,7 @@ SomeDatabaseService doSomething();
 为了使服务访问的方式一致，所有的服务都必须遵循以下的消息格式。格式非常简单：<br />
 * 需要有一个名为 action 的 消息头(header)，作为要执行操作的名称
 * 消息体（message body）应该是一个 JsonObject 对象，里面需要包含操作需要的所有参数
+
 举个例子，假如我们要去执行一个名为save的操作，此操作接受一个字符串类型的collection参数和一个JsonObject类型的document参数：
 ```java
 Headers:
