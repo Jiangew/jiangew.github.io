@@ -132,6 +132,7 @@ Vert.x Service Proxy在生成代理类时遵循一定的规范。假设有一Eve
 * 代理类会继承原始的服务接口并实现所有方法的代理逻辑
 * 代理处理器的命名规范为 接口名 + VertxProxyHandler。比如ProcessorService接口对应的代理处理器名称为ProcessorServiceVertxProxyHandler
 * 代理处理器会继承ProxyHandler抽象类
+
 ProxyHelper辅助类中注册服务以及创建代理都是遵循了这个规范。
 
 ### 在Event Bus上注册服务
