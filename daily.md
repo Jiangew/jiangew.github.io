@@ -1,5 +1,5 @@
 ---
-title: ReadHub
+title: Daily
 layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})

@@ -57,8 +57,8 @@ width: large
 # if you don't need projects, comment the *projects* configs below
 # projects: true
 
-# if you don't need "readhub" or "blog", comment them out below
-readhub: true
+# if you don't need "daily" or "blog", comment them out below
+daily: true
 blog: true
 
 # do you want to show the "read time" of the posts?
