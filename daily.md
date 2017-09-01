@@ -4,6 +4,11 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.09.01
+- [Vert.x Circuit Breaker 熔断器机制](http://vertx.io/docs/vertx-circuit-breaker/java/)
+- [Vert.x Microservice API Gateway](http://www.sczyh30.com/vertx-blueprint-microservice/cn/api-gateway.html)
+- [Vert.x Microservice 实战](http://www.sczyh30.com/vertx-blueprint-microservice/cn/index.html)
+
 ### 2017.08.18
 - [Java GC: 如何优化Java垃圾回收机制](http://www.importnew.com/3146.html)
 - [JVM 频繁 Full GC 的情况及应对策略](http://blog.csdn.net/endlu/article/details/51144918)
