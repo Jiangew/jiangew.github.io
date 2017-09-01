@@ -7,6 +7,7 @@ headerImage: false
 tag:
 - Vert.x
 - Java
+- RPC
 - Proxy
 category: blog
 author: JamesiWorks

@@ -5,14 +5,14 @@ date: 2017-08-31 20:00
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- Vert.x
-- Java
+- Vagrant
+- VirtualBox
 category: blog
 author: JamesiWorks
 ---
 
-最近由于某种原因，需要在本地部署几个相同的开发环境；首先就想到了Vagrant，去官网一看，已经更新到1.9.8了，功能更加丰富，添加Box更加简单。下面记录在OS X上部署统一开发环境时的一些关键步骤和遇到的问题，备忘。。。<br />
-先预告一下，同步文件夹是一个大坑；使用VirtualBox作为Provider时，默认的共享文件机制有Bug，会出现无法同步的问题。。。<br />
+最近由于某种原因，需要在本地部署几个相同的开发环境；首先就想到了Vagrant，去官网一看，已经更新到1.9.8了，功能更加丰富，易用性更强，新增了Mirror查询服务，不用预先下载Box，添加Box更加简单。下面记录在OS X上部署统一开发环境时的一些关键步骤和遇到的问题，备忘。。。<br />
+先预告一下，宿主机和客机共享文件夹是一个大坑；使用VirtualBox作为Provider时，默认的共享文件机制有Bug，会出现无法同步的问题。。。<br />
 
 ### install Vagrant & VirtualBox
 ```sh
