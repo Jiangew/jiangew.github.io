@@ -1,5 +1,5 @@
 ---
-title: "Vagrant 提供统一开发环境"
+title: "Vagrant 统一开发环境"
 layout: post
 date: 2017-08-31 20:00
 image: /assets/images/markdown.jpg
