@@ -4,6 +4,10 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.09.08
+- [Hugo Nuo Theme](https://themes.gohugo.io/hugo-nuo/)
+- [Akka Docs](http://akka.io/docs/)
+
 ### 2017.09.01
 - [Vert.x Circuit Breaker 熔断器机制](http://vertx.io/docs/vertx-circuit-breaker/java/)
 - [Vert.x Microservice API Gateway](http://www.sczyh30.com/vertx-blueprint-microservice/cn/api-gateway.html)
