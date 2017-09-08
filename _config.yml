@@ -30,7 +30,7 @@ permalink: /:title/
 # if you don't have any of social below, comment the line
 # facebook: facebook
 weibo: Jiangew
-twitter: JamesiWorks
+twitter: JamesiWork
 github: Jiangew
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
@@ -40,10 +40,10 @@ github: Jiangew
 authors:
     JamesiWorks:
         name: JamesiWorks
-        bio: Natural fearless, Dream precious.
+        bio: ~ Natural fearless, Dream precious ~
         external-image: false
         picture: assets/images/profile.png
-        twitter: JamesiWorks
+        twitter: JamesiWork
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
