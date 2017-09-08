@@ -10,7 +10,7 @@ description: Natural fearless, Dream precious.
 external-image: false
 picture: assets/images/profile.png
 
-url: https://jiangew.github.io
+url: https://jiangew.github.io/hugo
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
