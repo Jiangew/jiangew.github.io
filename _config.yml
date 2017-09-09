@@ -2,40 +2,40 @@
 name: JamesiWorks
 bio: ~ Natural fearless, Dream precious ~
 
-# twitter summary info
+# slogon
 description: ~ Natural fearless, Dream precious ~
 
-# if it's an external image, update below for true
-# better with square images
+# if it's an external image, update below for true better with square images
 external-image: false
 picture: assets/images/profile.png
 
 url: https://jiangew.github.io
-# your url: http://USERNAME.github.io
 
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'UA-MYANALYTICS'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
 # analytics-piwik-id: 1
 
 # if you don't want comments in your posts, leave categories empty
-# disqus:
-#  shortname: mydisqus # enter this from your disqus account
-#  categories: [blog, project] # only show disqus for posts that have these categories
+disqus:
+    shortname: mydisqus # enter this from your disqus account
+    categories: [blog, project] # only show disqus for posts that have these categories
 
-# if you don't have any of social below, comment the line
-# facebook: facebook
-weibo: Jiangew
-twitter: JamesiWork
+# social networks
 github: Jiangew
-# stackoverflow: 7044681/mystackoverflow
+weibo: jiangew
+twitter: JamesiWork
+instagram: JamesiWorks
+# facebook: facebook
+# pinterest: Jiangew
+# stackoverflow: mystackoverflow
 # quora: userquora
 # reddit: username
-# email: jiangew@aliyun.com
+# email: jiangew@aliyun.com 
 
 authors:
     JamesiWorks:

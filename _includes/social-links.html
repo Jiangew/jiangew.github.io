@@ -11,10 +11,22 @@
         </a>
     {% endif %}
 
-    {% if site.weibo %}
-        <a class="link" data-title="weibo.com/{{ site.weibo }}" href="http://weibo.com/{{ site.weibo }}" target="_blank">
-            <svg class="icon icon-weibo"><use xlink:href="#icon-weibo"></use></svg>
+    {% if site.instagram %}
+        <a class="link" data-title="instagram.com/{{ site.instagram }}" href="http://instagram.com/{{ site.instagram }}" target="_blank">
+            <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>
         </a>
+    {% endif %}
+
+    {% if site.pinterest %}
+        <a class="link" data-title="pinterest.com/{{ site.pinterest }}" href="http://pinterest.com/{{ site.pinterest }}" target="_blank">
+            <svg class="icon icon-pinterest"><use xlink:href="#icon-pinterest"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.weibo %}
+    <a class="link" data-title="weibo.com/{{ site.weibo }}" href="http://weibo.com/{{ site.weibo }}" target="_blank">
+        <svg class="icon icon-weibo"><use xlink:href="#icon-weibo"></use></svg>
+    </a>
     {% endif %}
 
     {% if site.linkedin %}
