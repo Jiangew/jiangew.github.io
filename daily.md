@@ -4,6 +4,13 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.09.20
+- [Guava EventBus](http://ifeve.com/google-guava-eventbus/)
+- [Gauva EventBus 源码解读](http://vinoyang.com/2015/06/02/Google-Guava-EventBus%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/)
+- [Guava EventBus 消息总线重构](http://blog.csdn.net/yanghua_kobe/article/details/46699205)
+- [Vert.x EventBus 源码分析: Local](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-local-event-bus-internal/)
+- [Vert.x EventBus 源码分析: Cluster](http://www.sczyh30.com/posts/Vert-x/vertx-advanced-clustered-event-bus-internal/)
+
 ### 2017.09.08
 - [Hugo Nuo Theme](https://themes.gohugo.io/hugo-nuo/)
 - [Akka Docs](http://akka.io/docs/)
