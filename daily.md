@@ -4,6 +4,12 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.10.16
+- [几种常见的微服务架构方案: ZeroC IceGrid、Spring Cloud、基于消息队列、Docker Swarm](https://mp.weixin.qq.com/s/U8aGXozIL27tH7T-zhzlnw)
+- [rsyslog: rocket-fast system for log processing](http://www.rsyslog.com)
+- [rsyslog 配置](https://www.mtyun.com/library/how-to-config-rsyslog)
+- [rsyslogd 服务器 & 负载均衡](http://xstarcd.github.io/wiki/Linux/rsyslog_logrotate.html)
+
 ### 2017.09.20
 - [Guava EventBus](http://ifeve.com/google-guava-eventbus/)
 - [Gauva EventBus 源码解读](http://vinoyang.com/2015/06/02/Google-Guava-EventBus%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/)
@@ -50,7 +56,7 @@ layout: page
 - [Vert.x Core 简介](https://my.oschina.net/zhhzhfya/blog/662480)
 
 ### 2017.07.04
-- [高性能 I/O 设计模式：Reactor && Proactor](http://www.cnblogs.com/daoluanxiaozi/p/3274925.html)
+- [高性能 I/O 设计模式：Reactor & Proactor](http://www.cnblogs.com/daoluanxiaozi/p/3274925.html)
 - [高性能 I/O 设计模式：Reactor vs Proactor](https://segmentfault.com/a/1190000002715832)
 
 ### 2017.07.03
@@ -113,8 +119,8 @@ layout: page
 - [Go Micro：Go 实现的插件式 RPC 微服务框架](https://github.com/micro/go-micro)
 
 ### 2017.03.23
-- [Alibaba MySQL binlog 增量订阅&消费组件 Canal 学习笔记](http://ginobefunny.com/post/learning_canal)
-- [Alibaba MySQL binlog 增量订阅&消费组件 Canal](https://github.com/alibaba/canal)
+- [Alibaba MySQL binlog 增量订阅 & 消费组件 Canal 学习笔记](http://ginobefunny.com/post/learning_canal)
+- [Alibaba MySQL binlog 增量订阅 & 消费组件 Canal](https://github.com/alibaba/canal)
 
 ### 2017.03.17
 - [Alibaba Java 开发手册快速学习](https://yq.aliyun.com/articles/72038?utm_content=m_13201)
@@ -297,13 +303,13 @@ layout: page
 
 ### 2016.07.28
 - [java.util.concurrent 并发包诸类概览](http://www.raychase.net/1912)
-- [Java 并发编程的 4 种风味：Thread && Executor && ForkJoin && Actor](http://www.importnew.com/14506.html)
+- [Java 并发编程的 4 种风味：Thread & Executor & ForkJoin & Actor](http://www.importnew.com/14506.html)
 - [Java 并发编程 15：线程间协作的两种方式：wait、notify、notifyAll 和 Condition](http://www.cnblogs.com/dolphin0520/p/3920385.html)
-- [Java 并发编程 14：Timer && TimerTask](http://www.cnblogs.com/dolphin0520/p/3938991.html)
+- [Java 并发编程 14：Timer & TimerTask](http://www.cnblogs.com/dolphin0520/p/3938991.html)
 
 ### 2016.07.26
-- [Java 并发编程 13：Callable && Future && FutureTask](http://www.cnblogs.com/dolphin0520/p/3949310.html)
-- [Java 并发编程 12：CountDownLatch && CyclicBarrier && Semaphore](http://www.cnblogs.com/dolphin0520/p/3920397.html)
+- [Java 并发编程 13：Callable & Future & FutureTask](http://www.cnblogs.com/dolphin0520/p/3949310.html)
+- [Java 并发编程 12：CountDownLatch & CyclicBarrier & Semaphore](http://www.cnblogs.com/dolphin0520/p/3920397.html)
 - [Java 并发编程 11：线程池的使用](http://www.cnblogs.com/dolphin0520/p/3932921.html)
 - [Java 并发编程 10：阻塞队列](http://www.cnblogs.com/dolphin0520/p/3932906.html)
 
