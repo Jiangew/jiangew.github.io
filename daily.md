@@ -2,7 +2,7 @@
 title: Daily
 layout: page
 ---
-![Profile Image]({{ site.url }}/{{ site.picture }})
+![Profile Image](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
 
 ### 2017.10.17
 - [阿里云基于 Go 的微服务架构分享](https://mp.weixin.qq.com/s/Ftd8pFVCrhtppvFjBNSF5Q)
