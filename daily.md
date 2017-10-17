@@ -4,6 +4,12 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+### 2017.10.17
+- [阿里云基于 Go 的微服务架构分享](https://mp.weixin.qq.com/s/Ftd8pFVCrhtppvFjBNSF5Q)
+- [ElasticSearch 集群监控](http://www.54tianzhisheng.cn/2017/10/15/ElasticSearch-cluster-health-metrics)
+- [ElasticSearch 分词器对比与使用](http://www.54tianzhisheng.cn/2017/09/07/Elasticsearch-analyzers)
+- [ElasticSearch 学习笔记：发现、存储、恢复、配置、搜索](https://coyotey.gitbooks.io/elasticsearch/content/)
+
 ### 2017.10.16
 - [几种常见的微服务架构方案: ZeroC IceGrid、Spring Cloud、基于消息队列、Docker Swarm](https://mp.weixin.qq.com/s/U8aGXozIL27tH7T-zhzlnw)
 - [rsyslog: rocket-fast system for log processing](http://www.rsyslog.com)
