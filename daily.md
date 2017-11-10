@@ -4,6 +4,10 @@ layout: page
 ---
 ![Acfun Banner](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
 
+### 2017.11.10
+- [Akka Streams Kafka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)
+- [Elasticsearch 源码分析：查询](http://program.dengshilong.org/2016/04/16/Elasticsearch%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E6%9F%A5%E8%AF%A2/)
+
 ### 2017.10.17
 - [阿里云基于 Go 的微服务架构分享](https://mp.weixin.qq.com/s/Ftd8pFVCrhtppvFjBNSF5Q)
 - [ElasticSearch 集群监控](http://www.54tianzhisheng.cn/2017/10/15/ElasticSearch-cluster-health-metrics)
