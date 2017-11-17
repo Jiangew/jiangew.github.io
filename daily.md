@@ -5,9 +5,9 @@ layout: page
 
 ![Acfun Banner](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
 
-# DAILY READING HUB
+# READING HUB
 
-## Daily Reading Hub
+## Reading Hub
 
 ### 2017.11.17
 
