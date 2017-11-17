@@ -2,10 +2,9 @@
 title: Daily
 layout: page
 ---
+# READING HUB
 
 ![Acfun Banner](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
-
-# READING HUB
 
 ## Reading Hub
 
