@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2017.11.23
+
+* [服务端高性能压测框架：Gatling](https://gatling.io/documentation/)
+* [Gatling Quickstart](https://segmentfault.com/a/1190000008254640)
+
 ### 2017.11.17
 
 * [An Actor Framework For Go](https://teivah.io/blog/an-introduction-to-gosiris-an-actor-framework-for-go/)
