@@ -2,11 +2,17 @@
 title: Daily
 layout: page
 ---
-# READING HUB
+# Reading Hub
 
 ![Acfun Banner](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
 
 ## Reading Hub
+
+### 2017.11.28
+
+* [Spring Factory for RestClient](https://amsterdam.luminis.eu/2016/07/25/the-new-elasticsearch-java-rest-client-part-2/)
+* [Gatling Simplest Simulation](https://worldline.github.io/gatling-cheatsheet/)
+* [携程大规模 Elasticsearch 集群管理](https://elasticsearch.cn/article/110)
 
 ### 2017.11.23
 
