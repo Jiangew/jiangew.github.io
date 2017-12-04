@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2017.12.04
+
+* [Gatling 压测上手及问题汇总](http://wiki.li3huo.com/Gatling#Config_connection_timed_out)
+* [Gatling 压测端口占用问题](http://blog.bruceding.com/342.html)
+
 ### 2017.11.28
 
 * [Spring Factory for RestClient](https://amsterdam.luminis.eu/2016/07/25/the-new-elasticsearch-java-rest-client-part-2/)
