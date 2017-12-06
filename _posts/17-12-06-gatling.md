@@ -18,17 +18,17 @@ See Also
 [ApacheBench](http://wiki.li3huo.com/ApacheBench)、
 [wrk](http://wiki.li3huo.com/wrk)
 
-## Quickstart
+# Quickstart
 [Offical Quickstart](http://gatling.io/docs/current/quickstart/)
 
-### Installing
+## Installing
 ```sh
 ➜  gatling wget https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/2.3.0/gatling-charts-highcharts-bundle-2.3.0-bundle.zip
 ➜  gatling-charts-highcharts-bundle-2.3.0 bin/gatling.sh -h
 ➜  gatling-charts-highcharts-bundle-2.3.0 tree . -d
 ├── bin                                         //执行脚本
 │   ├── gatling.sh                                  //运行测试
-│   └── recorder.sh                                 //启动录制脚本的UI的（不推荐使用）
+│   └── recorder.sh                                 //启动录制脚本的UI
 ├── conf                                        //应用自身的配置
 │   ├── gatling-akka.conf                       
 │   ├── gatling.conf                                
@@ -47,12 +47,12 @@ See Also
             ├── BasicSimulation.scala
             └── advanced
 ```
-#### Gatling 执行测试脚本
+### Gatling 执行测试脚本
 ```sh
     gatling-charts-highcharts-bundle-2.3.0 st user-files/simulations/computerdatabase/BasicSimulation.scala
 ```
 
-### Test Case
+## Test Case
 [Quickstart Test Case](http://gatling.io/docs/current/quickstart/#test-case)
 
 Test Case中的关键概念，详见[#Concepts](http://wiki.li3huo.com/Gatling#Concepts)
@@ -62,7 +62,7 @@ Test Case中的关键概念，详见[#Concepts](http://wiki.li3huo.com/Gatling#C
 * recorder
 * loops
 
-#### Gatling Scenario Explained
+### Gatling Scenario Explained
 [Gatling Scenario](http://gatling.io/docs/current/quickstart/#gatling-scenario-explained)
 
 * 首先定义一个URL： val httpConf
@@ -72,11 +72,11 @@ Test Case中的关键概念，详见[#Concepts](http://wiki.li3huo.com/Gatling#C
 ### Running Gatling
 [Quickstart Running](http://gatling.io/docs/current/quickstart/#running-gatling)
 
-#### Execute Case
+### Execute Case
 Launch $GATLING_HOME/bin/gatling.sh
 ```sh
 ➜  gatling-charts-highcharts-bundle-2.3.0 bin/gatling.sh 
-GATLING_HOME is set to /Users/liyan/app/test/gatling/gatling-charts-highcharts-bundle-2.3.0
+GATLING_HOME is set to /Users/jiangew/gatling/gatling-charts-highcharts-bundle-2.3.0
 18:43:51.565 [WARN ] i.g.c.ZincCompiler$ - Pruning sources from previous analysis, due to incompatible CompileSetup.
 Choose a simulation number:
      [0] computerdatabase.BasicSimulation
@@ -96,17 +96,17 @@ Reports generated in 0s.
 Please open the following file: results/basicsimulation-1505126722282/index.html
 ```
 
-#### Scala crashed issue
+### Scala crashed issue
 [Scala Build Crashed](https://stackoverflow.com/questions/40628310/scala-build-crashed)
 
 Scala 2.12 require's newer version of JDK then 1.8.0_111
 
-#### Config connection timed out
+### Config connection timed out
 ```sh
     export JAVA_OPTS="-Dgatling.http.connectionTimeout=5000"
 ```
 
-#### Failed to open socket issue
+### Failed to open socket issue
 gatling j.n.ConnectException: Failed to open a socket.
 
 * update limits.conf on Linux [Kernel_Parameters#limits.conf](http://wiki.li3huo.com/Kernel_Parameters#limits.conf)
@@ -114,7 +114,7 @@ gatling j.n.ConnectException: Failed to open a socket.
 
 测试机系统调优参考 [#Operations](http://wiki.li3huo.com/Gatling#Operations)
 
-#### Cannot assign requested address issue
+### Cannot assign requested address issue
 [解决 Gatling 端口占用问题](http://blog.bruceding.com/342.html)
 ```sh
 sudo sysctl -w net.ipv4.ip_local_port_range="1025 65535"
@@ -135,16 +135,16 @@ TIME-WAIT 1338
 LISTEN 5
 ```
 
-### Advanced Tutorial
+## Advanced Tutorial
 [Offical Advanced Tutorial](http://gatling.io/docs/current/advanced_tutorial/)
 
-#### Isolate processes
+### Isolate processes
 可以把Case定义为object， 在exec的时候传入多个
 ```scala
     val scn = scenario("Scenario Name").exec(Search.search, Browse.browse, Edit.edit)
 ```
 
-#### Configure virtual users
+### Configure virtual users
 ```scala
 setUp(users.inject(atOnceUsers(10)).protocols(httpConf))
 
@@ -154,10 +154,10 @@ setUp(
 ).protocols(httpConf)
 ```
 
-#### Loop statements
+### Loop statements
 [Scenario Loops](http://gatling.io/docs/current/general/scenario/#scenario-loops)
 
-#### Check and failure management
+### Check and failure management
 [Http Check](http://gatling.io/docs/current/http/http_check/#http-check)
 
 ```scala
@@ -193,10 +193,10 @@ class BenchmarkPost extends Simulation {
 }
 ```
 
-### General
+## General
 [Offical General](http://gatling.io/docs/current/general/)
 
-#### Concepts
+### Concepts
 [Concepts](http://gatling.io/docs/current/general/concepts/)
 
 * Virtual User Gatling 用消息来实现，比用 Thread 效率上要高很多
@@ -208,15 +208,15 @@ class BenchmarkPost extends Simulation {
 * Assertions
 * Reports
 
-#### Operations
+### Operations
 [OS Tuning: Open Files Limit & Kernel and Network Tuning](http://gatling.io/docs/current/general/operations/)
 
 包含一些测试机需要调整的系统参数，例如: ulimit -n 10240
 
-#### Configuration
+### Configuration
 [配置文件、命令行参数](http://gatling.io/docs/current/general/configuration/)
 
-#### Simulation setup
+### Simulation setup
 [Simulation Setup](http://gatling.io/docs/current/general/simulation_setup/)
 [Simulation Setup 中文翻译](https://testerhome.com/topics/4094)
 
@@ -231,26 +231,26 @@ Injection 定义虚拟用户的操作：
 * splitUsers(nbUsers) into(injectionStep1) separatedBy(injectionStep2) ：使用injectionStep2的注入作为周期，分隔injectionStep1的注入，直到用户数达到nbUsers
 * heavisideUsers(nbUsers) over(duration) ：定义一个持续的并发，围绕和海维赛德函数平滑逼近的增长量，持续指定时间（译者解释海维赛德函数` H(x)当x>0时返回1，x< * 0时返回0，x=0时返回0.5。实际操作时，并发数是一个成平滑抛物线形的曲线）
 
-#### Reports
+### Reports
 [怎么看测试报告](http://gatling.io/docs/current/general/reports/)
 
-##### Use log file to generate report
+#### Use log file to generate report
 Generates the reports for the simulation log file located in *<gatling_home>/results/<folderName>*
 
 ```sh
 ➜  gatling-charts-highcharts-bundle-2.3.0 ll results/test
 total 648
--rw-r--r--  1 liyan  staff   322K Sep 15 18:29 simulation.log
+-rw-r--r--  1 jiangew  staff   322K Oct 17 18:29 simulation.log
 
 ➜  gatling-charts-highcharts-bundle-2.3.0 bin/gatling.sh -ro test
 ...
 Generating reports...
 ...
 Reports generated in 0s.
-Please open the following file: /opt/gatling/gatling-charts-highcharts-bundle-2.3.0/results/test/index.html
+Please open the following file: /gatling/gatling-charts-highcharts-bundle-2.3.0/results/test/index.html
 ```
 
-### Reference
+## Reference
 [Gatling](http://gatling.io/)
 [Gatling 做Web压力测试](https://segmentfault.com/a/1190000008254640)
 [Gatling Quickstart 问题汇总](http://wiki.li3huo.com/Gatling)
