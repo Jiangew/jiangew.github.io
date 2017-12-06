@@ -251,6 +251,6 @@ Please open the following file: /gatling/gatling-charts-highcharts-bundle-2.3.0/
 ```
 
 ## Reference
-[Gatling](http://gatling.io/)
-[Gatling 做Web压力测试](https://segmentfault.com/a/1190000008254640)
-[Gatling Quickstart 问题汇总](http://wiki.li3huo.com/Gatling)
+* [Gatling](http://gatling.io/)
+* [Gatling 做Web压力测试](https://segmentfault.com/a/1190000008254640)
+* [Gatling Quickstart 问题汇总](http://wiki.li3huo.com/Gatling)
