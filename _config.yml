@@ -28,7 +28,6 @@ disqus:
 # social networks
 github: Jiangew
 weibo: jiangew
-twitter: JamesiWork
 instagram: JamesiWorks
 # facebook: facebook
 # pinterest: Jiangew
@@ -43,7 +42,7 @@ authors:
         bio: ~ Natural fearless, Dream precious ~
         external-image: false
         picture: assets/images/profile.png
-        twitter: JamesiWork
+        weibo: jiangew
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
