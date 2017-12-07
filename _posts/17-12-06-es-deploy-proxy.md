@@ -290,13 +290,13 @@ ES Node         Q/W      8      450/180/185/3500                                
 #### 4.3.2 压测报告
 
 ##### 压测报告信息汇总
-![](img/171206/get-01.jpg) <br />
+![](assets/images/post/171206/get-01.jpg) <br />
 ##### 虚拟用户注入时间分布
-![](img/171206/get-02.jpg) <br />
+![](assets/images/post/171206/get-02.jpg) <br />
 ##### 请求响应时间分布
-![](img/171206/get-03.jpg) <br />
+![](assets/images/post/171206/get-03.jpg) <br />
 ##### 请求和响应吞吐量
-![](img/171206/get-04.jpg) <br />
+![](assets/images/post/171206/get-04.jpg) <br />
 
 ### 4.4 压测报告分析 单条写入
 
@@ -309,13 +309,13 @@ ES Node         Q/W      8      450/180/185/3500                                
 #### 4.4.2 压测报告
 
 ##### 压测报告信息汇总
-![](img/171206/put-01.jpg) <br />
+![](assets/images/post/171206/put-01.jpg) <br />
 ##### 虚拟用户注入时间分布
-![](img/171206/put-02.jpg) <br />
+![](assets/images/post/171206/put-02.jpg) <br />
 ##### 请求响应时间分布
-![](img/171206/put-03.jpg) <br />
+![](assets/images/post/171206/put-03.jpg) <br />
 ##### 请求和响应吞吐量
-![](img/171206/put-04.jpg) <br />
+![](assets/images/post/171206/put-04.jpg) <br />
 
 ### 4.5 压测报告分析 Elasticsearch 集群单节点多场景混合
 
@@ -329,13 +329,13 @@ ES Node         Q/W      8      450/180/185/3500                                
 #### 4.5.2 压测报告
 
 ##### 压测报告信息汇总
-![](img/171206/node-01.jpg) <br />
+![](assets/images/post/171206/node-01.jpg) <br />
 ##### 虚拟用户注入时间分布
-![](img/171206/node-02.jpg) <br />
+![](assets/images/post/171206/node-02.jpg) <br />
 ##### 请求响应时间分布
-![](img/171206/node-03.jpg) <br />
+![](assets/images/post/171206/node-03.jpg) <br />
 ##### 请求和响应吞吐量
-![](img/171206/node-04.jpg) <br />
+![](assets/images/post/171206/node-04.jpg) <br />
 
 ### 4.6 压测报告分析 读写全索引搜索多场景混合
 
@@ -349,13 +349,13 @@ ES Node         Q/W      8      450/180/185/3500                                
 #### 4.6.2 压测报告
 
 ##### 压测报告信息汇总
-![](img/171206/mix-01.jpg) <br />
+![](assets/images/post/171206/mix-01.jpg) <br />
 ##### 虚拟用户注入时间分布
-![](img/171206/mix-02.jpg) <br />
+![](assets/images/post/171206/mix-02.jpg) <br />
 ##### 请求响应时间分布
-![](img/171206/mix-03.jpg) <br />
+![](assets/images/post/171206/mix-03.jpg) <br />
 ##### 请求和响应吞吐量
-![](img/171206/mix-04.jpg) <br />
+![](assets/images/post/171206/mix-04.jpg) <br />
 
 ## 参考资料
 * [Elastic Start](https://www.elastic.co/start)
