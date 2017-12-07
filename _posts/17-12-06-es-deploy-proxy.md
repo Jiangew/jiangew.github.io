@@ -216,32 +216,146 @@ curl -XPUT -u elastic 'http://localhost:9200/_xpack/license' -H "Content-Type: a
 * ElasticSearch 搜索类型
 
 ## 2 集群管理与监控
-目前 Elasticsearch 集群的监控和管理是通过如下2个开源工具和Kibana来进行的，官方的是收费的，关于更多管理和监控的细节，请问 Google。
+目前 Elasticsearch 集群的监控和管理是通过如下2个开源工具和Kibana来进行的，官方提供的一些插件是收费的，关于更多管理和监控的细节，请问 Google。
 
 * [ElasticHD](https://github.com/farmerx/ElasticHD)
 * [elasticsearch-head](https://github.com/mobz/elasticsearch-head)
 * [Kibana](https://www.elastic.co/start)
 
-### 1.1 ElasticHD
+### 2.1 ElasticHD
 * start: ./elasticsearch-hd -p 127.0.0.1:9800
 * connect: http://elastic:elastic@127.0.0.1:9200
 * 域名 *.**.qq.com 映射 10.62.21.163:9800
 
-### 1.2 Elasticsearch-head
+### 2.2 Elasticsearch-head
 * npm install -g grunt grunt-cli
 * npm install
 * npm run start
 * grunt start
 * 域名 *.**.qq.com 映射 10.62.21.163:9100
 
-### 1.3 Kibana「部署并连接ES集群，最好连接一个非主节点和非数据节点，一个ES路由节点，能够构建搜索负载均衡」
+### 2.3 Kibana「部署并连接ES集群，最好连接一个非主节点和非数据节点，一个ES路由节点，能够构建搜索负载均衡」
 * elasticsearch.url: "http://10.211.0.165:19200”
-* start: nohup bin/kibana -H 0.0.0.0 > logs/kibana.log 2>&1 & 「1:屏幕输出；2:错误输出；合并」
+* start: nohup bin/kibana -H 0.0.0.0 > logs/kibana.log 2>&1 &
 * 域名 *.**.qq.com 映射 10.211.0.165:5601
 
 ## 3 代理层 Server & Client
+Elasticsearch集群作为基础服务组件，一定要做好与业务隔离性，做好接口收敛，屏蔽掉业务无关性，封装一些通用的ES接入接口；官方提供了各种语言的Client，可以根据需求自行封装服务，然后与自家的中间件层集成，这样就可以接入自家平台的发布部署、监控、CI相融合。<br/>
+我这里封装了 TAF Proxy 接入集团 TAF 服务治理和链路监控，同时封装Client给业务接入方使用，可以做到细粒度到接口层面的ES接入控制，统一版本迭代。<br/>
+关于代理层 Server 和 Client 的更多细节就不再这里赘述。
 
 ## 4 性能压测
+本次压测使用 Gatling 服务端性能压测框架，优秀的 DSL 设计，关于更多细节，请问 Google。<br/>
+
+### 4.1 压测基础设施
+压测的吞吐量大小主要依赖于搭建的基础设施，我先罗列下目前压测的基础设施：
+* 3台服务器：服务器配置 24核 64G内存 机械硬盘
+* 3个ES节点：2个Master 3个Data、5个分片 1个副本；后续压测过程中 扩容到5个ES节点，2个Master 5个Data、5个分片 2个副本
+* ES集群目前 75个索引，压测的单个索引 9300W 条记录，磁盘占用 210G，压测的Case都是基于索引全量搜索
+* 压测链路：Benchmark Web APIs -> Proxy Server -> Elasticsearch Cluster
+* Web APIs 和 Proxy 层都是单点部署，由于测试 nginx 压测TPS到300多就域名解析失败了，所以没有对 Web APIs 和 Proxy 做集群压测
+
+### 4.2 压测结果汇总
+目前压测比较稳定的报告汇总(Benchmark Web APIs 和 Proxy 单节点部署):
+```sh
+   Gatling      R/W    Scene           TPS                 Benchmark          Proxy        Async
+10.62.21.158     W       1      5500/120/140/5300      10.188.1.23:10002    10.188.1.23   Chained
+
+10.62.21.158     R       1      12000/120/120/11600    10.188.1.23:10002    10.188.1.23   Chained
+
+10.62.21.158     F       6      350/300/320/2350       10.188.1.23:10002    10.188.1.23   Chained
+10.62.21.158     Q       6      350/180/190/2300       10.188.1.23:10002    10.188.1.23   Parallel
+
+10.62.21.158    F/W      8      300/300/315/2450       10.188.1.23:10002    10.188.1.23   Chained
+10.62.21.158    Q/W      8      300/180/185/2400       10.188.1.23:10002    10.188.1.23   Parallel
+
+ES Node         F/W      8      450/180/185/3550                                          Chained
+ES Node         Q/W      8      450/180/185/3500                                          Parallel
+```
+
+针对上述压测报告汇总中的名词解释：
+* R/W:      R 单条记录查询；W 单条记录写入；Q Query搜索；F Filter搜索；Q/W Query搜索和写入混合场景；F/W Filter搜索和写入混合场景；
+* Scene:    压测场景个数
+* TPS:      每秒注入的虚拟用户数 / 注入虚拟用户数的时间段 / 压测场景运行时长 / TPS
+* Async:    Gatling 提供2种异步方式，Chained 链式异步，Parallel 并行异步
+
+### 4.3 压测报告分析 单条查询
+
+#### 4.3.1 压测结果
+```sh
+   Gatling      R/W    Scene           TPS                 Benchmark          Proxy        Async
+10.62.21.158     R       1      12000/120/120/11600    10.188.1.23:10002    10.188.1.23   Chained
+```
+
+#### 4.3.2 压测报告
+
+##### 压测报告信息汇总
+![](img/171206/get-01.jpg) <br />
+##### 虚拟用户注入时间分布
+![](img/171206/get-02.jpg) <br />
+##### 请求响应时间分布
+![](img/171206/get-03.jpg) <br />
+##### 请求和响应吞吐量
+![](img/171206/get-04.jpg) <br />
+
+### 4.4 压测报告分析 单条写入
+
+#### 4.4.1 压测结果
+```sh
+   Gatling      R/W    Scene           TPS                 Benchmark          Proxy        Async
+10.62.21.158     W       1      5500/120/140/5300      10.188.1.23:10002    10.188.1.23   Chained
+```
+
+#### 4.4.2 压测报告
+
+##### 压测报告信息汇总
+![](img/171206/put-01.jpg) <br />
+##### 虚拟用户注入时间分布
+![](img/171206/put-02.jpg) <br />
+##### 请求响应时间分布
+![](img/171206/put-03.jpg) <br />
+##### 请求和响应吞吐量
+![](img/171206/put-04.jpg) <br />
+
+### 4.5 压测报告分析 Elasticsearch 集群单节点多场景混合
+
+#### 4.5.1 压测结果
+```sh
+   Gatling      R/W    Scene           TPS                 Benchmark          Proxy        Async
+ES Node         F/W      8      450/180/185/3550                                          Chained
+ES Node         Q/W      8      450/180/185/3500                                          Parallel
+```
+
+#### 4.5.2 压测报告
+
+##### 压测报告信息汇总
+![](img/171206/node-01.jpg) <br />
+##### 虚拟用户注入时间分布
+![](img/171206/node-02.jpg) <br />
+##### 请求响应时间分布
+![](img/171206/node-03.jpg) <br />
+##### 请求和响应吞吐量
+![](img/171206/node-04.jpg) <br />
+
+### 4.6 压测报告分析 读写全索引搜索多场景混合
+
+#### 4.6.1 压测结果
+```sh
+   Gatling      R/W    Scene           TPS                 Benchmark          Proxy        Async
+10.62.21.158    F/W      8      300/300/315/2450       10.188.1.23:10002    10.188.1.23   Chained
+10.62.21.158    Q/W      8      300/180/185/2400       10.188.1.23:10002    10.188.1.23   Parallel
+```
+
+#### 4.6.2 压测报告
+
+##### 压测报告信息汇总
+![](img/171206/mix-01.jpg) <br />
+##### 虚拟用户注入时间分布
+![](img/171206/mix-02.jpg) <br />
+##### 请求响应时间分布
+![](img/171206/mix-03.jpg) <br />
+##### 请求和响应吞吐量
+![](img/171206/mix-04.jpg) <br />
 
 ## 参考资料
 * [Elastic Start](https://www.elastic.co/start)
