@@ -17,7 +17,9 @@ Table of Contents
    * [Table of Contents](#table-of-contents)
       * [What is Vert.x ?](#what-is-vertx-)
       * [Maven 构建 Verticle 并部署](#maven-构建-verticle-并部署)
-      * [BlockingHandler | ExecuteBlocking vs WorkerVerticle](#blockinghandler--executeblocking-vs-workerverticle)
+      * [BlockingHandler &amp; ExecuteBlocking vs WorkerVerticle](#blockinghandler--executeblocking-vs-workerverticle)
+         * [ExecuteBlocking 示例](#executeblocking-示例)
+         * [BlockingHandler 示例](#blockinghandler-示例)
       * [动态部署 Verticle 实例](#动态部署-verticle-实例)
       * [日志](#日志)
       * [Vert.x 运行时性能指标监控「Dropwizard &amp;&amp; Jolokia &amp;&amp; Hawtio」](#vertx-运行时性能指标监控dropwizard--jolokia--hawtio)
@@ -97,7 +99,7 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
     java -jar target/maven-verticle-3.4.2-fat.jar -conf src/conf/conf.json
 ```
 
-## BlockingHandler | ExecuteBlocking vs WorkerVerticle
+## BlockingHandler & ExecuteBlocking vs WorkerVerticle
 每一个阻塞的耗时操作单独 deploy 一个 worker verticle 处理，一个 worker verticle 一直被线程池中的一个线程执行。
 
 ### ExecuteBlocking 示例
