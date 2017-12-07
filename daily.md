@@ -4,7 +4,7 @@ layout: page
 ---
 # Reading Hub
 
-![Acfun Banner](http://ote3hl188.bkt.clouddn.com/banner-20171017.jpg)
+![Acfun Banner](/assets/images/banner/20171207.jpg)
 
 ## Reading Hub
 
