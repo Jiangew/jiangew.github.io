@@ -388,7 +388,7 @@ curl -XPUT -u elastic 'http://localhost:9200/_xpack/license’ -H "Content-Type:
 #### 09.Elastic X-Pack Basic License Disable Security
 xpack.security.enabled: false
 
-#### 10.集群控制台ElasticHD配置域名[arslan.bookcs.3g.qq.com]连接后，集群可以连接，Rest API报错，502: Bad Gateway ?
+#### 10.集群控制台ElasticHD配置域名[*.**.qq.com]连接后，集群可以连接，Rest API报错，502: Bad Gateway ?
 fixed: nginx层反向代理的问题，域名连接加80端口[*.**.qq.com:80]
 
 #### 11.并发量上来 restClient close 问题
