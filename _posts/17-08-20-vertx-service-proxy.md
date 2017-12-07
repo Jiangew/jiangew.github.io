@@ -17,24 +17,25 @@ Table of Contents
 =================
 
    * [Table of Contents](#table-of-contents)
-         * [Vert.x 服务代理组件](#vertx-服务代理组件)
-         * [服务代理介绍](#服务代理介绍)
-         * [异步接口](#异步接口)
-         * [代码生成](#代码生成)
-         * [暴露你的服务](#暴露你的服务)
-         * [代理的创建](#代理的创建)
-         * [错误处理](#错误处理)
-         * [服务接口的约束](#服务接口的约束)
-            * [方法返回类型](#方法返回类型)
-            * [参数类型和异步返回类型](#参数类型和异步返回类型)
-            * [重载的方法](#重载的方法)
-         * [通过Event Bus调用服务的约定「不使用服务代理的情况下」](#通过event-bus调用服务的约定不使用服务代理的情况下)
+      * [Vert.x 服务代理组件](#vertx-服务代理组件)
+      * [服务代理介绍](#服务代理介绍)
+      * [异步接口](#异步接口)
+      * [代码生成](#代码生成)
+      * [暴露你的服务](#暴露你的服务)
+      * [代理的创建](#代理的创建)
+      * [错误处理](#错误处理)
+      * [服务接口的约束](#服务接口的约束)
+         * [方法返回类型](#方法返回类型)
+         * [参数类型和异步返回类型](#参数类型和异步返回类型)
+         * [重载的方法](#重载的方法)
+      * [通过Event Bus调用服务的约定「不使用服务代理的情况下」](#通过event-bus调用服务的约定不使用服务代理的情况下)
+
 
 **当编写一个Vert.x应用时，你可能想将某个功能在某处隔离开来，并对应用的其它部分提供服务。**<br />
 这就是服务代理「service proxy」的目的。它允许你在Event Bus上暴露「expose」一个服务，所以，只要它们在服务发布时清楚服务的地址「address」，其他任意的Vert.x组件都可以去调用它。<br />
 Vert.x用一个Java接口来描述一个 **服务**，这个接口包含的方法遵循异步模式。在底层，服务调用是通过调用端向Event Bus发送消息，被调用端收到消息调用服务并且返回结果来实现的。为了使其更容易使用，服务代理组件可以生成一个 **代理类**，你可以直接调用这个代理「通过服务接口中的API」。<br />
 
-### Vert.x 服务代理组件
+## Vert.x 服务代理组件
 要使用Vert.x Service Proxy组件，请先加入以下依赖：
 * Maven「在 pom.xml 文件中」：
 ```maven
@@ -67,7 +68,7 @@ Vert.x用一个Java接口来描述一个 **服务**，这个接口包含的方�
 注意服务代理机制依赖于代码生成，所以每次修改服务接口以后都需重新执行构建过程来重新生成代码。<br />
 如果需要生成不同语言的服务代理代码，你需要添加对应的语言支持依赖，比如 Groovy 对应 vertx-lang-groovy。
 
-### 服务代理介绍
+## 服务代理介绍
 让我们先看看服务代理并了解一下为什么它们有用。假设有一个数据库服务暴露在Event Bus上，你需要做以下的事情来调用服务：
 ```java
     JsonObject message = new JsonObject();
@@ -124,7 +125,7 @@ public interface SomeDatabaseService {
 }
 ```
 
-### 异步接口
+## 异步接口
 想要正确地生成服务代理类，服务接口的设计必须遵循一些规则。首先是需要遵循异步模式。如果需要返回结果，对应的方法需要包含一个 Handler<AsyncResult<ResultType>> 类型的参数，其中 ResultType 可以是另一种代理类型「所以一个代理类可以作为另一个代理类的工厂」。<br />
 例如：
 ```java
@@ -170,7 +171,7 @@ public interface MyDatabaseConnection {
 ```
 你可以通过声明一个特殊方法，并给其加上 @ProxyClose 注解来注销代理。当此方法被调用时，代理实例被清除。
 
-### 代码生成
+## 代码生成
 被 @ProxyGen 注解的服务接口会触发生成对应的服务辅助类：
 * 服务代理类「service proxy」：一个编译时产生的代理类，用 EventBus 通过消息与服务交互。
 * 服务处理器类「service handler」： 一个编译时产生的 EventBus 处理器类，用于响应由服务代理发送的事件。
@@ -206,7 +207,7 @@ processor classifier 会自动通过 META-INF/services 插件机制向jar包中�
     </plugin>
 ```
 
-### 暴露你的服务
+## 暴露你的服务
 当你写好服务接口以后，执行构建操作以生成代码。然后你需要将你的服务“注册”到Event Bus上：
 ```java
 SomeDatabaseService service = new SomeDatabaseServiceImpl();
@@ -224,7 +225,7 @@ MessageConsumer<JsonObject> consumer = ProxyHelper.registerService(SomeDatabaseS
 ProxyHelper.unregisterService(consumer);
 ```
 
-### 代理的创建
+## 代理的创建
 当你的服务发布「expose」以后，你可能想要去调用它。这时，你需要创建一个服务代理，而代理的创建可以利用 ProxyHelper 类：
 ```java
 SomeDatabaseService service = ProxyHelper.createProxy(
@@ -253,7 +254,7 @@ public interface SomeDatabaseService {
 }
 ```
 
-### 错误处理
+## 错误处理
 服务方法可能会通过向方法的处理器「Handler」传递一个失败状态的 Future「包含一个 ServiceException 实例」来返回错误。一个 ServiceException 包含一个整形「int」的错误状态码、一条消息和一个可选的 JsonObject 对象「用于包含额外的重要信息」。为了方便起见，我们可以使用 ServiceException.fail 工厂方法来创建一个已经是失败状态并且包装着 ServiceException 实例的 Future。比如：
 ```java
 public class SomeDatabaseServiceImpl implements SomeDatabaseService {
@@ -371,9 +372,10 @@ public void foo(String shoeSize, Handler<AsyncResult<JsonObject>> handler) {
 ```
 注意在Vert.x 集群模式下，你需要向集群中每个节点的Event Bus注册对应的自定义异常类型的MessageCodec实例。
 
-### 服务接口的约束
+## 服务接口的约束
 在服务方法中可用的参数类型和返回值类型是有限制的，这样使得转化为Event Bus消息更加容易。下面我们就来看一下：
-#### 方法返回类型
+
+### 方法返回类型
 返回类型必须是以下其中之一：
 * void
 * 返回此服务实例的引用（this）并标注 @Fluent 注解：
@@ -381,9 +383,9 @@ public void foo(String shoeSize, Handler<AsyncResult<JsonObject>> handler) {
 @Fluent
 SomeDatabaseService doSomething();
 ```
-
 这是因为方法不能阻塞，并且如果服务是远程的，不可能立即返回结果而不阻塞。
-#### 参数类型和异步返回类型
+
+### 参数类型和异步返回类型
 令 JSON = JsonObject | JsonArray，PRIMITIVE = 任意原生类型或包装的原生类型。<br />
 参数类型可以是以下类型中任意一个：<br />
 * JSON
@@ -408,10 +410,10 @@ SomeDatabaseService doSomething();
 * 任何被 @DataObject 注解的类
 * 另一个代理类
 
-#### 重载的方法
+### 重载的方法
 服务接口中不允许有重载的服务方法「即方法名相同，参数列表不同」。
 
-### 通过Event Bus调用服务的约定「不使用服务代理的情况下」
+## 通过Event Bus调用服务的约定「不使用服务代理的情况下」
 服务代理假定Event Bus中的消息遵循一定的格式，因此能被用于服务的调用。<br />
 当然，如果不愿意的话，你也可以不用服务代理类来访问远程服务。被广泛接受的与服务交互的方式就是直接在Event Bus发送消息。<br />
 为了使服务访问的方式一致，所有的服务都必须遵循以下的消息格式。格式非常简单：<br />
@@ -434,4 +436,3 @@ Body:
 在上面例子中，action对应的值应该与服务接口的某个方法名称相对应，而消息体中每个[key, value]都要与服务方法中的某个[arg_name, arg_value]相对应「key参数名，value参数值」。<br />
 对于返回值，服务需使用 message.reply(…​) 方法去向调用端发送回一个返回值 —— 这个值可以是Event Bus支持的任何类型。如果需要表示调用失败，可以使用 message.fail(…​) 方法。<br />
 如果你使用Vert.x 服务代理组件的话，生成的代码会自动帮你处理这些问题。
-

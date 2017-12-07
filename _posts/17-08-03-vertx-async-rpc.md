@@ -11,19 +11,20 @@ tag:
 category: blog
 author: JamesiWorks
 ---
+
 Table of Contents
 =================
 
    * [Table of Contents](#table-of-contents)
-         * [原理简介](#原理简介)
-         * [引入](#引入)
-         * [代理类命名规范](#代理类命名规范)
-         * [在Event Bus上注册服务](#在event-bus上注册服务)
-         * [服务调用](#服务调用)
-         * [服务提供端的调用逻辑](#服务提供端的调用逻辑)
-         * [超时处理](#超时处理)
-         * [代码是如何生成的？](#代码是如何生成的)
-         * [优点与缺点](#优点与缺点)
+      * [原理简介](#原理简介)
+      * [引入](#引入)
+      * [代理类命名规范](#代理类命名规范)
+      * [在Event Bus上注册服务](#在event-bus上注册服务)
+      * [服务调用](#服务调用)
+      * [服务提供端的调用逻辑](#服务提供端的调用逻辑)
+      * [超时处理](#超时处理)
+      * [代码是如何生成的？](#代码是如何生成的)
+      * [优点与缺点](#优点与缺点)
 
 如何利用Vert.x进行RPC通信？<br />
 Vert.x提供了一个组件：Vert.x Service Proxy，专门用于进行异步RPC通信「通过Event Bus」。Vert.x Service Proxy会自动生成代理类进行消息的包装与解码、发送与接收以及超时处理，可以为我们省掉不少代码。<br />
@@ -32,7 +33,7 @@ Vert.x提供了一个组件：Vert.x Service Proxy，专门用于进行异步RPC
 
 Vert.x提供了Service Proxy用于进行异步RPC，其底层依托Clustered Event Bus进行通信。我们只需要按照规范编写我们的服务接口「一般称为Event Bus服务」，并加上@ProxyGen注解，Vert.x就会自动为我们生成相应的代理类在底层处理RPC。有了Service Proxy，我们只需给异步方法提供一个回调函数Handler<AsyncResult<T>>，在调用结果发送过来的时候会自动调用绑定的回调函数进行相关的处理，这样就与Vert.x的异步开发模式相符了。由于AsyncResult本身就是为容错而设计的「两个状态」，因此这里的RPC也具有了容错性。<br />
 
-### 原理简介
+## 原理简介
 假设有一个Event Bus服务接口：
 ```java
 /**
@@ -98,7 +99,7 @@ public interface ProcessorService {
 用时序图来描述一下上述过程：
 ![](http://ote3hl188.bkt.clouddn.com/vertx-async-rpc.png) <br />
 
-### 引入
+## 引入
 以ProcessorService接口为例，我们可以在集群中的一个节点上注册服务实例：
 ```java
 service = ProcessorService.create(vertx);
@@ -139,7 +140,7 @@ public class ConsumerVerticle extends AbstractVerticle {
 ```
 其实，这里获取到的proxyService实例的真正类型是Vert.x自动生成的服务代理类ProcessorServiceVertxEBProxy类，里面封装了通过Event Bus进行通信的逻辑。我们首先来讲一下Service Proxy生成代理类的命名规范。
 
-### 代理类命名规范
+## 代理类命名规范
 Vert.x Service Proxy在生成代理类时遵循一定的规范。假设有一Event Bus服务接口ProcessorService，Vert.x会自动为其生成代理类以及代理处理器：
 * 代理类的命名规范为 接口名 + VertxEBProxy。比如ProcessorService接口对应的代理类名称为ProcessorServiceVertxEBProxy
 * 代理类会继承原始的服务接口并实现所有方法的代理逻辑
@@ -148,7 +149,7 @@ Vert.x Service Proxy在生成代理类时遵循一定的规范。假设有一Eve
 
 ProxyHelper辅助类中注册服务以及创建代理都是遵循了这个规范。
 
-### 在Event Bus上注册服务
+## 在Event Bus上注册服务
 我们通过ProxyHelper辅助类中的registerService方法来向Event Bus上注册Event Bus服务，来看其具体实现：
 ```java
 public static <T> MessageConsumer<JsonObject> registerService(Class<T> clazz, Vertx vertx, T service, String address,
@@ -174,7 +175,7 @@ public MessageConsumer<JsonObject> registerHandler(String address) {
 ```
 registerHandler方法的实现非常简单，就是通过consumer方法在address地址上绑定了ProcessorServiceVertxProxyHandler自身。那么ProcessorServiceVertxProxyHandler是如何处理来自服务调用端的服务调用请求，并将调用结果返回到请求端呢？在回答这个问题之前，我们先来看看代理端「调用端」是如何发送服务调用请求的，这就要看对应的服务代理类的实现了。
 
-### 服务调用
+## 服务调用
 我们来看一下服务调用端是如何发出服务调用请求的消息的。之前已经介绍过，服务调用端是通过Event Bus的send方法发送调用请求的，并且会提供一个replyHandler来等待方法调用的结果。调用的方法名称会存放在消息中名为action的header中。以之前ProcessorService的代理类ProcessorServiceVertxEBProxy中process方法的请求为例：
 ```java
 public ProcessorService process(String id, Handler<AsyncResult<JsonObject>> resultHandler) {
@@ -198,7 +199,7 @@ public ProcessorService process(String id, Handler<AsyncResult<JsonObject>> resu
 ```
 可以看到代理类把此方法传入的参数都放到一个JsonObject中了，并将要调用的方法名称存放在消息中名为action的header中。代理方法通过send方法将包装好的消息发送至之前注册的服务地址处，并且绑定replyHandler等待调用结果，然后使用我们传入到process方法中的resultHandler对结果进行处理。是不是很简单呢？
 
-### 服务提供端的调用逻辑
+## 服务提供端的调用逻辑
 调用请求发出之后，我们的服务提供端就会收到调用请求消息，然后执行ProcessorServiceVertxProxyHandler中的处理逻辑：
 ```java
 public void handle(Message<JsonObject> msg) {
@@ -246,7 +247,7 @@ private <T> Handler<AsyncResult<T>> createHandler(Message msg) {
 ```
 这样，一旦在服务提供端的调用过程完成时，调用结果就会被发送回调用端。这样调用端就可以调用结果执行真正的处理逻辑了。
 
-### 超时处理
+## 超时处理
 Vert.x自动生成的代理处理器内都封装了一个简单的超时处理逻辑，它是通过定时器定时检查最后的调用时间实现的。逻辑比较简单，直接放上相关逻辑：
 ```java
 public ProcessorServiceVertxProxyHandler(Vertx vertx, ProcessorService service, boolean topLevel, long timeoutSeconds) {
@@ -277,7 +278,7 @@ public ProcessorServiceVertxProxyHandler(Vertx vertx, ProcessorService service, 
   ```
   一旦超时，就自动调用close方法终止定时器，注销响应服务调用请求的consumer并关闭代理。
 
-  ### 代码是如何生成的？
+  ## 代码是如何生成的？
 大家可能会很好奇，这些服务代理类是怎么生成出来的？其实，这都是Vert.x Codegen的功劳。Vert.x Codegen的本质是一个 注解处理器(APT)，它可以扫描源码中是否包含要处理的注解，检查规范后根据响应的模板生成对应的代码，这就是注解处理器的作用(注解处理器于JDK 1.6引入)。为了让Codegen正确地生成代码，我们需要配置编译参数来确保注解处理器能够正常的工作，具体的可以参考：
 - [Vert.x Codegen的文档](https://github.com/vert-x3/vertx-codegen/blob/master/README.md)
 
@@ -303,7 +304,7 @@ Vert.x Codegen使用MVEL2作为生成代码的模板，扩展名为*.templ，比
 ```
 具体的代码生成逻辑还要涉及APT及MVEL2的知识，这里就不展开讲了，有兴趣的朋友可以研究研究Vert.x Codegen的源码。
 
-### 优点与缺点
+## 优点与缺点
 Vert.x提供的这种Async RPC有着许多优点：
 * 通过Clustered Event Bus传输消息，不需引入其它额外的组件
 * 自动生成代理类及代理处理器，可以帮助我们做消息封装、传输、编码解码以及超时处理等问题，省掉不少冗余代码，让我们可以以LPC的方式进行RPC通信
