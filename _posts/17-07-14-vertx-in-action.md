@@ -2,7 +2,7 @@
 title: "Vert.x 实战"
 layout: post
 date: 2017-07-14 15:45
-image: /assets/images/markdown.jpg
+image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
 - Vert.x

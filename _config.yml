@@ -7,7 +7,7 @@ description: ~ Natural fearless, Dream precious ~
 
 # if it's an external image, update below for true better with square images
 external-image: false
-picture: assets/images/profile.png
+picture: assets/images/base/profile.png
 
 url: https://jiangew.github.io
 
@@ -41,7 +41,7 @@ authors:
         name: JamesiWorks
         bio: ~ Natural fearless, Dream precious ~
         external-image: false
-        picture: assets/images/profile.png
+        picture: assets/images/base/profile.png
         weibo: jiangew
 
 # do you want a larger site? change the option below

@@ -2,7 +2,7 @@
 title: "Akka Quick Start"
 layout: post
 date: 2017-09-07 18:55
-image: /assets/images/markdown.jpg
+image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
 - akka

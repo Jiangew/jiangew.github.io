@@ -2,7 +2,7 @@
 title: "Vert.x Service Proxy"
 layout: post
 date: 2017-08-20 11:05
-image: /assets/images/markdown.jpg
+image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
 - Vert.x

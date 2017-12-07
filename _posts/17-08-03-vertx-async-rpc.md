@@ -2,7 +2,7 @@
 title: "Vert.x 异步RPC实现解读"
 layout: post
 date: 2017-08-03 15:54
-image: /assets/images/markdown.jpg
+image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
 - Vert.x
