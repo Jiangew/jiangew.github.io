@@ -17,6 +17,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
+   * [Table of Contents](#table-of-contents)
       * [背景](#背景)
       * [内容](#内容)
       * [1 集群部署](#1-集群部署)
@@ -27,7 +28,7 @@ Table of Contents
       * [2 集群管理与监控](#2-集群管理与监控)
          * [2.1 ElasticHD](#21-elastichd)
          * [2.2 Elasticsearch-head](#22-elasticsearch-head)
-         * [2.3 Kibana](#23-kibana部署并连接es集群最好连接一个非主节点和非数据节点一个es路由节点能够构建搜索负载均衡)
+         * [2.3 Kibana](#23-kibana)
       * [3 代理层 Server &amp; Client](#3-代理层-server--client)
       * [4 性能压测](#4-性能压测)
          * [4.1 压测基础设施](#41-压测基础设施)
@@ -38,6 +39,7 @@ Table of Contents
          * [4.6 压测报告分析 读写全索引搜索多场景混合](#46-压测报告分析-读写全索引搜索多场景混合)
          * [4.7 压测问题汇总及解决方案](#47-压测问题汇总及解决方案)
       * [参考资料](#参考资料)
+
 
 ## 背景
 目前评论数据存储用户和书籍两个维度的数据，共计8亿条记录左右，还在快速持续增长中；数据链路采用 DCache & Redis & MySQL 存储模式，DCache 存储了一份评论全量数据，Redis 存储评论数据各种维度检索的索引的各种数据结构，MySQL 集群采用分库分表[10*10]策略存储评论原子结构数据。随着评论业务线需求逐渐迭代和复杂化，评论数据的各种维度查询服务逐渐复杂化，Redis 存储的索引数据结构比较隐晦，越来越多，越来越复杂，不易维护；由于评论更新流程是3写，没有数据一致性校验阶段，导致存储侧各种数据不一致。所以，考虑接入Elasticsearch，代替Redis存储侧，简化 MySQL 存储侧各维度评论原子数据为一份；减少依赖链路长度，保证数据一致性。
@@ -259,7 +261,8 @@ curl -XPUT -u elastic 'http://localhost:9200/_xpack/license' -H "Content-Type: a
 * grunt start
 * 域名 *.**.qq.com 映射 10.62.21.163:9100
 
-### 2.3 Kibana「部署并连接ES集群，最好连接一个非主节点和非数据节点，一个ES路由节点，能够构建搜索负载均衡」
+### 2.3 Kibana
+Kibana 部署并连接ES集群，最好连接一个非主节点和非数据节点，一个ES路由节点，能够构建搜索负载均衡
 * elasticsearch.url: "http://10.211.0.165:19200”
 * start: nohup bin/kibana -H 0.0.0.0 > logs/kibana.log 2>&1 &
 * 域名 *.**.qq.com 映射 10.211.0.165:5601
