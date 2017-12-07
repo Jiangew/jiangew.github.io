@@ -216,7 +216,7 @@ curl -XPUT -u elastic 'http://localhost:9200/_xpack/license' -H "Content-Type: a
 * ElasticSearch 搜索类型
 
 ## 2 集群管理与监控
-目前 Elasticsearch 集群的监控和管理是通过如下2个开源工具和Kibana来进行的，官方的是收费的，关于更多细节，请问 Google。
+目前 Elasticsearch 集群的监控和管理是通过如下2个开源工具和Kibana来进行的，官方的是收费的，关于更多管理和监控的细节，请问 Google。
 
 * [ElasticHD](https://github.com/farmerx/ElasticHD)
 * [elasticsearch-head](https://github.com/mobz/elasticsearch-head)
@@ -225,19 +225,19 @@ curl -XPUT -u elastic 'http://localhost:9200/_xpack/license' -H "Content-Type: a
 ### 1.1 ElasticHD
 * start: ./elasticsearch-hd -p 127.0.0.1:9800
 * connect: http://elastic:elastic@127.0.0.1:9200
-* 域名 arslan-cluster.bookcs.3g.qq.com 映射 10.62.21.163:9800
+* 域名 *.**.qq.com 映射 10.62.21.163:9800
 
 ### 1.2 Elasticsearch-head
 * npm install -g grunt grunt-cli
 * npm install
 * npm run start
 * grunt start
-* 域名 arslan-head.bookcs.3g.qq.com 映射 10.62.21.163:9100
+* 域名 *.**.qq.com 映射 10.62.21.163:9100
 
 ### 1.3 Kibana「部署并连接ES集群，最好连接一个非主节点和非数据节点，一个ES路由节点，能够构建搜索负载均衡」
 * elasticsearch.url: "http://10.211.0.165:19200”
 * start: nohup bin/kibana -H 0.0.0.0 > logs/kibana.log 2>&1 & 「1:屏幕输出；2:错误输出；合并」
-* 域名 arslan-kibana.bookcs.3g.qq.com 映射 10.211.0.165:5601
+* 域名 *.**.qq.com 映射 10.211.0.165:5601
 
 ## 3 代理层 Server & Client
 
