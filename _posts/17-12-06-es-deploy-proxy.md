@@ -357,6 +357,74 @@ ES Node         Q/W      8      450/180/185/3500                                
 ##### 请求和响应吞吐量
 ![](/assets/images/post/171206/mix-04.jpg) <br />
 
+### 4.7 压测问题汇总及解决方案
+
+#### 01.Elastic X-Pack License Expired，集群读写正常，健康检查、索引管理、集群监控和统计 功能无法使用 ？
+fixed：重新申请 Free Basic License
+
+#### 02.Basic License Disable Security ？
+fixed：配置 xpack.security.enabled: false
+
+#### 03.部署测试ES集群 5个节点 集群间无法通信 ？
+调整配置文件；跟运维@张京 沟通服务器外网和端口开放问题
+
+#### 04.Fixed err: unable to intall syscall filter, CONFIG_SECCOMP not compiled into kernel
+bootstrap.system_call_filter: false
+
+#### 05.Fixed err: max virtual memory areas vm.max*map*count [65530] is too low
+```sh
+sudo sysctl -w vm.max_map_count=262144
+```
+
+#### 06.多播模式：配置不配置 network.host & transport.host 节点之间不能互相发现
+
+#### 07.单播模式：必须配置 network.host，hosts 列表必须配置端口或端口范围
+
+#### 08.更新 License，从trial到basic，Elastic X-Pack Updating Your License
+```sh
+curl -XPUT -u elastic 'http://localhost:9200/_xpack/license’ -H "Content-Type: application/json" -d @license.json
+```
+
+#### 09.Elastic X-Pack Basic License Disable Security
+xpack.security.enabled: false
+
+#### 10.集群控制台ElasticHD配置域名[arslan.bookcs.3g.qq.com]连接后，集群可以连接，Rest API报错，502: Bad Gateway ?
+fixed: nginx层反向代理的问题，域名连接加80端口[*.**.qq.com:80]
+
+#### 11.并发量上来 restClient close 问题
+fixed bug: httpClient async request timeout「设置0」
+
+#### 12.并发量上来大量「502 504」，分析发现是域名解析超时，临时干掉nginx域名解析反向代理层
+
+#### 13.fixed bug: Cannot assign requested address「无可用端口，短链接关闭后，链接处于 TIME_WAIT 状态，本地端口仍被占用中」
+```sh
+    # 端口复用内核参数设置
+    net.ipv4.tcp_tw_reuse=1
+    net.ipv4.tcp_tw_recycle=1
+    net.ipv4.tcp_timestamps=1
+    net.ipv4.tcp_max_tw_buckets=50000
+    net.ipv4.ip_local_port_range=1024 65000
+    net.ipv4.tcp_keepalive_time=6000
+```
+#### 14.开启端口复用后，请求一直连接超时；并且一直触发GC「Minor GC，不是 Full GC」，新生代中没有合适区域存放分配的数据结构
+fixed: JVM调大堆内存，调高新生代和老生代比例
+
+#### 15.调整 ArslanElasticBenchmark & ArslanElasticServer 线程数、队列长度、超时时间、Gatling配置 多轮压测
+
+#### 16.master被压挂了，索引分片丢失，30mins恢复索引分片同步
+
+#### 17.ES单节点堆内存不超过32G，为了充分利用服务器[64G内存]资源，节点由3个扩容到5个
+
+#### 18.ES集群节点从3个扩容到5个，集群分片动态迁移达到均衡状态，每个节点2个分片
+
+#### 19.副本从1调整到2，提升搜索性能；压测脚本重构，从链式异步改成并行异步；压测脚本区分场景
+
+#### 20.Vert.x web 重构 TAF 3.0 HTTP 压测基准 Web APIs ArslanElasticBenchmarkV2
+
+#### 21.跟@帆总一起排查 "TAF主控连接关闭问题”
+bug: 同时创建多个communicator时，并发高时会出现窜包问题，即连接和回包的对应关系在特定场景下出现匹配错乱；
+     深层次原因，初步认为与连接异步创建和回包超时淘汰有关，等后续 base-taf 版本迭代fix
+
 ## 参考资料
 * [Elastic Start](https://www.elastic.co/start)
 * [Elastic Stack](https://www.elastic.co/guide/index.html)
