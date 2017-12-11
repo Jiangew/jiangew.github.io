@@ -8,6 +8,13 @@ layout: page
 
 ## Reading Hub
 
+### 2017.12.11
+
+* [Prometheus Getting Started](https://prometheus.io/docs/prometheus/latest/getting_started/)
+* [Fluentd](https://github.com/fluent/fluentd)
+* [Fluentd UI](https://github.com/fluent/fluentd-ui)
+* [Spring CLoud Stack](http://www.spring4all.com/)
+
 ### 2017.12.04
 
 * [Gatling 压测上手及问题汇总](http://wiki.li3huo.com/Gatling#Config_connection_timed_out)
