@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2017.12.12
+
+* [Fulentd Quickstart](https://docs.fluentd.org/v1.0/articles/quickstart)
+* [Fluentd-UI Quickstart](https://docs.fluentd.org/v1.0/articles/fluentd-ui)
+
 ### 2017.12.11
 
 * [Prometheus Getting Started](https://prometheus.io/docs/prometheus/latest/getting_started/)
