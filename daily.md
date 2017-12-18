@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2017.12.18
+
+* [Java 8: CompletableFuture in action](http://www.nurkiewicz.com/2013/05/java-8-completablefuture-in-action.html)
+* [Java 8: 新特性 StampedLock 将是解决同步问题的新宠](http://www.importnew.com/14941.html)
+
 ### 2017.12.12
 
 * [Fulentd Quickstart](https://docs.fluentd.org/v1.0/articles/quickstart)
