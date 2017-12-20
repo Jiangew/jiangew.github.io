@@ -12,6 +12,7 @@ layout: page
 
 * [Java 8: CompletableFuture in action](http://www.nurkiewicz.com/2013/05/java-8-completablefuture-in-action.html)
 * [Java 8: 新特性 StampedLock 将是解决同步问题的新宠](http://www.importnew.com/14941.html)
+* [Java 8: Concurrency Synchronization and Locks](http://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/)
 
 ### 2017.12.12
 
@@ -508,3 +509,23 @@ layout: page
 * [如何快速构建基于 Spring 4.0 的 Rest API](http://www.importnew.com/7903.html)
 * [Spring 4.1 与 Java 8 java.util.Optional](http://www.importnew.com/13169.html)
 * [Spring 实践：AOP 面向切面编程](http://blog.csdn.net/zjf280441589/article/details/50816802)
+
+### 2016.05.24
+
+* [OS X 终端使用 Solarized 配色方案](https://www.vpsee.com/2013/09/use-the-solarized-color-theme-on-mac-os-x-terminal/)
+* [Github Pages Jekyll Themes](http://jekyllthemes.org/)
+* [How to install Redis in Centos](https://knowledge-base1.readthedocs.io/en/latest/redis.html)
+* [Redis 持久化 Snapshot 和 AOF](http://www.cnblogs.com/zhoujinyi/archive/2013/05/26/3098508.html)
+
+### 2016.05.22
+
+* [ZXing 生成带logo二维码](http://blog.csdn.net/sanfye/article/details/45749139)
+* [HTTP Verbs:谈 POST, PUT, PATCH 的应用](https://ihower.tw/blog/archives/6483)
+* [CORS: HTTP 访问控制](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+* [使用 Dozer 优雅的将DO转换成VO](http://www.hollischuang.com/archives/1613)
+
+### 2016.05.29
+
+* [如何阅读 Redis 源码](http://blog.huangz.me/diary/2014/how-to-read-redis-source-code.html)
+* [Java jackson List serialization](http://www.studytrails.com/java/json/java-jackson-Serialization-list/)
+* [Gson 反序列化](http://www.importnew.com/16786.html)
