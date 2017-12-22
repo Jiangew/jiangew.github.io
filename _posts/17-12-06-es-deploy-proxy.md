@@ -1,5 +1,5 @@
 ---
-title: "Elasticsearch 集群初探：部署、管理、监控、代理层、压测、调优"
+title: "Elasticsearch 集群初探：部署、管理、监控、代理、压测、调优"
 layout: post
 date: 2017-12-06 11:45
 image: /assets/images/base/markdown.jpg
