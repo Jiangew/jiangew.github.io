@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2017.12.23
+
+* [Logstash-input-jdbc sync MySQL to Elasticsearch](https://segmentfault.com/a/1190000011784259)
+* [Elasticsearch Java API 5.6 » Aggregations » Bucket aggregations](https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/_bucket_aggregations.html#java-aggs-bucket-filters)
+
 ### 2017.12.18
 
 * [Java 8: CompletableFuture in action](http://www.nurkiewicz.com/2013/05/java-8-completablefuture-in-action.html)
