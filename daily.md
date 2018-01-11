@@ -8,6 +8,10 @@ layout: page
 
 ## Reading Hub
 
+### 2018.01.11
+* [2017年超有价值的 Golang 文章](http://colobu.com/2017/12/28/top-golang-articles-of-2017/)
+* [A Million WebSockets based on Go 翻译篇](http://colobu.com/2017/12/13/A-Million-WebSockets-and-Go/)
+
 ### 2017.12.28
 * [A Million WebSockets based on Go](https://medium.freecodecamp.org/million-websockets-and-go-cc58418460bb)
 
