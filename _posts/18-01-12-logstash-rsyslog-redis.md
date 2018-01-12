@@ -1,5 +1,5 @@
 ---
-title: "Logstash Rsyslog Redis Unified Logging"
+title: "Logstash Rsyslog Redis"
 layout: post
 date: 2018-01-12 19:35
 image: /assets/images/base/markdown.jpg
