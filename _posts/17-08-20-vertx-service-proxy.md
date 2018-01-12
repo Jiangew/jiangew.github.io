@@ -16,7 +16,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [Vert.x 服务代理组件](#vertx-服务代理组件)
       * [服务代理介绍](#服务代理介绍)
       * [异步接口](#异步接口)

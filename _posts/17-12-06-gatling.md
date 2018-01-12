@@ -14,7 +14,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Quickstart](#quickstart)
+  * [Quickstart](#quickstart)
       * [Installing](#installing)
          * [Gatling 执行测试脚本](#gatling-执行测试脚本)
       * [Test Case](#test-case)

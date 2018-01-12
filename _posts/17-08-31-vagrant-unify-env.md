@@ -14,7 +14,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [install Vagrant &amp; VirtualBox](#install-vagrant--virtualbox)
       * [Vagrantfile](#vagrantfile)
       * [boot &amp; rebuild](#boot--rebuild)

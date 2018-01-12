@@ -17,7 +17,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [背景](#背景)
       * [内容](#内容)
       * [1 集群部署](#1-集群部署)

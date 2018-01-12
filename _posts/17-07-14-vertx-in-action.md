@@ -14,7 +14,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [What is Vert.x ?](#what-is-vertx-)
       * [Maven 构建 Verticle 并部署](#maven-构建-verticle-并部署)
       * [BlockingHandler &amp; ExecuteBlocking vs WorkerVerticle](#blockinghandler--executeblocking-vs-workerverticle)

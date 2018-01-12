@@ -14,7 +14,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [安装 GEM](#安装-gem)
          * [Linux](#linux)
          * [OS X](#os-x)

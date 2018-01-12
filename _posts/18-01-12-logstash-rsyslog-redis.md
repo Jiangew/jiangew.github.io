@@ -15,7 +15,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [Unified Logging](#unified-logging)
       * [Run Logstash Shipper &amp; Broker &amp; Indexer](#run-logstash-shipper--broker--indexer)
       * [Enrich &amp; Transport](#enrich--transport)

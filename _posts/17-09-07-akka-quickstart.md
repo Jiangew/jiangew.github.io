@@ -13,7 +13,7 @@ author: JamesiWorks
 Table of Contents
 =================
 
-   * [Table of Contents](#table-of-contents)
+  * [Table of Contents](#table-of-contents)
       * [Vert.x Slogon](#vertx-slogon)
       * [Akka Slogon](#akka-slogon)
       * [定义 Actors 和 Messages](#定义-actors-和-messages)
