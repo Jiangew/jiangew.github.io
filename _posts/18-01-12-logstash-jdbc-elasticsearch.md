@@ -58,8 +58,8 @@ gem sources -l
 https://ruby.taobao.org
 
 ### 请确保只有 ruby.taobao.org
-如果还是显示 https://rubygems.org/ 进入 home 的 .gemrc 文件
-sudo vim ~/.gemrc 
+如果还是显示 https://rubygems.org/ 进入 home 的 .gemrc 文件 <br/>
+sudo vim ~/.gemrc <br/>
 删除 https://rubygems.org/
 
 ## 修改 Gemfile 的数据源地址
