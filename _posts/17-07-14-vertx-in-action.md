@@ -8,7 +8,7 @@ tag:
 - Vert.x
 - Java
 category: blog
-author: JamesiWorks
+author: jiangew
 ---
 
 Table of Contents
@@ -112,7 +112,7 @@ Vert.x is a tool-kit for building reactive applications on the JVM.
                 // ignore
             }
 
-            String result = "jamesiworks";
+            String result = "jiangew";
             future.complete(result);
         }, res -> {
             if (res.succeeded()) {

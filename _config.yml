@@ -1,5 +1,5 @@
 # main text of home
-name: JamesiWorks
+name: Ew Jiang
 bio: ~ Natural fearless, Dream precious ~
 
 # slogon
@@ -26,9 +26,9 @@ disqus:
     categories: [blog, project] # only show disqus for posts that have these categories
 
 # social networks
-github: Jiangew
+github: jiangew
 weibo: jiangew
-instagram: JamesiWorks
+instagram: jiangew
 # facebook: facebook
 # pinterest: Jiangew
 # stackoverflow: mystackoverflow
@@ -37,8 +37,8 @@ instagram: JamesiWorks
 # email: jiangew@aliyun.com 
 
 authors:
-    JamesiWorks:
-        name: JamesiWorks
+    Ew Jiang:
+        name: Ew Jiang
         bio: ~ Natural fearless, Dream precious ~
         external-image: false
         picture: assets/images/base/profile.png
