@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2018.01.17
+* [Twirp: a sweet new RPC framework for Go](https://blog.twitch.tv/twirp-a-sweet-new-rpc-framework-for-go-5f2febbf35f)
+* [Twirp github](https://github.com/twitchtv/twirp)
+* [Kafka Quickstart](https://kafka.apache.org/quickstart)
+
 ### 2018.01.11
 * [2017年超有价值的 Golang 文章](http://colobu.com/2017/12/28/top-golang-articles-of-2017/)
 * [A Million WebSockets based on Go 翻译篇](http://colobu.com/2017/12/13/A-Million-WebSockets-and-Go/)
