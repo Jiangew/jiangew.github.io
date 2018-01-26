@@ -8,6 +8,10 @@ layout: page
 
 ## Reading Hub
 
+### 2018.01.26
+* [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
+* [Twirp Best Practices](https://github.com/twitchtv/twirp/wiki/Best-Practices)
+
 ### 2018.01.17
 * [Twirp: a sweet new RPC framework for Go](https://blog.twitch.tv/twirp-a-sweet-new-rpc-framework-for-go-5f2febbf35f)
 * [Twirp github](https://github.com/twitchtv/twirp)
