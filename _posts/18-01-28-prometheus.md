@@ -72,6 +72,7 @@ localhost:9090/graph
 * rate(prometheus_tsdb_head_chunks_created_total[1m])
 
 ## Starting up some sample targets
+
 ### Download the Go client library for Prometheus and run three of these example processes:
 ```sh
 # Fetch the client library code and compile example.
@@ -94,6 +95,7 @@ http://localhost:8082/metrics
 ```
 
 ## Configuring Prometheus to monitor the sample targets
+
 ### Expose such as the rpc_durations_seconds metric
 ```sh
 scrape_configs:
@@ -113,6 +115,7 @@ scrape_configs:
 ```
 
 ## Configure rules for aggregating scraped data into new time series
+
 ### expression
 avg(rate(rpc_durations_seconds_count[5m])) by (job, service)
 
