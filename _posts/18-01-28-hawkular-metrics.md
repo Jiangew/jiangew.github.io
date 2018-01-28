@@ -1,5 +1,5 @@
 ---
-title: "Hawkular Metrics In Action"
+title: "Hawkular Metrics in Action"
 layout: post
 date: 2018-01-28 11:22
 image: /assets/images/base/markdown.jpg
@@ -9,6 +9,7 @@ tag:
 - Cassandra
 - CCM
 - Grafana
+- Monitor
 category: blog
 author: jiangew
 ---
