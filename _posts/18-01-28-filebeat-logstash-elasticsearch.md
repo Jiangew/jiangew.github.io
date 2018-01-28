@@ -190,4 +190,4 @@ output {
 ```
 
 ## Reference
-[Filebeat Getting Started](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html)
+* [Filebeat Getting Started](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html)

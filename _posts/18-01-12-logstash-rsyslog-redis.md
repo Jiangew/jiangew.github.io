@@ -112,4 +112,4 @@ yum install logstash
 ```
 
 ## Reference
-[Logstash实践 分布式系统的日志监控](http://www.cnblogs.com/yiwenshengmei/p/4956033.html)
+* [Logstash实践 分布式系统的日志监控](http://www.cnblogs.com/yiwenshengmei/p/4956033.html)

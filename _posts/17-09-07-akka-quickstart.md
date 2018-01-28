@@ -50,4 +50,4 @@ Akka is a toolkit for building highly concurrent, distributed, and resilient mes
 ```
 
 ## 参考
-- [Akka Quickstart with Java](http://developer.lightbend.com/guides/akka-quickstart-java/?_ga=2.50799274.2004120847.1504782713-1095006924.1489455612)
+* [Akka Quickstart with Java](http://developer.lightbend.com/guides/akka-quickstart-java/?_ga=2.50799274.2004120847.1504782713-1095006924.1489455612)
