@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2018.02.05
+* [eBay 的 Elasticsearch 性能调优实践](http://mp.weixin.qq.com/s/Xvc7f0nBaNVa7_DnzjCUiw)
+* [eBay 的 Elasticsearch 性能调优实践 原文](https://www.ebayinc.com/stories/blogs/tech/elasticsearch-performance-tuning-practice-at-ebay/)
+* [Elasticsearch query examples with Golang](https://www.ribice.ba/golang-elastic/)
+
 ### 2018.01.26
 * [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
 * [Twirp Best Practices](https://github.com/twitchtv/twirp/wiki/Best-Practices)
