@@ -8,6 +8,11 @@ layout: page
 
 ## Reading Hub
 
+### 2018.02.08
+* [Partitioning with Apache Kafka and Vert.x](https://piotrminkowski.wordpress.com/2018/01/30/partitioning-with-apache-kafka-and-vert-x/amp/?__twitter_impression=true)
+* [Kafka Streams Introduction](https://kafka.apache.org/10/documentation/streams/)
+* [Kafka Streams with Akka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)
+
 ### 2018.02.05
 * [eBay 的 Elasticsearch 性能调优实践](http://mp.weixin.qq.com/s/Xvc7f0nBaNVa7_DnzjCUiw)
 * [eBay 的 Elasticsearch 性能调优实践 原文](https://www.ebayinc.com/stories/blogs/tech/elasticsearch-performance-tuning-practice-at-ebay/)
