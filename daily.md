@@ -8,6 +8,10 @@ layout: page
 
 ## Reading Hub
 
+### 2018.02.09
+* [Elasticsearch Hive integration](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/hive.html)
+* [Hive Data into Elasticsearch](http://note4code.com/2016/06/17/hive-%E5%90%91-elasticsearch-%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/)
+
 ### 2018.02.08
 * [Partitioning with Apache Kafka and Vert.x](https://piotrminkowski.wordpress.com/2018/01/30/partitioning-with-apache-kafka-and-vert-x/amp/?__twitter_impression=true)
 * [Kafka Streams Introduction](https://kafka.apache.org/10/documentation/streams/)
