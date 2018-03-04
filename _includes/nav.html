@@ -22,18 +22,12 @@
             {% endif %}
         {% endif %}
 
-        {% if site.rss == true %}
-            {% if page.title != "RSS" %}
+        {% if site.techub == true %}
+            {% if page.title != "Techub" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/rss">RSS</a>
+                    <a class="link" href="{{ site.url }}/techub">Techub</a>
                 </li>
             {% endif %}
-        {% endif %}
-
-        {% if site.resume == true %}
-            <li class="item">
-                <a class="link" href="{% if site.resume-external %}{{ site.resume-url }}{% else %}{{ site.url }}/{{ site.resume-url }}{% endif %}">Résumé</a>
-            </li>
         {% endif %}
     </ul>
 </nav>
