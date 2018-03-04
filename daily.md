@@ -27,7 +27,7 @@ layout: page
 * [Elasticsearch query examples with Golang](https://www.ribice.ba/golang-elastic/)
 
 ### 2018.01.30
-* [高明同学 JVM 资料整理](http://06c95046.wiz03.com/share/s/06Ol161jSx7y2FJV1W2R6SqK2jh8_d2Aw4f_2bCjJ10ZIM2X)
+* [小明同学 JVM 资料整理](http://06c95046.wiz03.com/share/s/06Ol161jSx7y2FJV1W2R6SqK2jh8_d2Aw4f_2bCjJ10ZIM2X)
 
 ### 2018.01.26
 * [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
