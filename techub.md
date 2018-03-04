@@ -6,8 +6,6 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
-## Techub
-
 ### 2018.03.04
 * [Elasticsearch high-level Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 * [20 Examples of Using Java’s CompletableFuture](https://dzone.com/articles/what-is-project-amber-in-java-1)
