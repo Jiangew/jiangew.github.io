@@ -22,10 +22,10 @@
             {% endif %}
         {% endif %}
 
-        {% if site.daily == true %}
-            {% if page.title != "Daily" %}
+        {% if site.rss == true %}
+            {% if page.title != "RSS" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/daily">Daily</a>
+                    <a class="link" href="{{ site.url }}/rss">RSS</a>
                 </li>
             {% endif %}
         {% endif %}

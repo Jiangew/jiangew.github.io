@@ -1,12 +1,12 @@
 ---
-title: Daily
+title: RSS
 layout: page
 ---
-# Reading Hub
+# Reading RSS
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
-## Reading Hub
+## Reading RSS
 
 ### 2018.03.04
 * [Elasticsearch high-level Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
