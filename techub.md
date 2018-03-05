@@ -6,6 +6,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.03.05
+* [深入解析中间件：RocketMQ](http://zqhxuyuan.github.io/2017/10/18/Midd-RocketMQ/)
+* [深入解析中间件：Canal](http://zqhxuyuan.github.io/2017/10/10/Midd-canal/)
+* [深入解析中间件：Dubbo](http://zqhxuyuan.github.io/2017/10/18/Midd-Dubbo/)
+
 ### 2018.03.04
 * [Elasticsearch high-level Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 * [20 Examples of Using Java’s CompletableFuture](https://dzone.com/articles/what-is-project-amber-in-java-1)
