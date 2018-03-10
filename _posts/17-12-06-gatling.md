@@ -1,5 +1,5 @@
 ---
-title: "服务端性能压测利器：Gatling"
+title: "服务端性能压测利器 Gatling"
 layout: post
 date: 2017-12-06 10:15
 image: /assets/images/base/markdown.jpg
