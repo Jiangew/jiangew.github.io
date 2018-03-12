@@ -14,7 +14,7 @@ layout: page
 ### 2018.03.09
 * [Elasticsearch Aggregations Java API](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html)
 * [RocketMQ 大数据畅想](http://jm.taobao.org/2017/01/05/rocketmq-big-data/)
-* [RocketMQ 关键点入门](http://jm.taobao.org/2017/01/12/rocketmq-quick-start-in-10-minutes/)
+* [RocketMQ 关键点梳理](http://jm.taobao.org/2017/01/12/rocketmq-quick-start-in-10-minutes/)
 
 ### 2018.03.05
 * [深入解析中间件：RocketMQ](http://zqhxuyuan.github.io/2017/10/18/Midd-RocketMQ/)
