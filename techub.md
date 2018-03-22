@@ -6,6 +6,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.03.21
+* [MySQL Insert 锁机制](http://yeshaoting.cn/article/database/mysql%20insert%E9%94%81%E6%9C%BA%E5%88%B6/)
+* [从 ConcurrentHashMap 的演进看 Java 多线程核心技术](http://www.jasongj.com/java/concurrenthashmap/)
+
 ### 2018.03.20
 * [用 Google Cloud Platform 搭建 Shadowsocks 服务](http://godjose.com/2017/06/14/new-article/)
 * [如何在 CentOS 7 部署 Google BBR](https://blog.smoker.cc/translation/how-to-deploy-google-bbr-on-centos7.html)
