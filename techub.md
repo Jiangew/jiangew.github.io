@@ -6,6 +6,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.03.23
+* [RocketMQ 消息有序性 & 重复消费 & 事务 & 存储](http://dbaplus.cn/news-21-1123-1.html)
+* [Kafka 设计解析系列](http://www.jasongj.com/tags/Kafka/)
+* [Kafka 技术内幕 & 权威指南系列](http://zqhxuyuan.github.io/tags/kafka/)
+
 ### 2018.03.21
 * [MySQL Insert 锁机制](http://yeshaoting.cn/article/database/mysql%20insert%E9%94%81%E6%9C%BA%E5%88%B6/)
 * [从 ConcurrentHashMap 的演进看 Java 多线程核心技术](http://www.jasongj.com/java/concurrenthashmap/)
