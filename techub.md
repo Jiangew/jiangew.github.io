@@ -6,6 +6,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.04.19
+* [Kafka vs RocketMQ](https://fdx321.github.io/tags/RocketMQ/)
+* [Lucene 倒排索引原理](http://www.cnblogs.com/balaamwe/archive/2012/09/27/2705767.html)
+
 ### 2018.03.28
 * [Elasticsearch Go Client](https://olivere.github.io/elastic/)
 * [Elasticsearch Go Client Wiki](https://github.com/olivere/elastic/wiki)
