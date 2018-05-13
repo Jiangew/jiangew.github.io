@@ -6,6 +6,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.05.13
+* [服务端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
+* [Golang 实现 Twitter SnowFlake 算法高效生成全局唯一ID](https://segmentfault.com/a/1190000014767902)
+
 ### 2018.04.19
 * [Kafka vs RocketMQ](https://fdx321.github.io/tags/RocketMQ/)
 * [Lucene 倒排索引原理](http://www.cnblogs.com/balaamwe/archive/2012/09/27/2705767.html)
