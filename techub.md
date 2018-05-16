@@ -6,6 +6,14 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.05.16
+* [Redis Cluster 实践案例](https://mp.weixin.qq.com/s/YyVR0zeVjBJAHMukkKYXsA)
+* [Redis 设计与实现：集群](https://blog.csdn.net/pentiumchen/article/details/44521789)
+* [Redis 存储分片之代理服务 Twemproxy](http://blog.jiguang.cn/redis-twemproxy-benchmark/)
+* [Redis 集群技术及 Codis 实践](http://www.infoq.com/cn/articles/effective-ops-part-03)
+* [Codis作者黄东旭：细说分布式Redis架构设计和那些踩过的坑](http://dbaplus.cn/news-141-270-1.html)
+* [RebornDB: the Next Generation Distributed Key-Value Store](https://docs.google.com/document/d/1hJXa0LjMaGYHgL3PeQQu3QMrstxof241OVxbdDKvSbY/edit)
+
 ### 2018.05.13
 * [服务端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
 * [Golang 实现 Twitter SnowFlake 算法高效生成全局唯一ID](https://segmentfault.com/a/1190000014767902)
