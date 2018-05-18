@@ -6,6 +6,12 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.05.18
+* [并发一枝花之ReentrantLock与AQS：lock、unlock](https://monkeysayhi.github.io/2017/12/05/%E6%BA%90%E7%A0%81%7C%E5%B9%B6%E5%8F%91%E4%B8%80%E6%9E%9D%E8%8A%B1%E4%B9%8BReentrantLock%E4%B8%8EAQS%EF%BC%881%EF%BC%89%EF%BC%9Alock%E3%80%81unlock/)
+* [并发一枝花之ReentrantLock与AQS：lockInterruptibly](https://monkeysayhi.github.io/2017/12/05/%E6%BA%90%E7%A0%81%7C%E5%B9%B6%E5%8F%91%E4%B8%80%E6%9E%9D%E8%8A%B1%E4%B9%8BReentrantLock%E4%B8%8EAQS%EF%BC%882%EF%BC%89%EF%BC%9AlockInterruptibly/)
+* [Java 线程池的异常处理机制](https://my.oschina.net/lifany/blog/884002)
+* [Java 并发 Lock 框架详解](https://blog.csdn.net/justloveyou_/article/details/54972105)
+
 ### 2018.05.16
 * [Redis Cluster 实践案例](https://mp.weixin.qq.com/s/YyVR0zeVjBJAHMukkKYXsA)
 * [Redis 设计与实现：集群](https://blog.csdn.net/pentiumchen/article/details/44521789)
