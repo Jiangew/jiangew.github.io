@@ -6,6 +6,13 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.06.18
+* [Github: elastic-job-lite](https://github.com/elasticjob/elastic-job-lite)
+* [elastic-job-spring-boot-starter](http://www.spring4all.com/article/910)
+* [elastic-job 在网易乐得的技术实践](http://tech.lede.com/2017/06/23/rd/server/elasticJob/)
+* [Spring Cloud Config Server 学习](https://www.cnblogs.com/yjmyzz/p/spring-cloud-config-server-tutorial.html)
+* [Spring Cloud 构建微服务：分布式配置中心](http://blog.didispace.com/springcloud4/)
+
 ### 2018.06.16
 * [dubbo-spring-boot-starter](https://github.com/alibaba/dubbo-spring-boot-starter)
 * [Redisson 分布式锁的实现及 spring-boot-starter 封装](https://my.oschina.net/dengfuwei/blog/1604975)
