@@ -14,7 +14,7 @@ layout: page
 * [elastic-job-lite](https://github.com/elasticjob/elastic-job-lite)
 * [elastic-job-spring-boot-starter](http://www.spring4all.com/article/910)
 * [elastic-job 在网易乐得的技术实践](http://tech.lede.com/2017/06/23/rd/server/elasticJob/)
-* [Spring Cloud Config Server 学习](https://www.cnblogs.com/yjmyzz/p/spring-cloud-config-server-tutorial.html)
+* [Spring Cloud Config 分布式配置中心实践](https://www.cnblogs.com/yjmyzz/p/spring-cloud-config-server-tutorial.html)
 * [Spring Cloud 构建微服务：分布式配置中心](http://blog.didispace.com/springcloud4/)
 
 ### 2018.06.16
