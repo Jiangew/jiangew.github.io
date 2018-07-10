@@ -6,6 +6,13 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.07.10
+* [ECDSA 数字签名算法](https://segmentfault.com/a/1190000012288285)
+* [公钥、私钥、数字签名](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)
+* [密码学：公钥、私钥](https://www.cnblogs.com/darksir/p/3704198.html)
+* [轻松筹1.6亿注册用户的Passport账户体系架构设计](https://mp.weixin.qq.com/s?__biz=MzIwMzg1ODcwMw==&mid=2247486201&amp;idx=1&amp;sn=ecc5977671e596324fde3ac629265495&source=41)
+* [Json Web Tokens](https://jwt.io/)
+
 ### 2018.06.18
 * [Apache incubating Dubbo](https://github.com/apache/incubator-dubbo)
 * [Apache incubating dubbo-spring-boot-project](https://github.com/apache/incubator-dubbo-spring-boot-project)
