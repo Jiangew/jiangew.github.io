@@ -6,6 +6,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.08.06
+* [天池中间件大赛 Dubbo Mesh 优化总结](https://mp.weixin.qq.com/s?__biz=MzI0NzEyODIyOA==&mid=2247483940&idx=1&sn=188d930dab22859598f331fe3825dcf1&scene=21#wechat_redirect)
+* [RabbitMQ 的几种典型使用场景](https://juejin.im/entry/56ca9c797db2a2005197a785)
+* [Elastic Job 弹性分布式实现原理](http://elasticjob.io/docs/elastic-job-lite/03-design/lite-design/)
+
 ### 2018.07.10
 * [ECDSA 数字签名算法](https://segmentfault.com/a/1190000012288285)
 * [公钥、私钥、数字签名](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)
