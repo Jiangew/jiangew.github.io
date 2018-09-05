@@ -6,6 +6,12 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.03
+* [天池中间件大赛 Dubbo Mesh 优化总结](https://www.cnkirito.moe/dubboMesh/)
+* [天池中间件大赛百万队列存储设计总结](https://www.cnkirito.moe/mq-million-queue/)
+* [分布式服务追踪及 Spring Cloud 的实现](http://daixiaoyu.com/distributed-tracing.html)
+* [利用 Zipkin 对 Spring Cloud 应用进行服务追踪](https://yq.aliyun.com/articles/60165)
+
 ### 2018.08.05
 * [Curator Service Discovery](https://curator.apache.org/curator-x-discovery/index.html)
 * [ZooKeeper Practices](http://www.mtitek.com/tutorials/zookeeper/)

@@ -4,7 +4,5 @@
     "files.autoSave": "afterDelay",
 
     "go.goroot": "/usr/local/go",
-    "go.gopath": "/Users/Jiangew/go",
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.startInInsertMode": true
+    "go.gopath": "/Users/Jiangew/go"
 }
