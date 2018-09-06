@@ -2,7 +2,6 @@
 title: hub
 layout: page
 ---
-# hub
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
