@@ -1,8 +1,8 @@
 ---
-title: Techub
+title: hub
 layout: page
 ---
-# Techub
+# hub
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
