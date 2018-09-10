@@ -5,6 +5,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.10
+* [How we redesigned the NSQ - NSQ 重塑之详细设计](https://tech.youzan.com/how-we-redesigned-the-nsq-the-details-of-the-new-arch/)
+* [有赞 API Gateway 实践](https://tech.youzan.com/api-gateway-in-practice/)
+* [Kong API Gateway 实践](https://www.cnkirito.moe/kong-introduction/)
+
 ### 2018.09.03
 * [天池中间件大赛 Dubbo Mesh 优化总结](https://www.cnkirito.moe/dubboMesh/)
 * [天池中间件大赛百万队列存储设计总结](https://www.cnkirito.moe/mq-million-queue/)
