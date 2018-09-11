@@ -5,6 +5,12 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.11
+* [Spring Boot API 限流应用](https://my.oschina.net/loubobooo/blog/1796752)
+* [初识 Kong 之负载均衡](https://www.cnkirito.moe/kong-loadbalance/)
+* [初始 Kong 集成 JWT 插件](https://www.cnkirito.moe/kong-jwt/)
+* [JWT: JSON Web Token](https://www.cnkirito.moe/jwt-learn/)
+
 ### 2018.09.10
 * [How we redesigned the NSQ - NSQ 重塑之详细设计](https://tech.youzan.com/how-we-redesigned-the-nsq-the-details-of-the-new-arch/)
 * [有赞 API Gateway 实践](https://tech.youzan.com/api-gateway-in-practice/)
