@@ -5,10 +5,14 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.11
+* [初识 Kong 之负载均衡](https://www.cnkirito.moe/kong-loadbalance/)
+* [初识 Kong 集成 JWT 插件](https://www.cnkirito.moe/kong-jwt/)
+
 ### 2018.09.10
 * [How we redesigned the NSQ - NSQ 重塑之详细设计](https://tech.youzan.com/how-we-redesigned-the-nsq-the-details-of-the-new-arch/)
 * [有赞 API Gateway 实践](https://tech.youzan.com/api-gateway-in-practice/)
-* [Kong API Gateway 实践](https://www.cnkirito.moe/kong-introduction/)
+* [选择 Kong 作为 API Gateway](https://www.cnkirito.moe/kong-introduction/)
 
 ### 2018.09.03
 * [天池中间件大赛 Dubbo Mesh 优化总结](https://www.cnkirito.moe/dubboMesh/)
@@ -195,7 +199,7 @@ layout: page
 * [Gatling Quickstart](https://segmentfault.com/a/1190000008254640)
 
 ### 2017.11.17
-* [An Actor Framework For Go](https://teivah.io/blog/an-introduction-to-gosiris-an-actor-framework-for-go/)
+* [An Actor Framework For Go](https://medium.com/@teivah/an-introduction-to-gosiris-an-actor-framework-for-go-e0e3ad15b3c7)
 * [Vert.x Meets GraphQL](http://vertx.io/blog/eclipse-vert-x-meets-graphql/)
 
 ### 2017.11.10
