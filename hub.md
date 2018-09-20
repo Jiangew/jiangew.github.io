@@ -5,6 +5,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.20
+* [Oracle 发布开源的轻量级微服务框架 Helidon](https://mp.weixin.qq.com/s/p9FzW5vOVSxSNt4UTdZeVg)
+* [Helidon wiki](https://helidon.io/docs/latest/#/about/01_introduction)
+* [多语言跨平台加密库 Google Tink](https://mp.weixin.qq.com/s/-2JbP3OBAQ3FrGeoGC6qHw)
+
 ### 2018.09.19
 * [线性排序算法：计数排序 & 桶排序 & 基数排序](https://www.byvoid.com/zhs/blog/sort-radix)
 * [链表问题集锦](http://wuchong.me/blog/2014/03/25/interview-link-questions/)
