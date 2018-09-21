@@ -5,6 +5,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.21
+* [Vert.x 技术内幕系列](https://www.sczyh30.com/tags/Vert-x/)
+* [Kafka 设计解析：高性能架构之道](http://www.jasongj.com/kafka/high_throughput/)
+* [Netty 系列：Netty 百万级推送服务设计要点](https://www.cnblogs.com/xiarifeixue/p/5750147.html)
+
 ### 2018.09.20
 * [Oracle 发布开源的轻量级微服务框架 Helidon](https://mp.weixin.qq.com/s/p9FzW5vOVSxSNt4UTdZeVg)
 * [Helidon wiki](https://helidon.io/docs/latest/#/about/01_introduction)
