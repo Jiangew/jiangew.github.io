@@ -5,6 +5,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.09.29
+* [Etcd 架构设计与实现解析](http://jolestar.com/etcd-architecture/)
+* [Alibaba Nacos](https://nacos.io/zh-cn/docs/architecture.html)
+
 ### 2018.09.21
 * [Vert.x 技术内幕系列](https://www.sczyh30.com/tags/Vert-x/)
 * [Kafka 设计解析：高性能架构之道](http://www.jasongj.com/kafka/high_throughput/)
