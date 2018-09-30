@@ -6,6 +6,7 @@ layout: page
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
 ### 2018.09.29
+* [并发之痛 Thread、Goroutine、Actor](http://jolestar.com/parallel-programming-model-thread-goroutine-actor/)
 * [Etcd 架构设计与实现解析](http://jolestar.com/etcd-architecture/)
 * [Alibaba Nacos](https://nacos.io/zh-cn/docs/architecture.html)
 
