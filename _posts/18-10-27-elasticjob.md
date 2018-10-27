@@ -11,8 +11,6 @@ category: blog
 author: jiangew
 ---
 
-# 分布式 Schedule Job 业务接入开发指南
-
 <!-- TOC -->
 
 - [分布式 Schedule Job 业务接入开发指南](#分布式-schedule-job-业务接入开发指南)
@@ -35,6 +33,8 @@ author: jiangew
         - [4.0 新增了数据追踪数据源后，可以查看作业历史，包括历史轨迹和历史状态。](#40-新增了数据追踪数据源后可以查看作业历史包括历史轨迹和历史状态)
 
 <!-- /TOC -->
+
+# 分布式 Schedule Job 业务接入开发指南
 
 ## 0 环境要求
 采用当当开源的 Elastic-Job 框架，要求JDK 1.7及以上版本，Zookeeper 3.4.6及以上版本，Maven 3.0.4及以上版本。
