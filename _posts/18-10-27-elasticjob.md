@@ -1,5 +1,5 @@
 ---
-title: "分布式 Schedule Job 开发手册"
+title: "分布式 Schedule Job 业务接入开发指南"
 layout: post
 date: 22018-10-27 18:45
 image: /assets/images/base/markdown.jpg
