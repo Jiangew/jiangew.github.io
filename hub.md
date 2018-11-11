@@ -5,6 +5,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2018.11.11
+* [Storm 系列](http://ifeve.com/tag/storm/)
+* [基于 Redis 的分布式锁](http://ifeve.com/%E5%9F%BA%E4%BA%8Eredis%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/)
+* [SpringBoot 整合 Netty 长连接心跳机制](http://ifeve.com/netty%E4%B8%80-springboot-%E6%95%B4%E5%90%88%E9%95%BF%E8%BF%9E%E6%8E%A5%E5%BF%83%E8%B7%B3%E6%9C%BA%E5%88%B6/)
+
 ### 2018.11.06
 * [Raft vs Basic-Paxos vs Multi-Paxos](https://zhuanlan.zhihu.com/p/25664121)
 * [京麦TCP网关长连接容器架构：Netty](http://www.infoq.com/cn/articles/jd-netty)
