@@ -5,6 +5,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+* [Go 夜读](https://github.com/developer-learning/night-reading-go)
+* [Go 学习之路](https://github.com/developer-learning/learning-golang)
+* [AWK 入门学习](http://www.ruanyifeng.com/blog/2018/11/awk.html)
+
 * [ZooKeeper at Twitter](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2018/zookeeper-at-twitter.html)
 * [Dynamic Configuration at Twitter](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2018/dynamic-configuration-at-twitter.html)
 * [Java 微基准测试框架 JMH](https://www.xncoding.com/2018/01/07/java/jmh.html)
@@ -164,19 +168,17 @@ layout: page
 * [eBay 的 Elasticsearch 性能调优实践](http://mp.weixin.qq.com/s/Xvc7f0nBaNVa7_DnzjCUiw)
 * [eBay 的 Elasticsearch 性能调优实践 原文](https://www.ebayinc.com/stories/blogs/tech/elasticsearch-performance-tuning-practice-at-ebay/)
 * [Elasticsearch query examples with Golang](https://www.ribice.ba/golang-elastic/)
+* [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
 
+* [Kafka Quickstart](https://kafka.apache.org/quickstart)
 * [小明同学 JVM 资料整理](http://06c95046.wiz03.com/share/s/06Ol161jSx7y2FJV1W2R6SqK2jh8_d2Aw4f_2bCjJ10ZIM2X)
 
-* [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
 * [Twirp Best Practices](https://github.com/twitchtv/twirp/wiki/Best-Practices)
-
 * [Twirp: a sweet new RPC framework for Go](https://blog.twitch.tv/twirp-a-sweet-new-rpc-framework-for-go-5f2febbf35f)
 * [Twirp github](https://github.com/twitchtv/twirp)
-* [Kafka Quickstart](https://kafka.apache.org/quickstart)
 
 * [2017年超有价值的 Golang 文章](http://colobu.com/2017/12/28/top-golang-articles-of-2017/)
 * [A Million WebSockets based on Go 翻译篇](http://colobu.com/2017/12/13/A-Million-WebSockets-and-Go/)
-
 * [A Million WebSockets based on Go](https://medium.freecodecamp.org/million-websockets-and-go-cc58418460bb)
 
 * [Logstash-input-jdbc sync MySQL to Elasticsearch](https://segmentfault.com/a/1190000011784259)
@@ -533,4 +535,3 @@ layout: page
 * [如何阅读 Redis 源码](http://blog.huangz.me/diary/2014/how-to-read-redis-source-code.html)
 * [Java jackson List serialization](http://www.studytrails.com/java/json/java-jackson-Serialization-list/)
 * [Gson 反序列化](http://www.importnew.com/16786.html)
-
