@@ -5,6 +5,12 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+* [两种高效的服务器设计模型：Reactor vs Proactor](https://blog.csdn.net/u013074465/article/details/46276967)
+* [Redis 延迟队列](https://medium.com/@cheukfung/redis%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97-c940850a264f)
+
+* [Kafka 设计解析 07：流式计算的新贵 Kafka Stream](https://www.infoq.cn/article/kafka-analysis-part-7)
+* [比拼 Kafka, 大数据分析新秀 Pulsar 到底好在哪](https://www.infoq.cn/article/1UaxFKWUhUKTY1t_5gPq)
+
 * [Go 夜读](https://github.com/developer-learning/night-reading-go)
 * [Go 学习之路](https://github.com/developer-learning/learning-golang)
 * [AWK 入门学习](http://www.ruanyifeng.com/blog/2018/11/awk.html)
