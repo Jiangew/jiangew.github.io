@@ -7,10 +7,13 @@ layout: page
 
 ### 2018.12
 
-* [LMAX Architecture](https://martinfowler.com/articles/lmax.html)
+* [Mockito Guide](https://static.javadoc.io/org.mockito/mockito-core/2.23.4/org/mockito/Mockito.html)
+* [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+* [Martin Fowler: LMAX Architecture](https://martinfowler.com/articles/lmax.html)
 * [LMAX Disruptor](http://lmax-exchange.github.io/disruptor)
 * [LMAX Disruptor Proxy](https://github.com/LMAX-Exchange/disruptor-proxy)
 * [高性能队列：Disruptor](https://tech.meituan.com/disruptor.html)
+* [Asynchronous Loggers for Low-Latency Logging](https://logging.apache.org/log4j/2.x/manual/async.html)
 * [两种高效的服务器设计模型：Reactor vs Proactor](https://blog.csdn.net/u013074465/article/details/46276967)
 * [Redis 延迟队列](https://medium.com/@cheukfung/redis%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97-c940850a264f)
 * [Kafka 设计解析 07：流式计算的新贵 Kafka Stream](https://www.infoq.cn/article/kafka-analysis-part-7)
