@@ -11,6 +11,24 @@ category: blog
 author: jiangew
 ---
 
+Table of Contents
+=================
+
+   * [IntelliJ IDEA For macOS Keymap](#intellij-idea-for-macos-keymap)
+      * [背景](#背景)
+      * [Mac 键盘符号和修饰键说明](#mac-键盘符号和修饰键说明)
+      * [Editing（编辑）](#editing编辑)
+      * [Search/Replace（查询/替换）](#searchreplace查询替换)
+      * [Usage Search（使用查询）](#usage-search使用查询)
+      * [Compile and Run（编译和运行）](#compile-and-run编译和运行)
+      * [Debugging（调试）](#debugging调试)
+      * [Navigation（导航）](#navigation导航)
+      * [Refactoring（重构）](#refactoring重构)
+      * [VCS/Local History（版本控制/本地历史记录）](#vcslocal-history版本控制本地历史记录)
+      * [Live Templates（动态代码模板）](#live-templates动态代码模板)
+      * [General（通用）](#general通用)
+      * [Other（一些官方文档上没有体现的快捷键）](#other一些官方文档上没有体现的快捷键)
+
 # IntelliJ IDEA For macOS Keymap
 
 ## 背景
