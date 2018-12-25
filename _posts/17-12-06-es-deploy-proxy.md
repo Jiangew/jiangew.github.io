@@ -7,50 +7,18 @@ headerImage: false
 tag:
 - Elasticsearch
 - Proxy
-- TAF 3.0 HTTP
+- Tencent TAF 3.0 HTTP
 - Vert.x Web
 - Gatling
 category: blog
 author: jiangew
 ---
 
-<!-- TOC -->
-
 - [背景](#背景)
 - [内容](#内容)
 - [1 集群部署](#1-集群部署)
     - [1.1 集群节点配置](#11-集群节点配置)
-        - [集群名称，默认是elasticsearch，不同的集群用名字来区分，es会通过ZenDiscovery服务自动发现在同一网段下的es，配置成相同集群名字的各个节点形成一个集群。如果在同一网段下有多个集群，就可以用这个属性来区分不同的集群。](#集群名称默认是elasticsearch不同的集群用名字来区分es会通过zendiscovery服务自动发现在同一网段下的es配置成相同集群名字的各个节点形成一个集群如果在同一网段下有多个集群就可以用这个属性来区分不同的集群)
-        - [集群节点名称](#集群节点名称)
-        - [Data & Log](#data--log)
-        - [Node Host](#node-host)
-        - [HTTP & TCP，设置对外服务的http端口 默认为9200；内部tcp端口 默认9300；不能相同，否则会冲突。](#http--tcp设置对外服务的http端口-默认为9200内部tcp端口-默认9300不能相同否则会冲突)
-        - [cors 跨域支持](#cors-跨域支持)
-        - [集群节点类型：master | data | client](#集群节点类型master--data--client)
-        - [集群节点发现机制](#集群节点发现机制)
-        - [防止脑裂 [total number of master-eligible nodes / 2 + 1]](#防止脑裂-total-number-of-master-eligible-nodes--2--1)
-        - [Elastic X-Pack Basic License Disable Security](#elastic-x-pack-basic-license-disable-security)
-        - [Fixed Err: unable to intall syscall filter, CONFIG_SECCOMP not compiled into kernel](#fixed-err-unable-to-intall-syscall-filter-config_seccomp-not-compiled-into-kernel)
-        - [Fixed Err: max virtual memory areas vm.max*map*count [65530] is too low](#fixed-err-max-virtual-memory-areas-vmmaxmapcount-65530-is-too-low)
     - [1.2 集群健康、节点、索引、分片、统计](#12-集群健康节点索引分片统计)
-        - [Cluster Health](#cluster-health)
-        - [集群索引清单：每个索引细节「状态、分片数、未分配分片数」](#集群索引清单每个索引细节状态分片数未分配分片数)
-        - [集群索引清单：每个索引分片细节「状态、分片数、未分配分片数」](#集群索引清单每个索引分片细节状态分片数未分配分片数)
-        - [Cluster Nodes](#cluster-nodes)
-        - [单个节点监控统计：「索引、操作系统、进程、JVM、线程池、文件系统、网络、断路器」](#单个节点监控统计索引操作系统进程jvm线程池文件系统网络断路器)
-        - [集群统计：「分片数、文档数、存储空间、缓存信息、内存作用率、插件内容、文件系统内容、JVM作用状况、系统CPU和OS信息、段信息」](#集群统计分片数文档数存储空间缓存信息内存作用率插件内容文件系统内容jvm作用状况系统cpu和os信息段信息)
-        - [索引列表](#索引列表)
-        - [索引统计](#索引统计)
-        - [每个Index所包含的Type，6.0版本开始，计划每个索引只能有一个Type](#每个index所包含的type60版本开始计划每个索引只能有一个type)
-        - [对索引级别进行完全控制：每个索引默认5个分片和1个副本，更改为1个分片；大拇指法则表明最佳的分片数量取决于节点数量](#对索引级别进行完全控制每个索引默认5个分片和1个副本更改为1个分片大拇指法则表明最佳的分片数量取决于节点数量)
-        - [修改副本个数](#修改副本个数)
-        - [索引分片状态](#索引分片状态)
-        - [索引分片的 segment.count 统计](#索引分片的-segmentcount-统计)
-        - [恢复状态：集群出现波动时，查看数据迁移和恢复速度](#恢复状态集群出现波动时查看数据迁移和恢复速度)
-        - [查看线程池状态](#查看线程池状态)
-        - [Elastic X-Pack Updating Your License](#elastic-x-pack-updating-your-license)
-        - [内存使用 & GC指标](#内存使用--gc指标)
-        - [集群统计 重点监控指标](#集群统计-重点监控指标)
     - [1.3 IK 中文分词](#13-ik-中文分词)
     - [1.4 小结](#14-小结)
 - [2 集群管理与监控](#2-集群管理与监控)
@@ -64,56 +32,17 @@ author: jiangew
     - [4.3 压测报告分析 单条查询](#43-压测报告分析-单条查询)
         - [4.3.1 压测结果](#431-压测结果)
         - [4.3.2 压测报告](#432-压测报告)
-            - [压测报告信息汇总](#压测报告信息汇总)
-            - [虚拟用户注入时间分布](#虚拟用户注入时间分布)
-            - [请求响应时间分布](#请求响应时间分布)
-            - [请求和响应吞吐量](#请求和响应吞吐量)
     - [4.4 压测报告分析 单条写入](#44-压测报告分析-单条写入)
         - [4.4.1 压测结果](#441-压测结果)
         - [4.4.2 压测报告](#442-压测报告)
-            - [压测报告信息汇总](#压测报告信息汇总-1)
-            - [虚拟用户注入时间分布](#虚拟用户注入时间分布-1)
-            - [请求响应时间分布](#请求响应时间分布-1)
-            - [请求和响应吞吐量](#请求和响应吞吐量-1)
     - [4.5 压测报告分析 Elasticsearch 集群单节点多场景混合](#45-压测报告分析-elasticsearch-集群单节点多场景混合)
         - [4.5.1 压测结果](#451-压测结果)
         - [4.5.2 压测报告](#452-压测报告)
-            - [压测报告信息汇总](#压测报告信息汇总-2)
-            - [虚拟用户注入时间分布](#虚拟用户注入时间分布-2)
-            - [请求响应时间分布](#请求响应时间分布-2)
-            - [请求和响应吞吐量](#请求和响应吞吐量-2)
     - [4.6 压测报告分析 读写全索引搜索多场景混合](#46-压测报告分析-读写全索引搜索多场景混合)
         - [4.6.1 压测结果](#461-压测结果)
         - [4.6.2 压测报告](#462-压测报告)
-            - [压测报告信息汇总](#压测报告信息汇总-3)
-            - [虚拟用户注入时间分布](#虚拟用户注入时间分布-3)
-            - [请求响应时间分布](#请求响应时间分布-3)
-            - [请求和响应吞吐量](#请求和响应吞吐量-3)
     - [4.7 压测问题汇总及解决方案](#47-压测问题汇总及解决方案)
-        - [01.Elastic X-Pack License Expired，集群读写正常，健康检查、索引管理、集群监控和统计 功能无法使用 ？](#01elastic-x-pack-license-expired集群读写正常健康检查索引管理集群监控和统计-功能无法使用-)
-        - [02.Basic License Disable Security ？](#02basic-license-disable-security-)
-        - [03.部署测试ES集群 5个节点 集群间无法通信 ？](#03部署测试es集群-5个节点-集群间无法通信-)
-        - [04.Fixed err: unable to intall syscall filter, CONFIG_SECCOMP not compiled into kernel](#04fixed-err-unable-to-intall-syscall-filter-config_seccomp-not-compiled-into-kernel)
-        - [05.Fixed err: max virtual memory areas vm.max*map*count [65530] is too low](#05fixed-err-max-virtual-memory-areas-vmmaxmapcount-65530-is-too-low)
-        - [06.多播模式：配置不配置 network.host & transport.host 节点之间不能互相发现](#06多播模式配置不配置-networkhost--transporthost-节点之间不能互相发现)
-        - [07.单播模式：必须配置 network.host，hosts 列表必须配置端口或端口范围](#07单播模式必须配置-networkhosthosts-列表必须配置端口或端口范围)
-        - [08.更新 License，从trial到basic，Elastic X-Pack Updating Your License](#08更新-license从trial到basicelastic-x-pack-updating-your-license)
-        - [09.Elastic X-Pack Basic License Disable Security](#09elastic-x-pack-basic-license-disable-security)
-        - [10.集群控制台ElasticHD配置域名[*.**.qq.com]连接后，集群可以连接，Rest API报错，502: Bad Gateway ?](#10集群控制台elastichd配置域名qqcom连接后集群可以连接rest-api报错502-bad-gateway-)
-        - [11.并发量上来 restClient close 问题](#11并发量上来-restclient-close-问题)
-        - [12.并发量上来大量「502 504」，分析发现是域名解析超时，临时干掉nginx域名解析反向代理层](#12并发量上来大量502-504分析发现是域名解析超时临时干掉nginx域名解析反向代理层)
-        - [13.fixed bug: Cannot assign requested address「无可用端口，短链接关闭后，链接处于 TIME_WAIT 状态，本地端口仍被占用中」](#13fixed-bug-cannot-assign-requested-address无可用端口短链接关闭后链接处于-time_wait-状态本地端口仍被占用中)
-        - [14.开启端口复用后，请求一直连接超时；并且一直触发GC「Minor GC，不是 Full GC」，新生代中没有合适区域存放分配的数据结构](#14开启端口复用后请求一直连接超时并且一直触发gcminor-gc不是-full-gc新生代中没有合适区域存放分配的数据结构)
-        - [15.调整 ArslanElasticBenchmark & ArslanElasticServer 线程数、队列长度、超时时间、Gatling配置 多轮压测](#15调整-arslanelasticbenchmark--arslanelasticserver-线程数队列长度超时时间gatling配置-多轮压测)
-        - [16.master被压挂了，索引分片丢失，30mins恢复索引分片同步](#16master被压挂了索引分片丢失30mins恢复索引分片同步)
-        - [17.ES单节点堆内存不超过32G，为了充分利用服务器[64G内存]资源，节点由3个扩容到5个](#17es单节点堆内存不超过32g为了充分利用服务器64g内存资源节点由3个扩容到5个)
-        - [18.ES集群节点从3个扩容到5个，集群分片动态迁移达到均衡状态，每个节点2个分片](#18es集群节点从3个扩容到5个集群分片动态迁移达到均衡状态每个节点2个分片)
-        - [19.副本从1调整到2，提升搜索性能；压测脚本重构，从链式异步改成并行异步；压测脚本区分场景](#19副本从1调整到2提升搜索性能压测脚本重构从链式异步改成并行异步压测脚本区分场景)
-        - [20.Vert.x web 重构 TAF 3.0 HTTP 压测基准 Web APIs ArslanElasticBenchmarkV2](#20vertx-web-重构-taf-30-http-压测基准-web-apis-arslanelasticbenchmarkv2)
-        - [21.跟@帆总一起排查 "TAF主控连接关闭问题”](#21跟帆总一起排查-taf主控连接关闭问题)
 - [参考资料](#参考资料)
-
-<!-- /TOC -->
 
 ## 背景
 目前评论数据存储用户和书籍两个维度的数据，共计8亿条记录左右，还在快速持续增长中；数据链路采用 DCache & Redis & MySQL 存储模式，DCache 存储了一份评论全量数据，Redis 存储评论数据各种维度检索的索引的各种数据结构，MySQL 集群采用分库分表[10*10]策略存储评论原子结构数据。随着评论业务线需求逐渐迭代和复杂化，评论数据的各种维度查询服务逐渐复杂化，Redis 存储的索引数据结构比较隐晦，越来越多，越来越复杂，不易维护；由于评论更新流程是3写，没有数据一致性校验阶段，导致存储侧各种数据不一致。所以，考虑接入Elasticsearch，代替Redis存储侧，简化 MySQL 存储侧各维度评论原子数据为一份；减少依赖链路长度，保证数据一致性。
@@ -343,7 +272,7 @@ Kibana 部署并连接ES集群，最好连接一个非主节点和非数据节�
 
 ## 3 代理层 Server & Client
 Elasticsearch集群作为基础服务组件，一定要做好与业务隔离性，做好接口收敛，屏蔽掉业务无关性，封装一些通用的ES接入接口；官方提供了各种语言的Client，可以根据需求自行封装服务，然后与自家的中间件层集成，这样就可以接入自家平台的发布部署、监控、CI相融合。<br/>
-我这里封装了 TAF Proxy 接入集团 TAF 服务治理和链路监控，同时封装Client给业务接入方使用，可以做到细粒度到接口层面的ES接入控制，统一版本迭代。<br/>
+我这里封装了 Tencent TAF Proxy 接入集团 Tencent TAF 服务治理和链路监控，同时封装Client给业务接入方使用，可以做到细粒度到接口层面的ES接入控制，统一版本迭代。<br/>
 关于代理层 Server 和 Client 的更多细节就不再这里赘述。
 
 ## 4 性能压测
@@ -521,9 +450,9 @@ fixed: JVM调大堆内存，调高新生代和老生代比例
 
 #### 19.副本从1调整到2，提升搜索性能；压测脚本重构，从链式异步改成并行异步；压测脚本区分场景
 
-#### 20.Vert.x web 重构 TAF 3.0 HTTP 压测基准 Web APIs ArslanElasticBenchmarkV2
+#### 20.Vert.x web 重构 Tencent TAF 3.0 HTTP 压测基准 Web APIs ArslanElasticBenchmarkV2
 
-#### 21.跟@帆总一起排查 "TAF主控连接关闭问题”
+#### 21.跟@帆总一起排查 "Tencent TAF主控连接关闭问题”
 bug: 同时创建多个communicator时，并发高时会出现窜包问题，即连接和回包的对应关系在特定场景下出现匹配错乱；
      深层次原因，初步认为与连接异步创建和回包超时淘汰有关，等后续 base-taf 版本迭代fix
 
