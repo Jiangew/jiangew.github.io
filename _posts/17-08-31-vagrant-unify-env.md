@@ -11,25 +11,25 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [install Vagrant &amp; VirtualBox](#install-vagrant--virtualbox)
-      * [Vagrantfile](#vagrantfile)
-      * [boot &amp; rebuild](#boot--rebuild)
-      * [reload &amp; provision](#reload--provision)
-      * [teardown](#teardown)
-      * [login in &amp; out](#login-in--out)
-      * [synced folders &amp; type](#synced-folders--type)
-         * [RSync](#rsync)
-         * [NFS](#nfs)
-         * [SMB](#smb)
-         * [VirtualBox](#virtualbox)
-      * [install apache](#install-apache)
-      * [vagrant providers](#vagrant-providers)
-      * [Perfect Vagrantfile](#perfect-vagrantfile)
-      * [Done](#done)
+- [install Vagrant & VirtualBox](#install-vagrant--virtualbox)
+- [Vagrantfile](#vagrantfile)
+- [boot & rebuild](#boot--rebuild)
+- [reload & provision](#reload--provision)
+- [teardown](#teardown)
+- [login in & out](#login-in--out)
+- [synced folders & type](#synced-folders--type)
+    - [RSync](#rsync)
+    - [NFS](#nfs)
+    - [SMB](#smb)
+    - [VirtualBox](#virtualbox)
+- [install apache](#install-apache)
+- [vagrant providers](#vagrant-providers)
+- [Perfect Vagrantfile](#perfect-vagrantfile)
+- [Done](#done)
+
+<!-- /TOC -->
 
 最近由于某种原因，需要在本地部署几个相同的开发环境；首先就想到了Vagrant，去官网一看，已经更新到1.9.8了，功能更加丰富，易用性更强，新增了Mirror查询服务，不用预先下载Box，添加Box更加简单。下面记录在OS X上部署统一开发环境时的一些关键步骤和遇到的问题，备忘。。。<br />
 先预告一下，宿主机和客机共享文件夹是一个大坑；使用VirtualBox作为Provider时，默认的共享文件机制有Bug，会出现无法同步的问题。。。<br />

@@ -12,17 +12,17 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [Unified Logging](#unified-logging)
-      * [Run Logstash Shipper &amp; Broker &amp; Indexer](#run-logstash-shipper--broker--indexer)
-      * [Enrich &amp; Transport](#enrich--transport)
-      * [Collect](#collect)
-      * [Env Test](#env-test)
-      * [Install](#install)
-      * [Reference](#reference)
+- [Unified Logging](#unified-logging)
+- [Run Logstash Shipper & Broker & Indexer](#run-logstash-shipper--broker--indexer)
+- [Enrich & Transport](#enrich--transport)
+- [Collect](#collect)
+- [Env Test](#env-test)
+- [Install](#install)
+- [Reference](#reference)
+
+<!-- /TOC -->
 
 ## Unified Logging
 日志统一输出，Logstash Agent 把 Linux 服务器各节点的 Rsyslog 日志文件收集，然后统一归并集中。

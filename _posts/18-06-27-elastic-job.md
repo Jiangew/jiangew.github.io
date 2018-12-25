@@ -13,28 +13,25 @@ author: jiangew
 
 <!-- TOC -->
 
-- [分布式 Schedule Job 业务接入开发指南](#分布式-schedule-job-业务接入开发指南)
-    - [0 环境要求](#0-环境要求)
-    - [1 作业开发](#1-作业开发)
-        - [1.1 Simple 类型作业](#11-simple-类型作业)
-        - [1.2 Dataflow 类型作业](#12-dataflow-类型作业)
-        - [1.3 流式处理](#13-流式处理)
-    - [2 作业配置](#2-作业配置)
-    - [3 基于 SpringBoot 业务接入开发指南](#3-基于-springboot-业务接入开发指南)
-        - [3.1 项目pom文件中新增maven依赖](#31-项目pom文件中新增maven依赖)
-        - [3.2 项目配置文件中新增 RegistryCenter & Job Config](#32-项目配置文件中新增-registrycenter--job-config)
-        - [3.3 注册中心 Configuration Bean 注入](#33-注册中心-configuration-bean-注入)
-        - [3.4 事件追踪数据源 Configuration Bean 注入](#34-事件追踪数据源-configuration-bean-注入)
-        - [3.5 新增 Job Service](#35-新增-job-service)
-        - [3.6 新增 Job Configuration](#36-新增-job-configuration)
-        - [3.7 启动 SpringBoot](#37-启动-springboot)
-        - [3.8 登录 Schedule Job 控制台，分别配置 注册中心和事件追踪数据源](#38-登录-schedule-job-控制台分别配置-注册中心和事件追踪数据源)
-        - [3.9 新增了注册中心配置后，可以看到作业操作，包含Job维度和Server维度](#39-新增了注册中心配置后可以看到作业操作包含job维度和server维度)
-        - [4.0 新增了数据追踪数据源后，可以查看作业历史，包括历史轨迹和历史状态。](#40-新增了数据追踪数据源后可以查看作业历史包括历史轨迹和历史状态)
+- [0 环境要求](#0-环境要求)
+- [1 作业开发](#1-作业开发)
+    - [1.1 Simple 类型作业](#11-simple-类型作业)
+    - [1.2 Dataflow 类型作业](#12-dataflow-类型作业)
+    - [1.3 流式处理](#13-流式处理)
+- [2 作业配置](#2-作业配置)
+- [3 基于 SpringBoot 业务接入开发指南](#3-基于-springboot-业务接入开发指南)
+    - [3.1 项目pom文件中新增maven依赖](#31-项目pom文件中新增maven依赖)
+    - [3.2 项目配置文件中新增 RegistryCenter & Job Config](#32-项目配置文件中新增-registrycenter--job-config)
+    - [3.3 注册中心 Configuration Bean 注入](#33-注册中心-configuration-bean-注入)
+    - [3.4 事件追踪数据源 Configuration Bean 注入](#34-事件追踪数据源-configuration-bean-注入)
+    - [3.5 新增 Job Service](#35-新增-job-service)
+    - [3.6 新增 Job Configuration](#36-新增-job-configuration)
+    - [3.7 启动 SpringBoot](#37-启动-springboot)
+    - [3.8 登录 Schedule Job 控制台，分别配置 注册中心和事件追踪数据源](#38-登录-schedule-job-控制台分别配置-注册中心和事件追踪数据源)
+    - [3.9 新增了注册中心配置后，可以看到作业操作，包含Job维度和Server维度](#39-新增了注册中心配置后可以看到作业操作包含job维度和server维度)
+    - [4.0 新增了数据追踪数据源后，可以查看作业历史，包括历史轨迹和历史状态。](#40-新增了数据追踪数据源后可以查看作业历史包括历史轨迹和历史状态)
 
 <!-- /TOC -->
-
-# 分布式 Schedule Job 业务接入开发指南
 
 ## 0 环境要求
 采用当当开源的 Elastic-Job 框架，要求JDK 1.7及以上版本，Zookeeper 3.4.6及以上版本，Maven 3.0.4及以上版本。

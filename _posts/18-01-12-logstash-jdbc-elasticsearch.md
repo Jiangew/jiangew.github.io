@@ -11,33 +11,34 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [安装 GEM](#安装-gem)
-         * [Linux](#linux)
-         * [OS X](#os-x)
-      * [替换 Ruby 仓库镜像「Amazon to Taobao」](#替换-ruby-仓库镜像amazon-to-taobao)
-         * [Output](#output)
-         * [请确保只有 ruby.taobao.org](#请确保只有-rubytaobaoorg)
-      * [修改 Gemfile 的数据源地址](#修改-gemfile-的数据源地址)
-      * [直接替换源，不用修改 Gemfile 地址](#直接替换源不用修改-gemfile-地址)
-      * [Install Logstash Plugins from RubyGems](#install-logstash-plugins-from-rubygems)
-      * [Install Logstash Plugins Offline](#install-logstash-plugins-offline)
-      * [Logstash Plugins List](#logstash-plugins-list)
-      * [Logstash-input-jdbc conf](#logstash-input-jdbc-conf)
-      * [Logstash input source filter conf](#logstash-input-source-filter-conf)
-      * [Logstash-output-elasticsearch conf](#logstash-output-elasticsearch-conf)
-      * [Logstash Run](#logstash-run)
-      * [Problems Encountered and Solved](#problems-encountered-and-solved)
-         * [Elasticsearch 数据重复和增量同步](#elasticsearch-数据重复和增量同步)
-         * [数据同步频繁，影响MySQL集群性能](#数据同步频繁影响mysql集群性能)
-         * [Elasticsearch 存储容量上升](#elasticsearch-存储容量上升)
-         * [增量同步和MySQL范围查询，导致MySQL数据库有修改时无法同步](#增量同步和mysql范围查询导致mysql数据库有修改时无法同步)
-         * [大数据量的同步方案](#大数据量的同步方案)
+- [安装 GEM](#安装-gem)
+    - [Linux](#linux)
+    - [OS X](#os-x)
+- [替换 Ruby 仓库镜像「Amazon to Taobao」](#替换-ruby-仓库镜像amazon-to-taobao)
+    - [Output](#output)
+    - [请确保只有 ruby.taobao.org](#请确保只有-rubytaobaoorg)
+- [修改 Gemfile 的数据源地址](#修改-gemfile-的数据源地址)
+- [直接替换源，不用修改 Gemfile 地址](#直接替换源不用修改-gemfile-地址)
+- [Install Logstash Plugins from RubyGems](#install-logstash-plugins-from-rubygems)
+- [Install Logstash Plugins Offline](#install-logstash-plugins-offline)
+- [Logstash Plugins List](#logstash-plugins-list)
+- [Logstash-input-jdbc conf](#logstash-input-jdbc-conf)
+- [Logstash input source filter conf](#logstash-input-source-filter-conf)
+- [Logstash-output-elasticsearch conf](#logstash-output-elasticsearch-conf)
+- [Logstash Run](#logstash-run)
+- [Problems Encountered and Solved](#problems-encountered-and-solved)
+    - [Elasticsearch 数据重复和增量同步](#elasticsearch-数据重复和增量同步)
+    - [数据同步频繁，影响MySQL集群性能](#数据同步频繁影响mysql集群性能)
+    - [Elasticsearch 存储容量上升](#elasticsearch-存储容量上升)
+    - [增量同步和MySQL范围查询，导致MySQL数据库有修改时无法同步](#增量同步和mysql范围查询导致mysql数据库有修改时无法同步)
+    - [大数据量的同步方案](#大数据量的同步方案)
+
+<!-- /TOC -->
 
 ## 安装 GEM
+
 ### Linux
 ```sh
 sudo yum install gem

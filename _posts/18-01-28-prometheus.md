@@ -13,30 +13,29 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-   * [Prometheus](#prometheus)
-      * [Architecture Overview](#architecture-overview)
-      * [Configuring Prometheus to monitor itself](#configuring-prometheus-to-monitor-itself)
-      * [Starting Prometheus](#starting-prometheus)
-      * [Gather metrics](#gather-metrics)
-      * [Using the expression browser](#using-the-expression-browser)
-      * [Expression language](#expression-language)
-      * [Using the graphing interface](#using-the-graphing-interface)
-      * [Starting up some sample targets](#starting-up-some-sample-targets)
-         * [Download the Go client library for Prometheus and run three of these example processes:](#download-the-go-client-library-for-prometheus-and-run-three-of-these-example-processes)
-         * [You should now have example targets listening on](#you-should-now-have-example-targets-listening-on)
-      * [Configuring Prometheus to monitor the sample targets](#configuring-prometheus-to-monitor-the-sample-targets)
-         * [Expose such as the rpc_durations_seconds metric](#expose-such-as-the-rpc_durations_seconds-metric)
-      * [Configure rules for aggregating scraped data into new time series](#configure-rules-for-aggregating-scraped-data-into-new-time-series)
-         * [expression](#expression)
-         * [prometheus.rules.yml](#prometheusrulesyml)
-      * [Perfect Prometheus Config](#perfect-prometheus-config)
-         * [Expose metric name](#expose-metric-name)
-      * [Reference](#reference)
+- [Architecture Overview](#architecture-overview)
+- [Configuring Prometheus to monitor itself](#configuring-prometheus-to-monitor-itself)
+- [Starting Prometheus](#starting-prometheus)
+- [Gather metrics](#gather-metrics)
+- [Using the expression browser](#using-the-expression-browser)
+- [Expression language](#expression-language)
+- [Using the graphing interface](#using-the-graphing-interface)
+- [Starting up some sample targets](#starting-up-some-sample-targets)
+    - [Download the Go client library for Prometheus and run three of these example processes:](#download-the-go-client-library-for-prometheus-and-run-three-of-these-example-processes)
+    - [You should now have example targets listening on](#you-should-now-have-example-targets-listening-on)
+- [Configuring Prometheus to monitor the sample targets](#configuring-prometheus-to-monitor-the-sample-targets)
+    - [Expose such as the rpc_durations_seconds metric](#expose-such-as-the-rpc_durations_seconds-metric)
+- [Configure rules for aggregating scraped data into new time series](#configure-rules-for-aggregating-scraped-data-into-new-time-series)
+    - [expression](#expression)
+    - [prometheus.rules.yml](#prometheusrulesyml)
+- [Perfect Prometheus Config](#perfect-prometheus-config)
+    - [Expose metric name](#expose-metric-name)
+- [Reference](#reference)
 
-# Prometheus
+<!-- /TOC -->
+
 Power your metrics and alerting with a leading open-source monitoring solution.
 
 ## Architecture Overview

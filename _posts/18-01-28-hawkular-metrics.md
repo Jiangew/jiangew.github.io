@@ -14,29 +14,29 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [Cassandra](#cassandra)
-         * [Reference](#reference)
-      * [CCM「Cassandra Cluster Manager」](#ccmcassandra-cluster-manager)
-         * [Reference](#reference-1)
-         * [Create Cassandra Cluster &amp; Start &amp; Stop](#create-cassandra-cluster--start--stop)
-      * [Hawkular Metrcis](#hawkular-metrcis)
-         * [Reference](#reference-2)
-         * [Run Hawkular Services](#run-hawkular-services)
-         * [Dashboard](#dashboard)
-         * [Metric Types](#metric-types)
-         * [Creating Tenants](#creating-tenants)
-         * [Creating Metrics](#creating-metrics)
-         * [Query Metrics](#query-metrics)
-      * [Grafana](#grafana)
-         * [Reference](#reference-3)
-         * [Install &amp; Start &amp; Stop](#install--start--stop)
-         * [Foreground Run](#foreground-run)
-         * [Hawkular Datasource Plugin](#hawkular-datasource-plugin)
-         * [Dashboard](#dashboard-1)
+- [Cassandra](#cassandra)
+    - [Reference](#reference)
+- [CCM「Cassandra Cluster Manager」](#ccmcassandra-cluster-manager)
+    - [Reference](#reference-1)
+    - [Create Cassandra Cluster & Start & Stop](#create-cassandra-cluster--start--stop)
+- [Hawkular Metrcis](#hawkular-metrcis)
+    - [Reference](#reference-2)
+    - [Run Hawkular Services](#run-hawkular-services)
+    - [Dashboard](#dashboard)
+    - [Metric Types](#metric-types)
+    - [Creating Tenants](#creating-tenants)
+    - [Creating Metrics](#creating-metrics)
+    - [Query Metrics](#query-metrics)
+- [Grafana](#grafana)
+    - [Reference](#reference-3)
+    - [Install & Start & Stop](#install--start--stop)
+    - [Foreground Run](#foreground-run)
+    - [Hawkular Datasource Plugin](#hawkular-datasource-plugin)
+    - [Dashboard](#dashboard-1)
+
+<!-- /TOC -->
 
 ## Cassandra
 Apache Cassandra is a highly-scalable partitioned row store. Rows are organized into tables with a required primary key.

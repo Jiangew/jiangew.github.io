@@ -12,27 +12,28 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-   * [Filebeat](#filebeat)
-      * [Beats combo Logstash Highly Available](#beats-combo-logstash-highly-available)
-      * [Install Filebeat](#install-filebeat)
-      * [Config Filebeat](#config-filebeat)
-         * [Filebeat Prospectors](#filebeat-prospectors)
-         * [Filebeat modules](#filebeat-modules)
-         * [Elasticsearch template setting](#elasticsearch-template-setting)
-         * [Dashboards](#dashboards)
-         * [Set up the Kibana dashboards by Commond](#set-up-the-kibana-dashboards-by-commond)
-         * [Kibana](#kibana)
-         * [Elasticsearch output](#elasticsearch-output)
-         * [Logstash output](#logstash-output)
-         * [Logstash conf](#logstash-conf)
-         * [Elasticsearch input plugins](#elasticsearch-input-plugins)
-         * [Start Filebeat](#start-filebeat)
-      * [Reference](#reference)
+- [Filebeat](#filebeat)
+- [Beats combo Logstash Highly Available](#beats-combo-logstash-highly-available)
+- [Install Filebeat](#install-filebeat)
+- [Config Filebeat](#config-filebeat)
+    - [Filebeat Prospectors](#filebeat-prospectors)
+    - [Filebeat modules](#filebeat-modules)
+    - [Elasticsearch template setting](#elasticsearch-template-setting)
+    - [Dashboards](#dashboards)
+    - [Set up the Kibana dashboards by Commond](#set-up-the-kibana-dashboards-by-commond)
+    - [Kibana](#kibana)
+    - [Elasticsearch output](#elasticsearch-output)
+    - [Logstash output](#logstash-output)
+    - [Logstash conf](#logstash-conf)
+    - [Elasticsearch input plugins](#elasticsearch-input-plugins)
+    - [Start Filebeat](#start-filebeat)
+- [Reference](#reference)
 
-# Filebeat
+<!-- /TOC -->
+
+## Filebeat
 * Lightweight Shipper for Logs.
 * Ship to Elasticsearch or Logstash.
 * Visualize in Kibana.

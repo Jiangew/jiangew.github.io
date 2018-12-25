@@ -10,17 +10,17 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [Vert.x Slogon](#vertx-slogon)
-      * [Akka Slogon](#akka-slogon)
-      * [定义 Actors 和 Messages](#定义-actors-和-messages)
-      * [创建 Actors](#创建-actors)
-      * [异步通信](#异步通信)
-      * [Running](#running)
-      * [参考](#参考)
+- [Vert.x Slogon](#vertx-slogon)
+- [Akka Slogon](#akka-slogon)
+- [定义 Actors 和 Messages](#定义-actors-和-messages)
+- [创建 Actors](#创建-actors)
+- [异步通信](#异步通信)
+- [Running](#running)
+- [参考](#参考)
+
+<!-- /TOC -->
 
 最近刚使用Vert.x重构了一个项目，被Vert.x高性能、全异步、Reactive编程模型震撼到了；同样是实现了Actor模型的另一个框架Akka，也很优秀，两个框架Slogon都很神似，最近准备研究对比下两个框架的实现。这篇文章只是简单的akka快速了解和上手。
 

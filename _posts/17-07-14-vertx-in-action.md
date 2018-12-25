@@ -11,29 +11,34 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Table of Contents](#table-of-contents)
-      * [What is Vert.x ?](#what-is-vertx-)
-      * [Maven 构建 Verticle 并部署](#maven-构建-verticle-并部署)
-      * [BlockingHandler &amp; ExecuteBlocking vs WorkerVerticle](#blockinghandler--executeblocking-vs-workerverticle)
-         * [ExecuteBlocking 示例](#executeblocking-示例)
-         * [BlockingHandler 示例](#blockinghandler-示例)
-      * [动态部署 Verticle 实例](#动态部署-verticle-实例)
-      * [日志](#日志)
-      * [Vert.x 运行时性能指标监控「Dropwizard &amp;&amp; Jolokia &amp;&amp; Hawtio」](#vertx-运行时性能指标监控dropwizard--jolokia--hawtio)
-         * [通过运行 fat-jar 时指定参数](#通过运行-fat-jar-时指定参数)
-         * [通过设置 VertxOptions 属性](#通过设置-vertxoptions-属性)
-         * [下载 Jolokia，用来获取运行时 Vert.x 实例的性能指标](#下载-jolokia用来获取运行时-vertx-实例的性能指标)
-         * [下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形化形式监控 Vert.x 运行时状态](#下载-hawtiohawtio-可以远程连接-jolokia以图形化形式监控-vertx-运行时状态)
-         * [基于 Tomcat 部署监控图形化](#基于-tomcat-部署监控图形化)
-         * [开启 Tomcat 登录鉴权](#开启-tomcat-登录鉴权)
-         * [图形化监控面板示例](#图形化监控面板示例)
-         * [Using Jolokia and JMX4Perl to expose metrics to Nagios](#using-jolokia-and-jmx4perl-to-expose-metrics-to-nagios)
-         * [Jolokia &amp;&amp; Hawtio 监控参考](#jolokia--hawtio-监控参考)
-      * [健康检查「Health Checks」](#健康检查health-checks)
-      * [数据打点统计「Hawkular &amp;&amp; Cassandra &amp;&amp; Grafana」](#数据打点统计hawkular--cassandra--grafana)
+- [What is Vert.x ?](#what-is-vertx-)
+- [Maven 构建 Verticle 并部署](#maven-构建-verticle-并部署)
+    - [使用 maven-shade-plugin 插件构建 fat-jar 包，包含了所有依赖，可以独立运行的包](#使用-maven-shade-plugin-插件构建-fat-jar-包包含了所有依赖可以独立运行的包)
+    - [运行 fat-jar](#运行-fat-jar)
+    - [通过 -instances 参数部署多个 Verticle 实例，释放多核的能力](#通过--instances-参数部署多个-verticle-实例释放多核的能力)
+    - [通过 -cluster && -ha 参数部署 Verticle 实例，开启集群和高可用模式](#通过--cluster---ha-参数部署-verticle-实例开启集群和高可用模式)
+    - [通过 -conf 参数部署 Verticle 实例，动态加载配置文件](#通过--conf-参数部署-verticle-实例动态加载配置文件)
+- [BlockingHandler & ExecuteBlocking vs WorkerVerticle](#blockinghandler--executeblocking-vs-workerverticle)
+    - [ExecuteBlocking 示例](#executeblocking-示例)
+    - [BlockingHandler 示例](#blockinghandler-示例)
+- [动态部署 Verticle 实例](#动态部署-verticle-实例)
+- [日志](#日志)
+- [Vert.x 运行时性能指标监控「Dropwizard && Jolokia && Hawtio」](#vertx-运行时性能指标监控dropwizard--jolokia--hawtio)
+    - [通过运行 fat-jar 时指定参数](#通过运行-fat-jar-时指定参数)
+    - [通过设置 VertxOptions 属性](#通过设置-vertxoptions-属性)
+    - [下载 Jolokia，用来获取运行时 Vert.x 实例的性能指标](#下载-jolokia用来获取运行时-vertx-实例的性能指标)
+    - [下载 Hawtio，Hawtio 可以远程连接 Jolokia，以图形化形式监控 Vert.x 运行时状态](#下载-hawtiohawtio-可以远程连接-jolokia以图形化形式监控-vertx-运行时状态)
+    - [基于 Tomcat 部署监控图形化](#基于-tomcat-部署监控图形化)
+    - [开启 Tomcat 登录鉴权](#开启-tomcat-登录鉴权)
+    - [图形化监控面板示例](#图形化监控面板示例)
+    - [Using Jolokia and JMX4Perl to expose metrics to Nagios](#using-jolokia-and-jmx4perl-to-expose-metrics-to-nagios)
+    - [Jolokia && Hawtio 监控参考](#jolokia--hawtio-监控参考)
+- [健康检查「Health Checks」](#健康检查health-checks)
+- [数据打点统计「Hawkular && Cassandra && Grafana」](#数据打点统计hawkular--cassandra--grafana)
+
+<!-- /TOC -->
 
 ## What is Vert.x ?
 Vert.x is a tool-kit for building reactive applications on the JVM.

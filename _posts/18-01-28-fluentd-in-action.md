@@ -11,23 +11,22 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-   * [Fluentd](#fluentd)
-      * [Fluentd Unified Logging Layer](#fluentd-unified-logging-layer)
-      * [Fluentd Highly Available](#fluentd-highly-available)
-      * [Install Fluentd from Source](#install-fluentd-from-source)
-         * [Fetch Source Code](#fetch-source-code)
-         * [Build and Install](#build-and-install)
-         * [Run](#run)
-         * [Stop](#stop)
-      * [Install fluentd-ui](#install-fluentd-ui)
-         * [Install fluentd-ui via gem command](#install-fluentd-ui-via-gem-command)
-         * [Change password](#change-password)
-      * [Reference](#reference)
+- [Fluentd Unified Logging Layer](#fluentd-unified-logging-layer)
+- [Fluentd Highly Available](#fluentd-highly-available)
+- [Install Fluentd from Source](#install-fluentd-from-source)
+    - [Fetch Source Code](#fetch-source-code)
+    - [Build and Install](#build-and-install)
+    - [Run](#run)
+    - [Stop](#stop)
+- [Install fluentd-ui](#install-fluentd-ui)
+    - [Install fluentd-ui via gem command](#install-fluentd-ui-via-gem-command)
+    - [Change password](#change-password)
+- [Reference](#reference)
 
-# Fluentd
+<!-- /TOC -->
+
 Fluentd is an open source data collector for unified logging layer.
 
 ## Fluentd Unified Logging Layer

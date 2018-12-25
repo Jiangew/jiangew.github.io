@@ -11,33 +11,34 @@ category: blog
 author: jiangew
 ---
 
-Table of Contents
-=================
+<!-- TOC -->
 
-  * [Quickstart](#quickstart)
-      * [Installing](#installing)
-         * [Gatling 执行测试脚本](#gatling-执行测试脚本)
-      * [Test Case](#test-case)
-         * [Gatling Scenario Explained](#gatling-scenario-explained)
-         * [Running Gatling](#running-gatling)
-         * [Execute Case](#execute-case)
-         * [Scala crashed issue](#scala-crashed-issue)
-         * [Config connection timed out](#config-connection-timed-out)
-         * [Failed to open socket issue](#failed-to-open-socket-issue)
-         * [Cannot assign requested address issue](#cannot-assign-requested-address-issue)
-      * [Advanced Tutorial](#advanced-tutorial)
-         * [Isolate processes](#isolate-processes)
-         * [Configure virtual users](#configure-virtual-users)
-         * [Loop statements](#loop-statements)
-         * [Check and failure management](#check-and-failure-management)
-      * [General](#general)
-         * [Concepts](#concepts)
-         * [Operations](#operations)
-         * [Configuration](#configuration)
-         * [Simulation setup](#simulation-setup)
-         * [Reports](#reports)
-            * [Use log file to generate report](#use-log-file-to-generate-report)
-      * [Reference](#reference)
+- [Quickstart](#quickstart)
+- [Installing](#installing)
+    - [Gatling 执行测试脚本](#gatling-执行测试脚本)
+- [Test Case](#test-case)
+    - [Gatling Scenario Explained](#gatling-scenario-explained)
+    - [Running Gatling](#running-gatling)
+    - [Execute Case](#execute-case)
+    - [Scala crashed issue](#scala-crashed-issue)
+    - [Config connection timed out](#config-connection-timed-out)
+    - [Failed to open socket issue](#failed-to-open-socket-issue)
+    - [Cannot assign requested address issue](#cannot-assign-requested-address-issue)
+- [Advanced Tutorial](#advanced-tutorial)
+    - [Isolate processes](#isolate-processes)
+    - [Configure virtual users](#configure-virtual-users)
+    - [Loop statements](#loop-statements)
+    - [Check and failure management](#check-and-failure-management)
+- [General](#general)
+    - [Concepts](#concepts)
+    - [Operations](#operations)
+    - [Configuration](#configuration)
+    - [Simulation setup](#simulation-setup)
+    - [Reports](#reports)
+        - [Use log file to generate report](#use-log-file-to-generate-report)
+- [Reference](#reference)
+
+<!-- /TOC -->
 
 Back to [Performance Test](http://wiki.li3huo.com/Performance_Test)
 See Also
@@ -46,7 +47,7 @@ See Also
 [ApacheBench](http://wiki.li3huo.com/ApacheBench)、
 [wrk](http://wiki.li3huo.com/wrk)
 
-# Quickstart
+## Quickstart
 [Offical Quickstart](http://gatling.io/docs/current/quickstart/)
 
 ## Installing
