@@ -7,6 +7,9 @@ layout: page
 
 ### 2018.12
 
+* [Dubbo 泛化调用性能优化](https://sq.163yun.com/blog/article/185512233177817088)
+* [Dubbo 压测插件的实现：基于 Gatling](https://tech.youzan.com/gatling-dubbo/)
+* [不可不说的 Java "锁"事](https://tech.meituan.com/Java_Lock.html)
 * [Mockito Guide](https://static.javadoc.io/org.mockito/mockito-core/2.23.4/org/mockito/Mockito.html)
 * [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
 * [Martin Fowler: LMAX Architecture](https://martinfowler.com/articles/lmax.html)
