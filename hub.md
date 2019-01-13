@@ -5,11 +5,19 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2019.01
+
+* [Hazelcast Go Client](https://github.com/hazelcast/hazelcast-go-client)
+* [Gorilla web toolkit for Golang](http://www.gorillatoolkit.org/)
+* [Mockito Tutorial](https://www.baeldung.com/tag/mockito/)
+* [响应式架构与 RxJava 在有赞零售的实践](https://mp.weixin.qq.com/s/HmE0oUq4escwlUYcgEByUg)
+* [Spring Boot 引起的“堆外内存泄漏”排查及经验总结](https://tech.meituan.com/spring_boot_native_memory_leak.html)
+* [不可不说的 Java ”锁“事](https://tech.meituan.com/Java_Lock.html)
+
 ### 2018.12
 
 * [Dubbo 泛化调用性能优化](https://sq.163yun.com/blog/article/185512233177817088)
 * [Dubbo 压测插件的实现：基于 Gatling](https://tech.youzan.com/gatling-dubbo/)
-* [不可不说的 Java "锁"事](https://tech.meituan.com/Java_Lock.html)
 * [Mockito Guide](https://static.javadoc.io/org.mockito/mockito-core/2.23.4/org/mockito/Mockito.html)
 * [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
 * [Martin Fowler: LMAX Architecture](https://martinfowler.com/articles/lmax.html)
