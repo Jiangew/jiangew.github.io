@@ -15,8 +15,8 @@ author: jiangew
 
 <!-- TOC -->
 
-- [Actors 模型背景](#actors-模型背景)
-- [Actors 模型特点](#actors-模型特点)
+- [Actor 模型背景](#actor-模型背景)
+- [Actor 模型特点](#actor-模型特点)
 - [Akka vs Netty](#akka-vs-netty)
 - [Actor Model](#actor-model)
     - [What: Actor Model](#what-actor-model)
@@ -37,13 +37,13 @@ author: jiangew
 
 <!-- /TOC -->
 
-## Actors 模型背景
+## Actor 模型背景
 
-Actors 模型(Actor model)首先是由Carl Hewitt在1973定义， 由Erlang OTP(Open Telecom Platform)推广，其消息传递更加符合面向对象的原始意图。Actors属于并发组件模型，通过组件方式定义并发编程范式的高级阶段，避免使用者直接接触多线程并发或线程池等基础概念。
+Actor 模型(Actor model)首先是由Carl Hewitt在1973定义， 由Erlang OTP(Open Telecom Platform)推广，其消息传递更加符合面向对象的原始意图。Actors属于并发组件模型，通过组件方式定义并发编程范式的高级阶段，避免使用者直接接触多线程并发或线程池等基础概念。
 
 流行语言并发是基于多线程之间的共享内存，使用同步方法防止写争夺，Actors使用消息模型，每个Actors在同一时间处理最多一个消息，可以发送消息给其他Actors，保证了[单独写原则](https://www.jdon.com/performance/singlewriter.html)。从而巧妙避免了多线程写争夺。
 
-## Actors 模型特点
+## Actor 模型特点
 
 * 隔离计算实体
 * Share Nothing
@@ -179,7 +179,7 @@ Vert.x EventBus是个打通到客户端的消息框架，是个All in one工具�
 
 ### Resources
 
-[PayPal 如何使用8个VM每天支撑数十亿个事务](https://www.jdon.com/48257)
-[PayPal 如何使用8个VM每天支撑数十亿个事务 原文](http://highscalability.com/blog/2016/8/15/how-paypal-scaled-to-billions-of-transactions-daily-using-ju.html)
-[PayPal Akka Streams & Akka HTTP for Large-Scale Production Deployments](http://paypal.github.io/squbs/)
-[Lightbend Platform Tech Hub](https://developer.lightbend.com/guides/?_ga=2.3489849.888347207.1547346978-1017804577.1547100744)
+* [PayPal 如何使用8个VM每天支撑数十亿个事务](https://www.jdon.com/48257)
+* [PayPal 如何使用8个VM每天支撑数十亿个事务 原文](http://highscalability.com/blog/2016/8/15/how-paypal-scaled-to-billions-of-transactions-daily-using-ju.html)
+* [PayPal Akka Streams & Akka HTTP for Large-Scale Production Deployments](http://paypal.github.io/squbs/)
+* [Lightbend Platform Tech Hub](https://developer.lightbend.com/guides/?_ga=2.3489849.888347207.1547346978-1017804577.1547100744)
