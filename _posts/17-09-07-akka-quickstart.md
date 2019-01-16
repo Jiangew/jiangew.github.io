@@ -35,9 +35,9 @@ Akka is a toolkit for building highly concurrent, distributed, and resilient mes
 
 ## 创建 Actors
 - 通过Factory创建实例，返回的是ActorRef，指向Actor实例；这种间接级别增大了分布式系统的灵活性；
-- Location transparency: ActorRef可以再保留相同语义的同时，表示正在运行的Actor在进程或远程机器上的实例；
+- Location Transparency: ActorRef可以在保留相同语义的同时，表示正在运行的Actor在进程或远程机器上的实例；
 - ActorSystem: 类似Spring BeanFactory，作为Actor的容器并管理其生命周期；
-- Actor 和 ActorSystem: 命名要用意义，最好与你的领域模型一致。
+- Actor 和 ActorSystem: 命名要有意义，最好与你的领域模型一致。
 
 ## 异步通信
 - Actors are reactive and message driven.
