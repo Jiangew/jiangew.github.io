@@ -7,6 +7,10 @@ layout: page
 
 ### 2019.01
 
+* [Lightbend Tech Hub](https://developer.lightbend.com/guides/)
+* [PingCAP Titan 的设计与实现](https://pingcap.com/blog-cn/titan-design-and-implementation/)
+* [Golang TutorialEdge](https://tutorialedge.net/course/golang/)
+* [Essential Go](https://www.programming-books.io/essential/go/)
 * [Hazelcast Go Client](https://github.com/hazelcast/hazelcast-go-client)
 * [Gorilla web toolkit for Golang](http://www.gorillatoolkit.org/)
 * [Mockito Tutorial](https://www.baeldung.com/tag/mockito/)
