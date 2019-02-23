@@ -22,7 +22,7 @@ analytics-google: 'UA-MYANALYTICS'
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
-    shortname: mydisqus # enter this from your disqus account
+    shortname: jiangew # enter this from your disqus account
     categories: [blog, project] # only show disqus for posts that have these categories
 
 # social networks
