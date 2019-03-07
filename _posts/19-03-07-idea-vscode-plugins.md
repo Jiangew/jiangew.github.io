@@ -22,7 +22,6 @@ author: jiangew
 * Protobuf Support
 * JPA Support
 * Scala
-* Mybatis Plugin
 * idea-mybatis-generator
 * Kubernetes
 * Paste Images into Markdown
