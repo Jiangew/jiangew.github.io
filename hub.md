@@ -5,6 +5,17 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2019.03
+* [SpringBoot 与 RocketMQ 客户端集成原理解读与示例 2](https://mp.weixin.qq.com/s/idomM5wZV0dOcQhHeYVHrQ)
+* [SpringBoot 与 RocketMQ 客户端集成原理解读与示例 1](https://mp.weixin.qq.com/s/WpSdhEvymxgski9w3ZbJ5A)
+* [RocketMQ：微众银行的金融级消息服务平台建设实践和思考](https://mp.weixin.qq.com/s/-70AguPeP5_DnI0wRbiHTQ)
+* [滴滴出行基于 RocketMQ 构建企业级消息队列服务的实践](https://mp.weixin.qq.com/s/v6NM3UgX-qTI7yO1QPCJrw)
+* [新架构下的 Apache RocketMQ，未来十年的数据基础设施](https://mp.weixin.qq.com/s/iu5kjRx8N8LwbtUbSq45PQ)
+* [RocketMQ Remoting 模块分析](https://mp.weixin.qq.com/s/jXvCRdP9pEmFHnPeVr4Vxg)
+* [Dledger-RocketMQ 基于 Raft 协议的 Commitlog 存储库](https://mp.weixin.qq.com/s/EPMDlPAImM31aNlF5x84lw)
+* [RocketMQ Broker 端消息消费详解](https://mp.weixin.qq.com/s/hIdMwG07skFi1XkxIpEX4w)
+* [RocketMQ 消息的过滤和重试实现原理详解](https://mp.weixin.qq.com/s/t5dTWDKD2smKek3rDV-5Lw)
+
 ### 2019.02
 * [一致性协议浅析：Paxos vs ZAB vs Raft](https://yq.aliyun.com/articles/690624)
 * [Titan 的设计与实现](https://pingcap.com/blog-cn/titan-design-and-implementation/)
