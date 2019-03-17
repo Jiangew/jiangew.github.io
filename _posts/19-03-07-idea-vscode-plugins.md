@@ -11,6 +11,10 @@ category: blog
 author: jiangew
 ---
 
+- [IDEA Plugins for Java](#idea-plugins-for-java)
+- [VSCODE Plugins for Go and Multiple Languages](#vscode-plugins-for-go-and-multiple-languages)
+- [Various Excellent Plugins](#various-excellent-plugins)
+
 ## IDEA Plugins for Java
 * Alibaba Java Coding Guidelines
 * Google Java Format
