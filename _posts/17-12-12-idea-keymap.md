@@ -1,7 +1,7 @@
 ---
 title: "IntelliJ IDEA For macOS Keymap"
 layout: post
-date: 2018-12-12 13:25
+date: 2017-12-12 13:25
 image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
@@ -13,19 +13,19 @@ author: jiangew
 
 <!-- TOC -->
 
-- [背景](#背景)
-- [Mac 键盘符号和修饰键说明](#mac-键盘符号和修饰键说明)
-- [Editing（编辑）](#editing编辑)
-- [Search/Replace（查询/替换）](#searchreplace查询替换)
-- [Usage Search（使用查询）](#usage-search使用查询)
-- [Compile and Run（编译和运行）](#compile-and-run编译和运行)
-- [Debugging（调试）](#debugging调试)
-- [Navigation（导航）](#navigation导航)
-- [Refactoring（重构）](#refactoring重构)
-- [VCS/Local History（版本控制/本地历史记录）](#vcslocal-history版本控制本地历史记录)
-- [Live Templates（动态代码模板）](#live-templates动态代码模板)
-- [General（通用）](#general通用)
-- [Other（一些官方文档上没有体现的快捷键）](#other一些官方文档上没有体现的快捷键)
+- [背景](#%E8%83%8C%E6%99%AF)
+- [Mac 键盘符号和修饰键说明](#mac-%E9%94%AE%E7%9B%98%E7%AC%A6%E5%8F%B7%E5%92%8C%E4%BF%AE%E9%A5%B0%E9%94%AE%E8%AF%B4%E6%98%8E)
+- [Editing（编辑）](#editing%E7%BC%96%E8%BE%91)
+- [Search/Replace（查询/替换）](#searchreplace%E6%9F%A5%E8%AF%A2%E6%9B%BF%E6%8D%A2)
+- [Usage Search（使用查询）](#usage-search%E4%BD%BF%E7%94%A8%E6%9F%A5%E8%AF%A2)
+- [Compile and Run（编译和运行）](#compile-and-run%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C)
+- [Debugging（调试）](#debugging%E8%B0%83%E8%AF%95)
+- [Navigation（导航）](#navigation%E5%AF%BC%E8%88%AA)
+- [Refactoring（重构）](#refactoring%E9%87%8D%E6%9E%84)
+- [VCS/Local History（版本控制/本地历史记录）](#vcslocal-history%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E6%9C%AC%E5%9C%B0%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95)
+- [Live Templates（动态代码模板）](#live-templates%E5%8A%A8%E6%80%81%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF)
+- [General（通用）](#general%E9%80%9A%E7%94%A8)
+- [Other（一些官方文档上没有体现的快捷键）](#other%E4%B8%80%E4%BA%9B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E4%B8%8A%E6%B2%A1%E6%9C%89%E4%BD%93%E7%8E%B0%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE)
 
 <!-- /TOC -->
 
