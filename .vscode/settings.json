@@ -1,8 +1,0 @@
-{
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "vscode-icons",
-    "files.autoSave": "afterDelay",
-
-    "go.goroot": "/usr/local/go",
-    "go.gopath": "/Users/Jiangew/go"
-}
