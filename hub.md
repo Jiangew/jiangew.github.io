@@ -7,6 +7,11 @@ layout: page
 
 ### 2019.03
 
+* [Create a Vert.x EventBus Service with Service Proxy](https://vertx-howtos.github.io/service-proxy-howto/)
+* [Vert.x 技术内幕：EventBus 源码分析『Clustered』](https://www.sczyh30.com/posts/Vert-x/vertx-advanced-clustered-event-bus-internal/)
+* [Vert.x 技术内幕：EventBus 源码分析『Local模式』](https://www.sczyh30.com/posts/Vert-x/vertx-advanced-local-event-bus-internal/)
+* [Vert.x 3.x Awesome](https://github.com/vert-x3/vertx-awesome)
+* [Retrofit: A type-safe HTTP client for Android and Java](http://square.github.io/retrofit/)
 * [Spring Cloud Security OAuth2（二）：搭建资源服务端](https://segmentfault.com/a/1190000015637117)
 * [Spring Cloud Security OAuth2（一）：搭建授权服务](https://segmentfault.com/a/1190000014687027)
 * [Spring Security OAuth 2.0 Demo](https://github.com/lexburner/oauth2-demo)
@@ -16,6 +21,9 @@ layout: page
 * [RSocket 从入门到落地：Servlet vs RSocket](https://mp.weixin.qq.com/s/bfU8nUBqcdwOGobHmgFCDg)
 * [八个层面比较 Java 8, RxJava, Reactor](https://www.cnkirito.moe/comparing-rxjava/)
 * [取代 ZooKeeper！高并发下的分布式一致性开源组件 StateSynchronizer](https://www.infoq.cn/article/wOdBDWIGrIZ7r*4acVYf)
+
+### 2019.02
+
 * [SpringBoot 与 RocketMQ 客户端集成原理解读与示例 2](https://mp.weixin.qq.com/s/idomM5wZV0dOcQhHeYVHrQ)
 * [SpringBoot 与 RocketMQ 客户端集成原理解读与示例 1](https://mp.weixin.qq.com/s/WpSdhEvymxgski9w3ZbJ5A)
 * [RocketMQ：微众银行的金融级消息服务平台建设实践和思考](https://mp.weixin.qq.com/s/-70AguPeP5_DnI0wRbiHTQ)
@@ -25,9 +33,6 @@ layout: page
 * [Dledger-RocketMQ 基于 Raft 协议的 Commitlog 存储库](https://mp.weixin.qq.com/s/EPMDlPAImM31aNlF5x84lw)
 * [RocketMQ Broker 端消息消费详解](https://mp.weixin.qq.com/s/hIdMwG07skFi1XkxIpEX4w)
 * [RocketMQ 消息的过滤和重试实现原理详解](https://mp.weixin.qq.com/s/t5dTWDKD2smKek3rDV-5Lw)
-
-### 2019.02
-
 * [一致性协议浅析：Paxos vs ZAB vs Raft](https://yq.aliyun.com/articles/690624)
 * [Titan 的设计与实现](https://pingcap.com/blog-cn/titan-design-and-implementation/)
 * [深入了解 gRPC：协议](https://pingcap.com/blog-cn/grpc/)
