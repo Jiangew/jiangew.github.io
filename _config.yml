@@ -1,9 +1,9 @@
 # main text of home
 name: 搬砖工·甘罗
-bio: ~ Natural fearless, Dream precious ~
+bio: ~ 帝都互联网圈一个跑龙套的程序猿 ~
 
 # slogon
-description: ~ Natural fearless, Dream precious ~
+description: ~ 帝都互联网圈一个跑龙套的程序猿 ~
 
 # if it's an external image, update below for true better with square images
 external-image: false
@@ -36,7 +36,7 @@ instagram: jiangew
 authors:
     Ew Jiang:
         name: Ew Jiang
-        bio: ~ Natural fearless, Dream precious ~
+        bio: ~ 帝都互联网圈一个跑龙套的程序猿 ~
         external-image: false
         picture: assets/images/base/profile.png
         twitter: JamesiWork

@@ -1,14 +1,14 @@
 <div class="pagination">
     {% if paginator.previous_page %}
-        <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">«</a>
+        <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">👈</a>
     {% else %}
         <span class="previous hidden">«</span>
     {% endif %}
 
-    <span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    <span class="page_number ">PAGE {{ paginator.page }} OF {{ paginator.total_pages }}</span>
 
     {% if paginator.next_page %}
-        <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">»</a>
+        <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">👉</a>
     {% else %}
         <span class="next hidden">»</span>
     {% endif %}
