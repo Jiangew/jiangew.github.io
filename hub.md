@@ -12,6 +12,8 @@ layout: page
 * [Vert.x 技术内幕：EventBus 源码分析『Local模式』](https://www.sczyh30.com/posts/Vert-x/vertx-advanced-local-event-bus-internal/)
 * [Vert.x 3.x Awesome](https://github.com/vert-x3/vertx-awesome)
 * [Retrofit: A type-safe HTTP client for Android and Java](http://square.github.io/retrofit/)
+* [从 OKHttp 框架看代码设计](https://juejin.im/post/581311cabf22ec0068826aff)
+* [大概是最完全的 Okio 源码解析文章](https://www.jianshu.com/p/f033a64539a1)
 * [Spring Cloud Security OAuth2（二）：搭建资源服务端](https://segmentfault.com/a/1190000015637117)
 * [Spring Cloud Security OAuth2（一）：搭建授权服务](https://segmentfault.com/a/1190000014687027)
 * [Spring Security OAuth 2.0 Demo](https://github.com/lexburner/oauth2-demo)
