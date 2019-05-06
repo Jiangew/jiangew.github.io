@@ -206,6 +206,7 @@ layout: page
 * [深入解析中间件：Canal](http://zqhxuyuan.github.io/2017/10/10/Midd-canal/)
 * [深入解析中间件：Dubbo](http://zqhxuyuan.github.io/2017/10/18/Midd-Dubbo/)
 * [Elasticsearch high-level Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+* [猫头鹰的深夜翻译：20 Examples of Using Java's CompletableFuture](https://juejin.im/entry/5a9777c86fb9a0634514f089)
 * [20 Examples of Using Java’s CompletableFuture](https://dzone.com/articles/what-is-project-amber-in-java-1)
 * [Elasticsearch Hive integration](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/hive.html)
 * [Hive Data into Elasticsearch](http://note4code.com/2016/06/17/hive-%E5%90%91-elasticsearch-%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE/)
