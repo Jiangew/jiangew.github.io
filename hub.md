@@ -5,6 +5,11 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2019.05
+
+* [Introduction to Spring with Akka](https://www.baeldung.com/akka-with-spring)
+* [Spring Boot Meets Akka](https://kimrudolph.de/blog/spring-boot-meets-akka)
+
 ### 2019.03
 
 * [Create a Vert.x EventBus Service with Service Proxy](https://vertx-howtos.github.io/service-proxy-howto/)
