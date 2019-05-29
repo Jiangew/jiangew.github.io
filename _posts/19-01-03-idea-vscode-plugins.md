@@ -1,7 +1,7 @@
 ---
 title: "IDEA and VSCODE Plugins Recommended"
 layout: post
-date: 2019-03-07 22:50
+date: 2019-01-03 22:50
 image: /assets/images/base/markdown.jpg
 headerImage: false
 tag:
@@ -16,6 +16,7 @@ author: jiangew
 - [Various Excellent Plugins](#various-excellent-plugins)
 
 ## IDEA Plugins for Java
+
 * Alibaba Java Coding Guidelines
 * Google Java Format
 * Lombok Plugin
@@ -33,6 +34,7 @@ author: jiangew
 * TestNG-J
 
 ## VSCODE Plugins for Go and Multiple Languages
+
 * Go
 * DEP
 * Golang TDD
@@ -56,5 +58,6 @@ author: jiangew
 * Java Dependency Viewer
 
 ## Various Excellent Plugins
+
 * 各种优秀插件持续发掘中 。。。
 
