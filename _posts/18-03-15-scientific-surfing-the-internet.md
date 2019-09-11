@@ -23,10 +23,10 @@ author: jiangew
   - [ALL-IN-ONE Script](#all-in-one-script)
 - [Shadowsocks Limit Device Connections and Port Speeds](#shadowsocks-limit-device-connections-and-port-speeds)
   - [Install IPTABLES](#install-iptables)
-  - [IPTABLES 限定端口连接数](#iptables-%E9%99%90%E5%AE%9A%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5%E6%95%B0)
-  - [IPTABLES 限制端口速度](#iptables-%E9%99%90%E5%88%B6%E7%AB%AF%E5%8F%A3%E9%80%9F%E5%BA%A6)
-  - [IPTABLES 限制IP访问速度](#iptables-%E9%99%90%E5%88%B6ip%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6)
-  - [Shadowsocks 限制设备连接数](#shadowsocks-%E9%99%90%E5%88%B6%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E6%95%B0)
+  - [IPTABLES 限定端口连接数](#iptables-%e9%99%90%e5%ae%9a%e7%ab%af%e5%8f%a3%e8%bf%9e%e6%8e%a5%e6%95%b0)
+  - [IPTABLES 限制端口速度](#iptables-%e9%99%90%e5%88%b6%e7%ab%af%e5%8f%a3%e9%80%9f%e5%ba%a6)
+  - [IPTABLES 限制IP访问速度](#iptables-%e9%99%90%e5%88%b6ip%e8%ae%bf%e9%97%ae%e9%80%9f%e5%ba%a6)
+  - [Shadowsocks 限制设备连接数](#shadowsocks-%e9%99%90%e5%88%b6%e8%ae%be%e5%a4%87%e8%bf%9e%e6%8e%a5%e6%95%b0)
 
 ## CentOS 7 Deploy Google BBR
 BBR (Bottleneck Bandwidth and RTT) 是由 Google 贡献给 Linux 内核 `TCP` 协议栈的一种新的拥塞控制算法。通过使用 `BBR` 可以显著提高 Linux 服务器的吞吐量，并减少连接延迟。此外，BBR 部署也很简单，因为此算法只需在发送端更新部署即可，而无需在网络或者接收端更新部署。
@@ -106,10 +106,11 @@ ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
 WantedBy=multi-user.target
 ```
 
-执行以下命令启动 shadowsocks 服务：
+执行以下命令启动和停止 shadowsocks 服务：
 ```sh
 systemctl enable shadowsocks
 systemctl start shadowsocks
+systemctl stop shadowsocks
 ```
 
 为了检查 shadowsocks 服务是否已成功启动，可以执行以下命令查看服务的状态：
