@@ -5,6 +5,15 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2019.09
+
+* [SOFAJRaft: 生产级 Java Raft 算法库](https://juejin.im/post/5c88756a6fb9a049f9136c1a#heading-17)
+* [Lettuce: A New Redis Client](https://www.baeldung.com/java-redis-lettuce)
+* [Lettuce Core Reactive API](https://github.com/lettuce-io/lettuce-core/wiki/Reactive-API-%285.0%29)
+* [GoRequest: Simplified HTTP client inspired by nodejs SuperAgent](https://github.com/parnurzeal/gorequest)
+* [Go 为何带来泛型](https://juejin.im/entry/5d48e24ce51d453bc470de72)
+* [Go 实现百万 WebSocket 连接](https://juejin.im/post/5d48f1cd6fb9a06b233ca719)
+
 ### 2019.05
 
 * [Introduction to Spring with Akka](https://www.baeldung.com/akka-with-spring)
