@@ -12,7 +12,6 @@ layout: page
 * [Lettuce Core Reactive API](https://github.com/lettuce-io/lettuce-core/wiki/Reactive-API-%285.0%29)
 * [GoRequest: Simplified HTTP client inspired by nodejs SuperAgent](https://github.com/parnurzeal/gorequest)
 * [Go 为何带来泛型](https://juejin.im/entry/5d48e24ce51d453bc470de72)
-* [Go 实现百万 WebSocket 连接](https://juejin.im/post/5d48f1cd6fb9a06b233ca719)
 
 ### 2019.05
 
