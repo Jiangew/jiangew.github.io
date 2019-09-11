@@ -230,8 +230,6 @@ layout: page
 * [eBay 的 Elasticsearch 性能调优实践 原文](https://www.ebayinc.com/stories/blogs/tech/elasticsearch-performance-tuning-practice-at-ebay/)
 * [Elasticsearch query examples with Golang](https://www.ribice.ba/golang-elastic/)
 * [Elasticsearch Reindex API](http://cwiki.apachecn.org/display/Elasticsearch/Reindex+API)
-* [Kafka Quickstart](https://kafka.apache.org/quickstart)
-* [小明同学 JVM 资料整理](http://06c95046.wiz03.com/share/s/06Ol161jSx7y2FJV1W2R6SqK2jh8_d2Aw4f_2bCjJ10ZIM2X)
 
 ### 2018.03
 
