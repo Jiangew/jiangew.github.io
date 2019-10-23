@@ -5,6 +5,10 @@ layout: page
 
 ![Acfun Banner](/assets/images/banner/20171207.jpg)
 
+### 2019.10
+
+* [Lombok @Builder with Inheritance](https://www.baeldung.com/lombok-builder-inheritance)
+
 ### 2019.09
 
 * [SOFAJRaft: 生产级 Java Raft 算法库](https://juejin.im/post/5c88756a6fb9a049f9136c1a#heading-17)
