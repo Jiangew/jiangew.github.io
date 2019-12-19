@@ -9,7 +9,7 @@ layout: page
 
 * [Iris - The most futuristic Web Framework ever](https://iris-go.com)
 * [Spring Security and OpenID Connect](https://www.baeldung.com/spring-security-openid-connect)
-* [OpenID Connect Authentication](https://www.alibabacloud.com/help/zh/doc-detail/48019.htm)
+* [OpenID Connect Authentication by Aliyun](https://www.alibabacloud.com/help/zh/doc-detail/48019.htm)
 * [OpenID Connect by Google](https://developers.google.com/identity/protocols/OpenIDConnect)
 
 ### 2019.10
