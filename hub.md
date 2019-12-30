@@ -7,6 +7,7 @@ layout: page
 
 ### 2019.12
 
+* [Spring Security OAuth 2.0](https://docs.spring.io/spring-security/site/docs/current/reference/html/oauth2.html#oauth2login-sample-initial-setup)
 * [Iris - The most futuristic Web Framework ever](https://iris-go.com)
 * [Spring Security and OpenID Connect](https://www.baeldung.com/spring-security-openid-connect)
 * [OpenID Connect Authentication by Aliyun](https://www.alibabacloud.com/help/zh/doc-detail/48019.htm)
