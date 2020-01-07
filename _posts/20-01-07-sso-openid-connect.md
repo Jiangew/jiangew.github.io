@@ -1,5 +1,5 @@
 ---
-title: "一文读懂 SSO、OAuth 2.0、OpenID Connect"
+title: "读懂 SSO、OAuth 2.0、OpenID Connect"
 layout: post
 date: 2020-01-07 23:33
 image: /assets/images/base/markdown.jpg
