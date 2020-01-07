@@ -45,7 +45,7 @@ author: jiangew
 
 ### 同域单点登录
 
-独立用户中心 uc.fcoin.com 作为 SSO 服务，用户在 uc.fcoin.com 登录时，在服务端的 session 中记录登录状态，同时在浏览器的 .fcoin.com 即顶级域下写入 Cookie，此时所有子域的系统都可以访问顶域的 Cookie。
+独立用户中心 uc.xxx.com 作为 SSO 服务，用户在 uc.xxx.com 登录时，在服务端的 session 中记录登录状态，同时在浏览器的 .xxx.com 即顶级域下写入 Cookie，此时所有子域的系统都可以访问顶域的 Cookie。
 
 Session 在服务端采用多站点共享存储。
 
@@ -55,20 +55,20 @@ Session 在服务端采用多站点共享存储。
 
 单点登录的标准 CAS 流程如下：
 
-* 01.用户访问 FCoin 时需要用户登录；跳转到 CAS Server 及 SSO 服务登录认证，将登录态写入 SSO 的 Session，浏览器中写入 SSO 域下的 Cookie；
-* 02.SSO 系统登录完成后生成一个 ST: Service Ticket，然后跳转到 FCoin，同时将 ST 作为参数传递给 FCoin；
-* 03.FCoin 拿到 ST 后，从后台向 SSO 发送请求，验证 ST 是否有效；
-* 04.验证通过后，FCoin 将登录态写入 Session 并设置 FCoin 域下的 Cookie。
+* 01.用户访问 Site A 时需要用户登录；跳转到 CAS Server 及 SSO 服务登录认证，将登录态写入 SSO 的 Session，浏览器中写入 SSO 域下的 Cookie；
+* 02.SSO 系统登录完成后生成一个 ST: Service Ticket，然后跳转到 Site A，同时将 ST 作为参数传递给 Site A；
+* 03.Site A 拿到 ST 后，从后台向 SSO 发送请求，验证 ST 是否有效；
+* 04.验证通过后，Site A 将登录态写入 Session 并设置 Site A 域下的 Cookie。
 
-至此，跨域单点登录就完成了；再次访问 FCoin 时，就是登录态。然后，我们此时看访问 FMex 的流程：
+至此，跨域单点登录就完成了；再次访问 Site A 时，就是登录态。然后，我们此时看访问 Site B 的流程：
 
-* 01.用户访问 FMex，FMex 没有登录，跳转到 SSO；
+* 01.用户访问 Site B，Site B 没有登录，跳转到 SSO；
 * 02.由于 SSO 已经登录，不需要重新登录认证；
-* 03.SSO 生成 ST，浏览器跳转到 FMex，并将 ST 作为参数传递给 FMex；
-* 04.FMex 拿到 ST，后台访问 SSO，验证 ST 是否有效；
-* 05.验证成功后，FMex 将登录态写入 Session，并在 FMex 域下写入 Cookie。
+* 03.SSO 生成 ST，浏览器跳转到 Site B，并将 ST 作为参数传递给 Site B；
+* 04.Site B 拿到 ST，后台访问 SSO，验证 ST 是否有效；
+* 05.验证成功后，Site B 将登录态写入 Session，并在 Site B 域下写入 Cookie。
 
-至此，FMex 不需要走登录流程，就已经是登录态了。FCoin 和 FMex 在不同的域，他们之间的 Session 可以是服务端不共享存储。
+至此，Site B 不需要走登录流程，就已经是登录态了。Site A 和 B 在不同的域，他们之间的 Session 可以是服务端不共享存储。
 
 ![CAS SSO Sequence](/assets/images/post/20200107/sso_cas.png)
 
