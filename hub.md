@@ -8,7 +8,7 @@ layout: page
 ### 2020.03
 
 * [Four Event Driven Patterns](https://medium.com/faun/four-event-driven-patterns-4b1cad5ac5e3)
-* [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)
+* [What do you mean by "Event-Driven"](https://martinfowler.com/articles/201701-event-driven.html)
 
 ### 2020.01
 
