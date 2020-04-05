@@ -126,7 +126,7 @@ Please open the following file: results/basicsimulation-1505126722282/index.html
 ```
 
 ### Scala crashed issue
-[Scala Build Crashed](https://stackoverflow.com/questions/40628310/scala-build-crashed)
+[Scala build crashed](https://stackoverflow.com/questions/40628310/scala-build-crashed)
 
 Scala 2.12 require's newer version of JDK then 1.8.0_111
 
@@ -144,7 +144,8 @@ gatling j.n.ConnectException: Failed to open a socket.
 测试机系统调优参考 [#Operations](http://wiki.li3huo.com/Gatling#Operations)
 
 ### Cannot assign requested address issue
-[解决 Gatling 端口占用问题](http://blog.bruceding.com/342.html)
+
+解决 Gatling 端口占用问题
 ```sh
 sudo sysctl -w net.ipv4.ip_local_port_range="1025 65535"
 sudo sysctl -w net.ipv4.tcp_tw_recycle=1
@@ -240,12 +241,16 @@ class BenchmarkPost extends Simulation {
 ### Operations
 [OS Tuning: Open Files Limit & Kernel and Network Tuning](http://gatling.io/docs/current/general/operations/)
 
-包含一些测试机需要调整的系统参数，例如: ulimit -n 10240
+包含一些测试机需要调整的系统参数，例如: 
+```shell
+ulimit -n
+ulimit -n 65535
+```
 
 ### Configuration
 [配置文件、命令行参数](http://gatling.io/docs/current/general/configuration/)
 
-### Simulation setup
+### Simulation Setup
 [Simulation Setup](http://gatling.io/docs/current/general/simulation_setup/)
 [Simulation Setup 中文翻译](https://testerhome.com/topics/4094)
 
@@ -281,5 +286,5 @@ Please open the following file: /gatling/gatling-charts-highcharts-bundle-2.3.0/
 
 ## Reference
 * [Gatling](http://gatling.io/)
-* [Gatling 做Web压力测试](https://segmentfault.com/a/1190000008254640)
+* [Gatling Web 压力测试](https://segmentfault.com/a/1190000008254640)
 * [Gatling Quickstart 问题汇总](http://wiki.li3huo.com/Gatling)
