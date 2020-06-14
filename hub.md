@@ -3,7 +3,7 @@ title: hub
 layout: page
 ---
 
-![Acfun Banner](/assets/images/banner/20171207.jpg)
+![Acfun Banner](./assets/images/banner/20171207.jpg)
 
 ### 2020.05
 

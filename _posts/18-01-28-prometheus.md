@@ -39,7 +39,7 @@ author: jiangew
 Power your metrics and alerting with a leading open-source monitoring solution.
 
 ## Architecture Overview
-![](/assets/images/post/20180128/prometheus.jpg) <br />
+![](./assets/images/post/20180128/prometheus.jpg) <br />
 
 ## Configuring Prometheus to monitor itself
 ```sh

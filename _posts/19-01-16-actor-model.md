@@ -139,8 +139,8 @@ Actor 在 Vert.x 中叫 [Verticle](http://vertx.io/docs/vertx-core/java/#_vertic
 
 #### 异步IO编程框架
 
-![AIO 01](/assets/images/post/20190116/aio-01.png) <br>
-![AIO 02](/assets/images/post/20190116/aio-02.png) <br>
+![AIO 01](./assets/images/post/20190116/aio-01.png) <br>
+![AIO 02](./assets/images/post/20190116/aio-02.png) <br>
 
 #### 响应式编程
 
@@ -149,7 +149,7 @@ Actor 在 Vert.x 中叫 [Verticle](http://vertx.io/docs/vertx-core/java/#_vertic
 #### 集群
 
 跨JVM的集群EventBus，基于hazelcast来实现集群的发现和消费订阅的注册功能。[Vert.x Cluster Manager](http://vertx.io/docs/vertx-core/java/#_cluster_managers)
-![Vert.x Cluster](/assets/images/post/20190116/cluster-01.png) <br>
+![Vert.x Cluster](./assets/images/post/20190116/cluster-01.png) <br>
 
 ### How: Vert.x Actor Model
 
@@ -158,8 +158,8 @@ Actor模式在Vert.x中是这样体现的：
 * 信箱 --> 一般的事件，如EventBus消息到达池。还有其它事件，如Http/Websocket/异步JDBC请求或事件池、inline异步任务（Verticle中异步调用阻塞代码的类似ForkJoinPool）的结果池。
 * EventLoop --> Actor的信箱消费线程
 
-![Vert.x Actor Model 01](/assets/images/post/20190116/vertx-model-01.png) <br>
-![Vert.x Actor Model 02](/assets/images/post/20190116/vertx-model-02.png) <br>
+![Vert.x Actor Model 01](./assets/images/post/20190116/vertx-model-01.png) <br>
+![Vert.x Actor Model 02](./assets/images/post/20190116/vertx-model-02.png) <br>
 
 ### What: Vert.x EventBus
 

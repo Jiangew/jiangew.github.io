@@ -70,14 +70,14 @@ Session 在服务端采用多站点共享存储。
 
 至此，Site B 不需要走登录流程，就已经是登录态了。Site A 和 B 在不同的域，他们之间的 Session 可以是服务端不共享存储。
 
-![CAS SSO Sequence](/assets/images/post/20200107/sso_cas.png)
+![CAS SSO Sequence](./assets/images/post/20200107/sso_cas.png)
 
 ## OIDC: OpenID Connect
 
 ### OIDC 是什么
 
 简单来说：OIDC 是 OpenID Connect 的简称，OIDC=(Identity, Authentication) + OAuth 2.0。它在 OAuth 2.0 上构建了一个身份层，是一个基于 OAuth 2.0 协议的身份认证标准协议。我们都知道 OAuth 2.0 是一个授权协议，它无法提供完善的身份认证功能，OIDC 使用OAuth 2.0 的授权服务器来为第三方客户端提供用户的身份认证，并把对应的身份认证信息传递给客户端，且可以适用于各种类型的客户端（比如服务端应用，移动APP，JS应用），且完全兼容 OAuth 2.0，也就是说你搭建了一个 OIDC 的服务后，也可以当作一个 OAuth 2.0 的服务来用。应用场景如图：
-![OIDC OAuth 2.0](/assets/images/post/20200107/oidc_oauth.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oidc_oauth.png)
 
 ### ID Token
 
@@ -102,7 +102,7 @@ id_token 用户认证；access_token 用户授权。
 #### 授权码模式
 
 授权码模式是最常用的 OIDC 模式，流程如下：
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_01.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_01.png)
 
 * 01.三方应用发起授权请求（需要访问这个用户在用户中心服务的数据）；
 * 02.用户中心服务询问用户是否同意授权，要求用户输入用户名和密码，并弹出对方请求获取的信息条目；
@@ -116,7 +116,7 @@ id_token 用户认证；access_token 用户授权。
 Token|X|颁发|颁发
 
 scope 不带 openid 的情况，最后不返回 id_token，流程如下：
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_02.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_02.png)
 
 #### 隐身模式
 
@@ -126,7 +126,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|X|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_03.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_03.png)
 
 当发起授权请求时 query 参数 response_type=id_token 的时候，使用的是隐式模式。只返回 id_token。
 
@@ -134,7 +134,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|颁发|X
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_04.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_04.png)
 
 当发起授权请求时 query 参数 response_type=id_token,token 的时候，使用的是隐式模式。同时返回 ID Token 和 Access Token。
 
@@ -142,7 +142,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|颁发|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_05.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_05.png)
 
 可以看出，隐式模式最为简单直接，但是在安全性上不如授权码模式，因为可能会在前端暴露 Access Token。隐式模式要求回调地址必须为 https。
 
@@ -157,7 +157,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 授权|颁发|颁发|X
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_06.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_06.png)
 
 当发起授权请求时 query 参数 response_type=code,token 的时候，使用的是混合模式。如果 scope 中存在 openid，各类信息返回情况如下：
 
@@ -166,7 +166,7 @@ Token|X|颁发|颁发
 授权|颁发|X|颁发
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_07.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_07.png)
 
 如果 scope 不包含 openid，各类信息返回情况如下：
 
@@ -175,7 +175,7 @@ Token|X|颁发|颁发
 授权|颁发|X|颁发
 Token|X|X|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_08.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_08.png)
 
 当发起授权请求时 query 参数 response_type=code id_token token 的时候，使用的是混合模式。各类信息返回情况如下：
 
@@ -184,7 +184,7 @@ Token|X|X|颁发
 授权|颁发|颁发|颁发
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](/assets/images/post/20200107/oauth_authentication_code_09.png)
+![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_09.png)
 
 这个用法可以一次性获取全部内容。
 

@@ -39,8 +39,8 @@ author: jiangew
 * Visualize in Kibana.
 
 ## Beats combo Logstash Highly Available
-![](/assets/images/post/20180128/beats-logstash-ha-01.png) <br />
-![](/assets/images/post/20180128/beats-logstash-ha-02.png) <br />
+![](./assets/images/post/20180128/beats-logstash-ha-01.png) <br />
+![](./assets/images/post/20180128/beats-logstash-ha-02.png) <br />
 
 ## Install Filebeat
 ```sh

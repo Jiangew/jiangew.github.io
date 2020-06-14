@@ -238,20 +238,20 @@ public class ExchangeMatchResultJobConfig {
 
 ### 3.8 登录 Schedule Job 控制台，分别配置 注册中心和事件追踪数据源
 
-![](/assets/images/post/20181027/elasticjob-01.png)<br>
-![](/assets/images/post/20181027/elasticjob-02.png)<br>
+![](./assets/images/post/20181027/elasticjob-01.png)<br>
+![](./assets/images/post/20181027/elasticjob-02.png)<br>
 
 ### 3.9 新增了注册中心配置后，可以看到作业操作，包含Job维度和Server维度
 
 Job维度，可以进行Job配置的修改，触发，失效，终止操作。<br>
-![](/assets/images/post/20181027/elasticjob-03.png)<br>
+![](./assets/images/post/20181027/elasticjob-03.png)<br>
 
 Server维度，可以对服务实例进行失效，终止操作。<br>
-![](/assets/images/post/20181027/elasticjob-04.png)<br>
+![](./assets/images/post/20181027/elasticjob-04.png)<br>
 
 ### 4.0 新增了数据追踪数据源后，可以查看作业历史，包括历史轨迹和历史状态。
 
-![](/assets/images/post/20181027/elasticjob-05.png)<br>
-![](/assets/images/post/20181027/elasticjob-06.png)<br>
+![](./assets/images/post/20181027/elasticjob-05.png)<br>
+![](./assets/images/post/20181027/elasticjob-06.png)<br>
 
 ~ 今天就到这里吧 ！！！~
