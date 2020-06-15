@@ -30,10 +30,10 @@ author: jiangew
 Fluentd is an open source data collector for unified logging layer.
 
 ## Fluentd Unified Logging Layer
-![](./assets/images/post/20180128/fluentd.jpg) <br />
+![](../assets/images/post/20180128/fluentd.jpg) <br />
 
 ## Fluentd Highly Available
-![](./assets/images/post/20180128/fluentd-ha.png) <br />
+![](../assets/images/post/20180128/fluentd-ha.png) <br />
 
 ## Install Fluentd from Source
 

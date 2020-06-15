@@ -95,7 +95,7 @@ public interface ProcessorService {
 假设服务提供端A注册了一个SomeService类型的服务代理，服务调用端B需要通过异步RPC调用服务的process方法，此时调用端B可以利用ProxyHelper获取服务实例并进行服务调用。B中获取的服务其实是一个服务代理类，而真正的服务实例在A处。何为服务代理？服务代理可以帮助我们向服务提供端发送调用请求，并且响应调用结果。那么如何发送调用请求呢？相信大家能想到，是调用端B将调用参数和方法名称等必要信息包装成集群消息「ClusteredMessage」，然后通过send方法将请求通过Clustered Event Bus发送至服务提供端A处「需要提供此服务的通信地址」。A在注册服务的时候会创建一个MessageConsumer监听此服务的地址来响应调用请求。当接收到调用请求的时候，A会在本地调用方法，并将结果回复至调用端。所以异步RPC本质上其实是一个基于代理模式的 Request/Response 消息模式。<br />
 
 用时序图来描述一下上述过程：
-![](./assets/images/post/20170803/vertx-async-rpc.png) <br />
+![](../assets/images/post/20170803/vertx-async-rpc.png) <br />
 
 ## 引入
 以ProcessorService接口为例，我们可以在集群中的一个节点上注册服务实例：

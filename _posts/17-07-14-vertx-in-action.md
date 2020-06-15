@@ -344,15 +344,15 @@ war 包方式启动，将下载的 hawtio-default-1.5.2.war 重命名为 hawtio.
 ### 图形化监控面板示例
 图形化监控界面启动后，设置监控信息，并保存，可以看到各个维度的监控数据，很赞。。。 <br />
 Portal Menu <br />
-![](./assets/images/post/20170714/hawtio-01.jpg) <br />
+![](../assets/images/post/20170714/hawtio-01.jpg) <br />
 配置 Vert.x 监控实例 <br />
-![](./assets/images/post/20170714/hawtio-02.jpg) <br />
+![](../assets/images/post/20170714/hawtio-02.jpg) <br />
 配置指定 Port 和 Host <br />
-![](./assets/images/post/20170714/hawtio-03.jpg) <br />
+![](../assets/images/post/20170714/hawtio-03.jpg) <br />
 JMX Metrics 监控 <br />
-![](./assets/images/post/20170714/hawtio-04.jpg) <br />
+![](../assets/images/post/20170714/hawtio-04.jpg) <br />
 Dashboard <br />
-![](./assets/images/post/20170714/hawtio-05.jpg) <br />
+![](../assets/images/post/20170714/hawtio-05.jpg) <br />
 
 ### Using Jolokia and JMX4Perl to expose metrics to Nagios
 ```sh

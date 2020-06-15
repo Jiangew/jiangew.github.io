@@ -14,32 +14,32 @@ author: jiangew
 ---
 
 - [SSO: Single Sign On](#sso-single-sign-on)
-  - [同域单点登录](#%e5%90%8c%e5%9f%9f%e5%8d%95%e7%82%b9%e7%99%bb%e5%bd%95)
-  - [跨域单点登录](#%e8%b7%a8%e5%9f%9f%e5%8d%95%e7%82%b9%e7%99%bb%e5%bd%95)
+  - [同域单点登录](#同域单点登录)
+  - [跨域单点登录](#跨域单点登录)
 - [OIDC: OpenID Connect](#oidc-openid-connect)
-  - [OIDC 是什么](#oidc-%e6%98%af%e4%bb%80%e4%b9%88)
+  - [OIDC 是什么](#oidc-是什么)
   - [ID Token](#id-token)
-  - [授权](#%e6%8e%88%e6%9d%83)
-  - [OIDC 流程](#oidc-%e6%b5%81%e7%a8%8b)
-    - [授权码模式](#%e6%8e%88%e6%9d%83%e7%a0%81%e6%a8%a1%e5%bc%8f)
-    - [隐身模式](#%e9%9a%90%e8%ba%ab%e6%a8%a1%e5%bc%8f)
-    - [混合模式](#%e6%b7%b7%e5%90%88%e6%a8%a1%e5%bc%8f)
+  - [授权](#授权)
+  - [OIDC 流程](#oidc-流程)
+    - [授权码模式](#授权码模式)
+    - [隐身模式](#隐身模式)
+    - [混合模式](#混合模式)
 - [JWT: Json Web Tokens](#jwt-json-web-tokens)
-  - [不要把 JWT 用作 Session](#%e4%b8%8d%e8%a6%81%e6%8a%8a-jwt-%e7%94%a8%e4%bd%9c-session)
-  - [JWT 宣称的优点](#jwt-%e5%ae%a3%e7%a7%b0%e7%9a%84%e4%bc%98%e7%82%b9)
-    - [易于水平扩展](#%e6%98%93%e4%ba%8e%e6%b0%b4%e5%b9%b3%e6%89%a9%e5%b1%95)
-    - [简单易用](#%e7%ae%80%e5%8d%95%e6%98%93%e7%94%a8)
-    - [更安全](#%e6%9b%b4%e5%ae%89%e5%85%a8)
-    - [内置过期功能](#%e5%86%85%e7%bd%ae%e8%bf%87%e6%9c%9f%e5%8a%9f%e8%83%bd)
-    - [可以防护 CSRF 攻击](#%e5%8f%af%e4%bb%a5%e9%98%b2%e6%8a%a4-csrf-%e6%94%bb%e5%87%bb)
-    - [在用户阻止了 Cookies 后还可以工作](#%e5%9c%a8%e7%94%a8%e6%88%b7%e9%98%bb%e6%ad%a2%e4%ba%86-cookies-%e5%90%8e%e8%bf%98%e5%8f%af%e4%bb%a5%e5%b7%a5%e4%bd%9c)
-  - [JWT 的缺点](#jwt-%e7%9a%84%e7%bc%ba%e7%82%b9)
-    - [体积大](#%e4%bd%93%e7%a7%af%e5%a4%a7)
-    - [不安全](#%e4%b8%8d%e5%ae%89%e5%85%a8)
-    - [无法使某个 JWT 无效](#%e6%97%a0%e6%b3%95%e4%bd%bf%e6%9f%90%e4%b8%aa-jwt-%e6%97%a0%e6%95%88)
-    - [Session 数据过期](#session-%e6%95%b0%e6%8d%ae%e8%bf%87%e6%9c%9f)
-    - [JWT 适合的场景](#jwt-%e9%80%82%e5%90%88%e7%9a%84%e5%9c%ba%e6%99%af)
-- [参考资料](#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99)
+  - [不要把 JWT 用作 Session](#不要把-jwt-用作-session)
+  - [JWT 宣称的优点](#jwt-宣称的优点)
+    - [易于水平扩展](#易于水平扩展)
+    - [简单易用](#简单易用)
+    - [更安全](#更安全)
+    - [内置过期功能](#内置过期功能)
+    - [可以防护 CSRF 攻击](#可以防护-csrf-攻击)
+    - [在用户阻止了 Cookies 后还可以工作](#在用户阻止了-cookies-后还可以工作)
+  - [JWT 的缺点](#jwt-的缺点)
+    - [体积大](#体积大)
+    - [不安全](#不安全)
+    - [无法使某个 JWT 无效](#无法使某个-jwt-无效)
+    - [Session 数据过期](#session-数据过期)
+    - [JWT 适合的场景](#jwt-适合的场景)
+- [参考资料](#参考资料)
 
 ## SSO: Single Sign On
 
@@ -70,14 +70,14 @@ Session 在服务端采用多站点共享存储。
 
 至此，Site B 不需要走登录流程，就已经是登录态了。Site A 和 B 在不同的域，他们之间的 Session 可以是服务端不共享存储。
 
-![CAS SSO Sequence](./assets/images/post/20200107/sso_cas.png)
+![CAS SSO Sequence](../assets/images/post/20200107/sso_cas.png)
 
 ## OIDC: OpenID Connect
 
 ### OIDC 是什么
 
 简单来说：OIDC 是 OpenID Connect 的简称，OIDC=(Identity, Authentication) + OAuth 2.0。它在 OAuth 2.0 上构建了一个身份层，是一个基于 OAuth 2.0 协议的身份认证标准协议。我们都知道 OAuth 2.0 是一个授权协议，它无法提供完善的身份认证功能，OIDC 使用OAuth 2.0 的授权服务器来为第三方客户端提供用户的身份认证，并把对应的身份认证信息传递给客户端，且可以适用于各种类型的客户端（比如服务端应用，移动APP，JS应用），且完全兼容 OAuth 2.0，也就是说你搭建了一个 OIDC 的服务后，也可以当作一个 OAuth 2.0 的服务来用。应用场景如图：
-![OIDC OAuth 2.0](./assets/images/post/20200107/oidc_oauth.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oidc_oauth.png)
 
 ### ID Token
 
@@ -102,7 +102,7 @@ id_token 用户认证；access_token 用户授权。
 #### 授权码模式
 
 授权码模式是最常用的 OIDC 模式，流程如下：
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_01.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_01.png)
 
 * 01.三方应用发起授权请求（需要访问这个用户在用户中心服务的数据）；
 * 02.用户中心服务询问用户是否同意授权，要求用户输入用户名和密码，并弹出对方请求获取的信息条目；
@@ -116,7 +116,7 @@ id_token 用户认证；access_token 用户授权。
 Token|X|颁发|颁发
 
 scope 不带 openid 的情况，最后不返回 id_token，流程如下：
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_02.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_02.png)
 
 #### 隐身模式
 
@@ -126,7 +126,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|X|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_03.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_03.png)
 
 当发起授权请求时 query 参数 response_type=id_token 的时候，使用的是隐式模式。只返回 id_token。
 
@@ -134,7 +134,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|颁发|X
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_04.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_04.png)
 
 当发起授权请求时 query 参数 response_type=id_token,token 的时候，使用的是隐式模式。同时返回 ID Token 和 Access Token。
 
@@ -142,7 +142,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 --|--|--|--
 授权|X|颁发|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_05.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_05.png)
 
 可以看出，隐式模式最为简单直接，但是在安全性上不如授权码模式，因为可能会在前端暴露 Access Token。隐式模式要求回调地址必须为 https。
 
@@ -157,7 +157,7 @@ scope 不带 openid 的情况，最后不返回 id_token，流程如下：
 授权|颁发|颁发|X
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_06.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_06.png)
 
 当发起授权请求时 query 参数 response_type=code,token 的时候，使用的是混合模式。如果 scope 中存在 openid，各类信息返回情况如下：
 
@@ -166,7 +166,7 @@ Token|X|颁发|颁发
 授权|颁发|X|颁发
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_07.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_07.png)
 
 如果 scope 不包含 openid，各类信息返回情况如下：
 
@@ -175,7 +175,7 @@ Token|X|颁发|颁发
 授权|颁发|X|颁发
 Token|X|X|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_08.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_08.png)
 
 当发起授权请求时 query 参数 response_type=code id_token token 的时候，使用的是混合模式。各类信息返回情况如下：
 
@@ -184,7 +184,7 @@ Token|X|X|颁发
 授权|颁发|颁发|颁发
 Token|X|颁发|颁发
 
-![OIDC OAuth 2.0](./assets/images/post/20200107/oauth_authentication_code_09.png)
+![OIDC OAuth 2.0](../assets/images/post/20200107/oauth_authentication_code_09.png)
 
 这个用法可以一次性获取全部内容。
 
