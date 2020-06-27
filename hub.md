@@ -7,6 +7,9 @@ layout: page
 
 ### 2020.06
 
+* [Hystrix 停更之后，Netflix 官方推荐 Resilience4j](https://zhuanlan.zhihu.com/p/51008825)
+* [如何做技术选型 ？Sentinel 还是 Hystrix ？](https://zhuanlan.zhihu.com/p/112539441)
+* [G1 vs CMS 垃圾收集器的对比与实践](https://blog.chriscs.com/2017/06/20/g1-vs-cms/)
 * [有赞全链路压测引擎的设计与实现](https://tech.youzan.com/maxim/)
 * [混沌工程：软件系统高可用、弹性化的必由之路](https://tech.youzan.com/chaosmonkey/)
 * [基于 Gatling 的 Dubbo 压测插件的实现](https://tech.youzan.com/gatling-dubbo/)
