@@ -575,7 +575,7 @@ scrape_configs:
 ./prometheus --config.file=prometheus.yml
 ```
 
-访问 `Prometheus UI: http://127.0.0.1:9090/`，输入 `kafka_connect_*` 开头的指标，即可有图形化展示，如果需要更丰富的UI战术，可以接入 Grafana。
+访问 `Prometheus UI: http://127.0.0.1:9090/`，输入 `kafka_connect_*` 开头的指标，即可有图形化展示，如果需要更丰富的UI展示，可以接入 Grafana。
 
 ![Connect Sink Task Metrics](../assets/images/post/20200707/connect-sink-task-metrics.jpg)
 
