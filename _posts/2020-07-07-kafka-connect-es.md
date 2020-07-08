@@ -1,5 +1,5 @@
 ---
-title: "Kafka Connect、Connector、JMX、Prometheus 实践"
+title: "Kafka Connect、Connector、Rest API、JMX、Prometheus 实践"
 layout: post
 date: 2020-07-07 11:10
 image: /assets/images/base/markdown.jpg
@@ -31,6 +31,7 @@ author: jiangew
     - [Get worker cluster ID, version, and git source code commit ID](#get-worker-cluster-id-version-and-git-source-code-commit-id)
     - [List the connector plugins available on a worker](#list-the-connector-plugins-available-on-a-worker)
     - [List active connectors on a worker](#list-active-connectors-on-a-worker)
+    - [Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.](#create-a-new-connector-returning-the-current-connector-info-if-successful-return-409-conflict-if-rebalance-is-in-process)
     - [Restart a connector (there is no output if the command is successful)](#restart-a-connector-there-is-no-output-if-the-command-is-successful)
     - [Get connector tasks](#get-connector-tasks)
     - [Restart a task (there is no output if the command is successful)](#restart-a-task-there-is-no-output-if-the-command-is-successful)
@@ -47,7 +48,7 @@ author: jiangew
 
 ## Kafka Connect 简介
 
-Kafka 0.9+ 增加了一个新的特性`Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors`可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的数据库注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
+Kafka 0.9+ 增加了一个新的特性 `Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors` 可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的数据库注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
 
 `Kafka Connect` 特性包括：
 * Kafka Connector 通用框架，提供统一的集成 API
@@ -55,9 +56,9 @@ Kafka 0.9+ 增加了一个新的特性`Kafka Connect`，可以更方便的创建
 * REST API，用来查看和管理 Kafka Connectors
 * 自动化的 offset 管理，开发人员不必担心错误处理的影响
 * 分布式、可扩展
-* 流/批处理集成
+* 流处理和批处理集成
 
-Kafka背后的公司confluent鼓励社区创建更多的开源的connector，将Kafka生态圈壮大起来，促进Kafka Connnect的应用。
+Kafka 背后的商业公司 Confluent 鼓励社区创建更多的开源的 Connector，将 Kafka 生态圈壮大起来，促进 Kafka Connnect 的应用。
 
 Kafka Connnect 有两个核心概念：Source 和 Sink。 Source 负责导入数据到 Kafka，Sink 负责从 Kafka 导出数据，它们都被称为 Connector。
 
@@ -79,7 +80,7 @@ Kafka Connect 的几个重要的概念包括：Connectors、Tasks、Workers、Co
 * Dead Letter Queue: Kafka Connect 如何处理 Connector 错误
 
 ### Connectors
-在 kafka connect 中，connector 决定了数据应该从哪里复制过来以及数据应该写入到哪里去，一个connector 实例是一个需要负责在 kafka 和其他系统之间复制数据的逻辑作业，connector plugin 是jar 文件，实现了 kafka 定义的一些接口来完成特定的任务。
+在 kafka connect 中，connector 决定了数据应该从哪里复制过来以及数据应该写入到哪里去，一个 connector 实例是一个需要负责在 kafka 和其他系统之间复制数据的逻辑作业，connector plugin 是 jar 文件，实现了 kafka 定义的一些接口来完成特定的任务。
 
 ![Connector Model](../assets/images/post/20200707/connector-model.png)
 
@@ -88,12 +89,12 @@ task 是 kafka connect 数据模型的主角，每一个 connector 都会协调�
 
 ![Data Model](../assets/images/post/20200707/data-model.png)
 
-当 Connector 首次提交到集群时，Worker 将重新平衡集群中的全部连接器及其任务，以便每个 Worker 具有大致相同的工作量。当 Connector 增加或减少它们需要的任务数量，或者 Connector 的配置发生更改时，也会使用相同的重新平衡过程。当一个 Worker 失败时，task 将在活动的 worker 之间重新进行平衡。当 task 失败时，不会触发再平衡，因为 task 失败被视为异常情况。因此，失败的 task 不会由框架自动重新启动，而应该通过 REST API 重新启动。
+当 Connector 首次提交到集群时，Worker 将重新平衡集群中的全部 Connectors 及其 Tasks，以便每个 Worker 具有大致相同的工作量。当 Connector 增加或减少它们需要的任务数量，或者 Connector 的配置发生更改时，也会使用相同的重新平衡过程。当一个 Worker 失败时，task 将在活动的 worker 之间重新进行平衡。当 task 失败时，不会触发再平衡，因为 task 失败被视为异常情况。因此，失败的 task 不会由框架自动重新启动，而应该通过 REST API 重新启动。
 
 ![Task Rebalancing](../assets/images/post/20200707/task-failover.png)
 
 ### Workers
-connectors 和 tasks 都是逻辑工作单位，必须安排在进程中执行，而在 kafka connect 中，这些进程就是 workers，分别有两种 worker：standalone 和 distributed。这里不对 standalone 进行介绍，具体的可以查看官方文档。我个人觉得 distributed worker 很棒，因为它提供了可扩展性以及自动容错的功能，你可以使用一个 group.ip 来启动很多 worker 进程，在有效的 worker 进程中它们会自动的去协调执行 connector 和 task，如果你新加了一个 worker 或者挂了一个 worker，其他的 worker 会检测到然后在重新分配 connector 和 task。
+connectors 和 tasks 都是逻辑工作单位，必须安排在进程中执行，而在 kafka connect 中，这些进程就是 workers，分别有两种 worker: standalone 和 distributed。这里不对 standalone 进行介绍，具体的可以查看官方文档。我个人觉得 distributed worker 很棒，因为它提供了可扩展性以及自动容错的功能，你可以使用一个 group.ip 来启动很多 worker 进程，在有效的 worker 进程中它们会自动的去协调执行 connector 和 task，如果你新加了一个 worker 或者挂了一个 worker，其他的 worker 会检测到然后在重新分配 connector 和 task。
 
 ![Distributed Worker](../assets/images/post/20200707/worker-model.png)
 
@@ -101,20 +102,20 @@ connectors 和 tasks 都是逻辑工作单位，必须安排在进程中执行�
 converter 会把 bytes 数据转换成 kafka connect 内部的格式，也可以把 kafka connect 内部存储格式的数据转变成 bytes，converter 对 connector 来说是解耦的，所以其他的 connector 都可以重用，例如，使用了 avro converter，那么 jdbc connector 可以写 avro 格式的数据到 kafka，当然，hdfs connector 也可以从 kafka 中读出 avro 格式的数据。
 
 Confluent Platform 提供了以下 Converters:
-* `AvroConverter` io.confluent.connect.avro.AvroConverter: use with `Schema Registry`
-* `ProtobufConverter` io.confluent.connect.protobuf.ProtobufConverter: use with `Schema Registry`
-* `JsonSchemaConverter` io.confluent.connect.json.JsonSchemaConverter: use with `Schema Registry`
-* `JsonConverter` org.apache.kafka.connect.json.JsonConverter (without `Schema Registry`): use with structured data
-* `StringConverter` org.apache.kafka.connect.storage.StringConverter: simple string format
-* `ByteArrayConverter` org.apache.kafka.connect.converters.ByteArrayConverter: provides a “pass-through” option that does no conversion
+* `AvroConverter`: io.confluent.connect.avro.AvroConverter: use with `Schema Registry`
+* `ProtobufConverter`: io.confluent.connect.protobuf.ProtobufConverter: use with `Schema Registry`
+* `JsonSchemaConverter`: io.confluent.connect.json.JsonSchemaConverter: use with `Schema Registry`
+* `JsonConverter`: org.apache.kafka.connect.json.JsonConverter (without `Schema Registry`): use with structured data
+* `StringConverter`: org.apache.kafka.connect.storage.StringConverter: simple string format
+* `ByteArrayConverter`: org.apache.kafka.connect.converters.ByteArrayConverter: provides a “pass-through” option that does no conversion
 
 ![Converter Basics](../assets/images/post/20200707/converter-basics.png)
 
 ### Transforms
 
-Connector 可以配置 transforms 来对单个消息进行简单而轻量级的修改。这对于较小的数据调整和事件路由来说非常方便，并且多个转换可以在连接器配置中链接在一起。但是，应用于多个消息的更复杂的转换和操作最好使用 ksqlDB和 Kafka 流实现。
+Connector 可以配置 Transforms 来对单个消息进行简单而轻量级的修改。这对于较小的数据调整和事件路由来说非常方便，并且多个 Transforms 可以在 Connectors 配置中链接在一起。但是，应用于多个消息的更复杂的转换和操作最好使用 ksqlDB 和 Kafka 流实现。
 
-Transforms 是一个简单的函数，它接受一条记录作为输入并输出修改后的记录。Kafka Connect 提供的所有转换都执行简单但通常有用的修改。注意，您可以使用自己的自定义逻辑实现转换接口，将它们打包为 Kafka Connect 插件，并与任何连接器一起使用它们。
+Transforms 是一个简单的函数，它接受一条记录作为输入并输出修改后的记录。Kafka Connect 提供的所有转换都执行简单但通常有用的修改。注意，您可以使用自己的自定义逻辑实现转换接口，将它们打包为 Kafka Connect 插件，并与任何 Connectors 一起使用它们。
 
 Kafka Connect Transformations:
 
@@ -152,7 +153,7 @@ Kafka Connect Transformations:
 ```json
 errors.deadletterqueue.context.headers.enable = true
 ```
-当此参数设置为true(默认为false)时，记录头被添加到死信队列中。然后可以使用 `kafkacat Utility` 查看记录头，并确定记录失败的原因。
+当此参数设置为 true(默认为false)时，记录头被添加到死信队列中。然后可以使用 `kafkacat Utility` 查看记录头，并确定记录失败的原因。
 
 为了避免与原始记录头冲突，死信队列上下文头键开始 `_connect.errors`。
 
@@ -221,7 +222,7 @@ plugin.path=/denv/kafka_2.12-2.3.1/connectors
 
 ### elasticsearch-sink.properties
 
-`elasticsearch-sink` config 配置了 ElasticsearchSinkConnector 相关配置，consumer name、topics name、Elasticseatch Rest API、Index Type 等，更详细参数参考官网。
+`elasticsearch-sink` config 配置 ElasticsearchSinkConnector 相关配置，consumer name、topics name、Elasticseatch Rest API、Index Type 等，更详细参数参考官网。
 
 ```sh
 name=elasticsearch-sink
@@ -294,6 +295,26 @@ curl localhost:8083/connectors | jq
 [
   "elasticsearch-sink"
 ]
+```
+
+#### Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.
+
+```sh
+curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
+  "name": "elasticsearch-sink-test",
+  "config": {
+        "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+        "type.name": "_doc",
+        "behavior.on.malformed.documents": "warn",
+        "behavior.on.null.values": "ignore",
+        "topics": "test-elasticsearch-sink",
+        "tasks.max": "1",
+        "name": "elasticsearch-sink-test",
+        "connection.url": "http://127.0.0.1:9200",
+        "key.ignore": "true",
+        "schema.ignore": "true"
+    }
+}'
 ```
 
 #### Restart a connector (there is no output if the command is successful)
@@ -396,7 +417,7 @@ curl localhost:8083/connectors/elasticsearch-sink/status | jq
 
 ## 使用 JMX 监控 Kafka Connect
 
-使用 kafka 做消息队列中间件时，为了实时监控其性能时，免不了要使用 jmx 调取 kafka broker 的内部数据，不管是自己重新做一个 kafka 集群的监控系统，还是使用一些开源的产品，比如 yahoo 的kafka manager, 其都需要使用 jmx 来监控一些敏感的数据。在 kafka 官网中 http://kafka.apache.org/082/documentation.html#monitoring 这样说：
+使用 kafka 做消息队列中间件时，为了实时监控其性能时，免不了要使用 jmx 调取 kafka broker 的内部数据，不管是自己重新做一个 kafka 集群的监控系统，还是使用一些开源的产品，比如 yahoo 的kafka manager, 其都需要使用 jmx 来监控一些敏感的数据。在 kafka 官网中 `http://kafka.apache.org/082/documentation.html#monitoring` 这样说：
 
 > Kafka uses Yammer Metrics for metrics reporting in both the server and the client. This can be configured to report stats using pluggable stats reporters to hook up to your monitoring system.
 > The easiest way to see the available metrics to fire up jconsole and point it at a running kafka client or server; this will all browsing all metrics with JMX.
@@ -425,7 +446,7 @@ Prometheus 是一个监视工具，可以提取指标，使其成为图形，然
 
 ### Prometheus JMX Exporter
 
-Prometheus 提供了 JMX Exporter，它是“可以配置地抓取和公开 JMX Metrics 的 mBean 的收集器”。它以 Prometheus 可以理解的格式通过 HTTP 服务器公开了我们在上述工具中看到的 JMX Metrics。
+Prometheus 提供了 JMX Exporter，它是 "可以配置地抓取和公开 JMX Metrics 的 `mBean` 的收集器"。它以 Prometheus 可以理解的格式通过 HTTP 服务器公开了我们在上述工具中看到的 JMX Metrics。
 
 JMX Exporter 可以两种模式之一运行，作为注入您要监视的应用程序的 Java Agent，或作为连接到我们公开的 JMX 端口的独立进程。作为注入的 Java Agent 运行它会暴露更多的CPU和内存指标，更易于为某些应用程序配置，并且在有大量指标时性能损耗得多。在这种情况下，我们选择将 JMX Exporter 作为单独的进程运行，因为我们可以更轻松地重用现有的 Chef 代码并且因为它更易于开发，这就是我们在生产中监视 Kafka Connect 和 Kafka Mirror Maker 的方式。但是，在具有数百个 Topics 的 Kafka Broker 上，这种运行 JMX Exporter 的方法效果不佳，在这种情况下，我们选择注入 Java Agent。
 
@@ -496,7 +517,7 @@ exec $(dirname $0)/kafka-run-class.sh $EXTRA_ARGS org.apache.kafka.connect.cli.C
 bin/connect-standalone.sh config/connect-standalone.properties connectors/kafka-connect-elasticsearch/etc/elasticsearch-sink.properties
 ```
 
-此时，已经可以通过 Rest API `http://127.0.0.1:19999/metrics` 查看 JMX Metrics 了。
+此时，已经可以通过 Rest API `http://127.0.0.1:19999/metrics` 查看 JMX Metrics 了，截取了部分 Metrics 的时序数据如下：
 
 ```yaml
 # HELP kafka_connect_sink_task_metrics_put_batch_max_time_ms The maximum time taken by this task to put a batch of sinks records. (kafka.connect<type=sink-task-metrics, connector=elasticsearch-sink, task=0><>put-batch-max-time-ms)
@@ -575,13 +596,19 @@ scrape_configs:
 ./prometheus --config.file=prometheus.yml
 ```
 
-访问 `Prometheus UI: http://127.0.0.1:9090/`，输入 `kafka_connect_*` 开头的指标，即可有图形化展示，如果需要更丰富的UI展示，可以接入 Grafana。
+访问 `Prometheus UI: http://127.0.0.1:9090/`，输入 `kafka_connect_*` 开头的指标，即可把 Prometheus Exporter 写入 TSDB 时序数据库中的 Metrics 图形化展示出来，随便选择了 2 个 Metrics 如下图所示：
 
 ![Connect Sink Task Metrics](../assets/images/post/20200707/connect-sink-task-metrics.jpg)
 
 ![Connect Consumer Node Metrics](../assets/images/post/20200707/connect-consumer-node-metrics.jpg)
 
-就到这里吧，如果还有搞不明白的地方，官方文档是最好的学习资料。
+如果你需要更丰富的图像化展示，可以把 Prometheus 作为数据源接入 Grafana，接入 Grafana 配置的几个 Kafka Connect Metrics 图形化展示如下图所示：
+
+![Connect Prometheus Grafana Worker Metrics](../assets/images/post/20200707/connect-prometheus-grafana-worker.jpg)
+
+![Connect Prometheus Grafana Consumer Metrics](../assets/images/post/20200707/connect-prometheus-grafana-consumer.jpg)
+
+分享就到这里吧，如果还有不明白的地方，官方文档是最好的学习资料。
 
 ## 参考资料
 
