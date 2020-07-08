@@ -15,38 +15,38 @@ category: blog
 author: Jiangew
 ---
 
-- [Kafka Connect 简介](#kafka-connect-简介)
-- [Kafka Connect 概念](#kafka-connect-概念)
-  - [Connectors](#connectors)
-  - [Tasks](#tasks)
-  - [Workers](#workers)
-  - [Converters](#converters)
-  - [Transforms](#transforms)
-  - [Dead Letter Queue](#dead-letter-queue)
-- [Kafka Connect Elasticsearch 实践](#kafka-connect-elasticsearch-实践)
-  - [connect-standalone.properties](#connect-standaloneproperties)
-  - [elasticsearch-sink.properties](#elasticsearch-sinkproperties)
-  - [Start Kafka Connect](#start-kafka-connect)
-  - [Monitoring Kafka Connect anf Connectors](#monitoring-kafka-connect-anf-connectors)
-    - [Get worker cluster ID, version, and git source code commit ID](#get-worker-cluster-id-version-and-git-source-code-commit-id)
-    - [List the connector plugins available on a worker](#list-the-connector-plugins-available-on-a-worker)
-    - [List active connectors on a worker](#list-active-connectors-on-a-worker)
-    - [Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.](#create-a-new-connector-returning-the-current-connector-info-if-successful-return-409-conflict-if-rebalance-is-in-process)
-    - [Restart a connector (there is no output if the command is successful)](#restart-a-connector-there-is-no-output-if-the-command-is-successful)
-    - [Get connector tasks](#get-connector-tasks)
-    - [Restart a task (there is no output if the command is successful)](#restart-a-task-there-is-no-output-if-the-command-is-successful)
-    - [Pause a connector (there is no output if the command is successful)](#pause-a-connector-there-is-no-output-if-the-command-is-successful)
-    - [Resume a paused connector (there is no output if the command is successful)](#resume-a-paused-connector-there-is-no-output-if-the-command-is-successful)
-    - [Update the connector configuration, updates tasks from 1 to 2.](#update-the-connector-configuration-updates-tasks-from-1-to-2)
-    - [Get connector tasks status](#get-connector-tasks-status)
-- [使用 JMX 监控 Kafka Connect](#使用-jmx-监控-kafka-connect)
-  - [使用 JConsole 查看 JMX Metrics](#使用-jconsole-查看-jmx-metrics)
-- [使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics](#使用-prometheus-jmx-exporter-收集-kafka-connect-jmx-metrics)
-  - [Prometheus JMX Exporter](#prometheus-jmx-exporter)
-  - [使用 Prometheus 展示 Kafka Connect JMX Metrics](#使用-prometheus-展示-kafka-connect-jmx-metrics)
-- [参考资料](#参考资料)
+- [1. Kafka Connect 简介](#1-kafka-connect-简介)
+- [2. Kafka Connect 概念](#2-kafka-connect-概念)
+  - [2.1 Connectors](#21-connectors)
+  - [2.2 Tasks](#22-tasks)
+  - [2.3 Workers](#23-workers)
+  - [2.4 Converters](#24-converters)
+  - [2.5 Transforms](#25-transforms)
+  - [2.6 Dead Letter Queue](#26-dead-letter-queue)
+- [3. Kafka Connect Elasticsearch 实践](#3-kafka-connect-elasticsearch-实践)
+  - [3.1 connect-standalone.properties](#31-connect-standaloneproperties)
+  - [3.2 elasticsearch-sink.properties](#32-elasticsearch-sinkproperties)
+  - [3.3 Start Kafka Connect](#33-start-kafka-connect)
+  - [3.4 Monitoring Kafka Connect anf Connectors](#34-monitoring-kafka-connect-anf-connectors)
+    - [3.4.1 Get worker cluster ID, version, and git source code commit ID](#341-get-worker-cluster-id-version-and-git-source-code-commit-id)
+    - [3.4.2 List the connector plugins available on a worker](#342-list-the-connector-plugins-available-on-a-worker)
+    - [3.4.3 List active connectors on a worker](#343-list-active-connectors-on-a-worker)
+    - [3.4.4 Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.](#344-create-a-new-connector-returning-the-current-connector-info-if-successful-return-409-conflict-if-rebalance-is-in-process)
+    - [3.4.5 Restart a connector (there is no output if the command is successful)](#345-restart-a-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.6 Get connector tasks](#346-get-connector-tasks)
+    - [3.4.7 Restart a task (there is no output if the command is successful)](#347-restart-a-task-there-is-no-output-if-the-command-is-successful)
+    - [3.4.8 Pause a connector (there is no output if the command is successful)](#348-pause-a-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.9 Resume a paused connector (there is no output if the command is successful)](#349-resume-a-paused-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.10 Update the connector configuration, updates tasks from 1 to 2.](#3410-update-the-connector-configuration-updates-tasks-from-1-to-2)
+    - [3.4.11 Get connector tasks status](#3411-get-connector-tasks-status)
+- [4. 使用 JMX 监控 Kafka Connect](#4-使用-jmx-监控-kafka-connect)
+  - [4.1 使用 JConsole 查看 JMX Metrics](#41-使用-jconsole-查看-jmx-metrics)
+- [5. 使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics](#5-使用-prometheus-jmx-exporter-收集-kafka-connect-jmx-metrics)
+  - [5.1 Prometheus JMX Exporter](#51-prometheus-jmx-exporter)
+  - [5.2 使用 Prometheus 展示 Kafka Connect JMX Metrics](#52-使用-prometheus-展示-kafka-connect-jmx-metrics)
+- [6. 参考资料](#6-参考资料)
 
-## Kafka Connect 简介
+## 1. Kafka Connect 简介
 
 Kafka 0.9+ 增加了一个新的特性 `Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors` 可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的存储系统中的数据注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
 
@@ -68,7 +68,7 @@ Kafka Connnect 有两个核心概念：Source 和 Sink。 Source 负责导入数
 
 Connectors 的发布和开发可以参照官方文档。如果以前你通过 producer API / consumer API 写了一些导入导出的功能，不妨尝试一下换成 Kafka Connect，看看是否简化了你的代码，提高了应用可扩展和容错的能力。
 
-## Kafka Connect 概念
+## 2. Kafka Connect 概念
 
 Kafka Connect 的几个重要的概念包括：Connectors、Tasks、Workers、Converters、Transforms。
 
@@ -79,12 +79,12 @@ Kafka Connect 的几个重要的概念包括：Connectors、Tasks、Workers、Co
 * Transforms: 更改 Connector 产生的或发送到 Connector 的每个消息的简单处理逻辑
 * Dead Letter Queue: Kafka Connect 如何处理 Connector 错误
 
-### Connectors
+### 2.1 Connectors
 在 kafka connect 中，connector 决定了数据应该从哪里复制过来以及数据应该写入到哪里去，一个 connector 实例是一个需要负责在 kafka 和其他系统之间复制数据的逻辑作业，connector plugin 是 jar 文件，实现了 kafka 定义的一些接口来完成特定的任务。
 
 ![Connector Model](../assets/images/post/20200707/connector-model.png)
 
-### Tasks
+### 2.2 Tasks
 task 是 kafka connect 数据模型的主角，每一个 connector 都会协调一系列的 task 去执行任务，connector 可以把一项工作分割成许多的 task，然后再把 task 分发到各个 worker 中去执行（分布式模式下），task 不自己保存自己的状态信息，而是交给特定的 kafka topic 去保存（config.storage.topic 和 status.storage.topic）。在分布式模式下有一个概念叫做任务再平衡（Task Rebalancing），当一个 connector 第一次提交到集群时，所有的 worker 都会做一个 task rebalancing 从而保证每一个 worker 都运行了差不多数量的工作，而不是所有的工作压力都集中在某个 worker 进程中，而当某个进程挂了之后也会执行 task rebalance。
 
 ![Data Model](../assets/images/post/20200707/data-model.png)
@@ -93,12 +93,12 @@ task 是 kafka connect 数据模型的主角，每一个 connector 都会协调�
 
 ![Task Rebalancing](../assets/images/post/20200707/task-failover.png)
 
-### Workers
+### 2.3 Workers
 connectors 和 tasks 都是逻辑工作单位，必须安排在进程中执行，而在 kafka connect 中，这些进程就是 workers，分别有两种 worker: standalone 和 distributed。这里不对 standalone 进行介绍，具体的可以查看官方文档。我个人觉得 distributed worker 很棒，因为它提供了可扩展性以及自动容错的功能，你可以使用一个 group.ip 来启动很多 worker 进程，在有效的 worker 进程中它们会自动的去协调执行 connector 和 task，如果你新加了一个 worker 或者挂了一个 worker，其他的 worker 会检测到然后在重新分配 connector 和 task。
 
 ![Distributed Worker](../assets/images/post/20200707/worker-model.png)
 
-### Converters
+### 2.4 Converters
 converter 会把 bytes 数据转换成 kafka connect 内部的格式，也可以把 kafka connect 内部存储格式的数据转变成 bytes，converter 对 connector 来说是解耦的，所以其他的 connector 都可以重用，例如，使用了 avro converter，那么 jdbc connector 可以写 avro 格式的数据到 kafka，当然，hdfs connector 也可以从 kafka 中读出 avro 格式的数据。
 
 Confluent Platform 提供了以下 Converters:
@@ -111,7 +111,7 @@ Confluent Platform 提供了以下 Converters:
 
 ![Converter Basics](../assets/images/post/20200707/converter-basics.png)
 
-### Transforms
+### 2.5 Transforms
 
 Connector 可以配置 Transforms 来对单个消息进行简单而轻量级的修改。这对于较小的数据调整和事件路由来说非常方便，并且多个 Transforms 可以在 Connectors 配置中链接在一起。但是，应用于多个消息的更复杂的转换和操作最好使用 ksqlDB 和 Kafka 流实现。
 
@@ -139,7 +139,7 @@ Kafka Connect Transformations:
 | TombstoneHandler	| Manage tombstone records. A tombstone record is defined as a record with the entire value field being null, whether or not it has ValueSchema. |
 | ValueToKey	| Replace the record key with a new key formed from a subset of fields in the record value. |
 
-### Dead Letter Queue
+### 2.6 Dead Letter Queue
 
 由于多种原因，可能会出现无效记录。举个栗子：一条记录到达以 JSON 格式序列化的 Sink Connector，但 Sink Connector 配置期望的是 Avro 格式。当 Sink Connector 无法处理无效记录时，将根据 Connector 配置属性 `errors.tolerance` 处理该错误。
 
@@ -183,7 +183,7 @@ errors.deadletterqueue.context.headers.enable = true
 }
 ```
 
-## Kafka Connect Elasticsearch 实践
+## 3. Kafka Connect Elasticsearch 实践
 
 接下来梳理下 `kafka-connect-elasticsearch` 过程中的一些使用经验，如果是自己玩玩你可以使用 `Confluent` 全家桶，大家都知道 `Confluent` 是当初 Linkin 的几位 kafka 核心开发者创业成立的公司，致力于 kafka 的商业化，该团队基于 kafka 给社区贡献了几个优质的开源项目 `Schema Registry`、`Kafka Rest`、`KSQL`，还有很多 kafka connectors 组件。`Confluent` 包含了从 kafka 集群搭建到 connector 组件部署，再到 connect 监控的一站式集成，使用非常方便，但是核心的 `Confluent Control Center` 及周边支持是企业版才有的特性，免费版只能试用一段时间，而且功能特性还有限制，社区版功能更是甚少，所以准备自己搭建监控平台。
 
@@ -191,7 +191,7 @@ errors.deadletterqueue.context.headers.enable = true
 
 ![Kafka 目录结构](../assets/images/post/20200707/kafka-dir-structure.jpg)
 
-### connect-standalone.properties
+### 3.1 connect-standalone.properties
 
 `connect-standalone` config 配置了 kafka broker 地址、消息 key 和 value converter 格式、offset 存储位置、connectors 加载目录等基本信息，更详细参数参考官网。
 
@@ -220,7 +220,7 @@ offset.flush.interval.ms=5000
 plugin.path=/denv/kafka_2.12-2.3.1/connectors
 ```
 
-### elasticsearch-sink.properties
+### 3.2 elasticsearch-sink.properties
 
 `elasticsearch-sink` config 配置 ElasticsearchSinkConnector 相关配置，consumer name、topics name、Elasticseatch Rest API、Index Type 等，更详细参数参考官网。
 
@@ -237,18 +237,18 @@ behavior.on.malformed.documents=warn
 behavior.on.null.values=ignore
 ```
 
-### Start Kafka Connect
+### 3.3 Start Kafka Connect
 
 以 `standalone` 模式启动 `kafka connect`：
 ```sh
 bin/connect-standalone.sh config/connect-standalone.properties connectors/kafka-connect-elasticsearch/etc/elasticsearch-sink.properties
 ```
 
-### Monitoring Kafka Connect anf Connectors
+### 3.4 Monitoring Kafka Connect anf Connectors
 
 kafka connect 提供了 Rest API 用来监控 Connector 和 Task 状态。举几个栗子：
 
-#### Get worker cluster ID, version, and git source code commit ID
+#### 3.4.1 Get worker cluster ID, version, and git source code commit ID
 
 ```sh
 curl localhost:8083/ | jq
@@ -261,7 +261,7 @@ curl localhost:8083/ | jq
 }
 ```
 
-#### List the connector plugins available on a worker
+#### 3.4.2 List the connector plugins available on a worker
 
 ```sh
 curl localhost:8083/connector-plugins | jq
@@ -286,7 +286,7 @@ curl localhost:8083/connector-plugins | jq
 ]
 ```
 
-#### List active connectors on a worker
+#### 3.4.3 List active connectors on a worker
 
 ```sh
 curl localhost:8083/connectors | jq
@@ -297,7 +297,7 @@ curl localhost:8083/connectors | jq
 ]
 ```
 
-#### Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.
+#### 3.4.4 Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.
 
 ```sh
 curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
@@ -317,13 +317,13 @@ curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
 }'
 ```
 
-#### Restart a connector (there is no output if the command is successful)
+#### 3.4.5 Restart a connector (there is no output if the command is successful)
 
 ```sh
 curl -X POST localhost:8083/connectors/elasticsearch-sink/restart
 ```
 
-#### Get connector tasks
+#### 3.4.6 Get connector tasks
 
 ```sh
 curl localhost:8083/connectors/elasticsearch-sink/tasks | jq
@@ -352,25 +352,25 @@ curl localhost:8083/connectors/elasticsearch-sink/tasks | jq
 ]
 ```
 
-#### Restart a task (there is no output if the command is successful)
+#### 3.4.7 Restart a task (there is no output if the command is successful)
 
 ```sh
 curl -X POST localhost:8083/connectors/elasticsearch-sink/tasks/0/restart
 ```
 
-#### Pause a connector (there is no output if the command is successful)
+#### 3.4.8 Pause a connector (there is no output if the command is successful)
 
 ```sh
 curl -X PUT localhost:8083/connectors/elasticsearch-sink/pause
 ```
 
-#### Resume a paused connector (there is no output if the command is successful)
+#### 3.4.9 Resume a paused connector (there is no output if the command is successful)
 
 ```sh
 curl -X PUT localhost:8083/connectors/elasticsearch-sink/resume
 ```
 
-#### Update the connector configuration, updates tasks from 1 to 2.
+#### 3.4.10 Update the connector configuration, updates tasks from 1 to 2.
 
 ```sh
 curl -X PUT localhost:8083/connectors/elasticsearch-sink/config -H 'Content-Type: application/json' -d'{
@@ -387,7 +387,7 @@ curl -X PUT localhost:8083/connectors/elasticsearch-sink/config -H 'Content-Type
 }'
 ```
 
-#### Get connector tasks status
+#### 3.4.11 Get connector tasks status
 
 ```sh
 curl localhost:8083/connectors/elasticsearch-sink/status | jq
@@ -415,7 +415,7 @@ curl localhost:8083/connectors/elasticsearch-sink/status | jq
 }
 ```
 
-## 使用 JMX 监控 Kafka Connect
+## 4. 使用 JMX 监控 Kafka Connect
 
 使用 kafka 做消息队列中间件时，为了实时监控其性能时，免不了要使用 jmx 调取 kafka broker 的内部数据，不管是自己重新做一个 kafka 集群的监控系统，还是使用一些开源的产品，比如 yahoo 的kafka manager, 其都需要使用 jmx 来监控一些敏感的数据。在 kafka 官网中 `http://kafka.apache.org/082/documentation.html#monitoring` 这样说：
 
@@ -430,7 +430,7 @@ curl localhost:8083/connectors/elasticsearch-sink/status | jq
 JMX_PORT=9999 bin/connect-standalone.sh config/connect-standalone.properties connectors/kafka-connect-elasticsearch/etc/elasticsearch-sink.properties
 ```
 
-### 使用 JConsole 查看 JMX Metrics
+### 4.1 使用 JConsole 查看 JMX Metrics
 
 启动 JConsole 并连接 Kafka Connect JMX:
 
@@ -440,11 +440,11 @@ JMX_PORT=9999 bin/connect-standalone.sh config/connect-standalone.properties con
 
 ![JConsole JMX Start](../assets/images/post/20200707/jconsole-jmx-metrics.jpg)
 
-## 使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics
+## 5. 使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics
 
 Prometheus 是一个监视工具，可以提取指标，使其成为图形，然后将其公开给 Alert Manager，后者可以使用多种方法发送警报。它从 HTTP 端点提取指标，该指标已添加到Prometheus 配置文件中。因此，我们需要一种以 Prometheus 理解的格式通过 HTTP 公开 Kafka Connect Metrics 的方法。
 
-### Prometheus JMX Exporter
+### 5.1 Prometheus JMX Exporter
 
 Prometheus 提供了 JMX Exporter，它是 "可以配置地抓取和公开 JMX Metrics 的 `mBean` 的收集器"。它以 Prometheus 可以理解的格式通过 HTTP 服务器公开了我们在上述工具中看到的 JMX Metrics。
 
@@ -553,7 +553,7 @@ java_nio_mapped_totalcapacity{type="BufferPool",} 0.0
 kafka_connect_connector_task_metrics_running_ratio{connector="elasticsearch-sink",task="0",} 1.0
 ```
 
-### 使用 Prometheus 展示 Kafka Connect JMX Metrics
+### 5.2 使用 Prometheus 展示 Kafka Connect JMX Metrics
 
 修改 `prometheus.yml`:
 
@@ -610,7 +610,7 @@ scrape_configs:
 
 分享就到这里吧，如果还有不明白的地方，官方文档是最好的学习资料。
 
-## 参考资料
+## 6. 参考资料
 
 * [Kafka Ecosystem](https://cwiki.apache.org/confluence/display/KAFKA/Ecosystem)
 * [Kafka Connect Concepts](https://docs.confluent.io/current/connect/concepts.html)
