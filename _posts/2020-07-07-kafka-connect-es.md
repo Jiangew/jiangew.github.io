@@ -1,5 +1,5 @@
 ---
-title: "Kafka Connect、Connector、Rest API、JMX、Prometheus 实践"
+title: "Kafka Connect、Connector、Rest API、JMX、Prometheus 探索与实践"
 layout: post
 date: 2020-07-07 11:10
 image: /assets/images/base/markdown.jpg
@@ -12,7 +12,7 @@ tag:
 - JMX
 - Prometheus
 category: blog
-author: jiangew
+author: Jiangew
 ---
 
 - [Kafka Connect 简介](#kafka-connect-简介)
@@ -48,7 +48,7 @@ author: jiangew
 
 ## Kafka Connect 简介
 
-Kafka 0.9+ 增加了一个新的特性 `Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors` 可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的数据库注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
+Kafka 0.9+ 增加了一个新的特性 `Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors` 可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的存储系统中的数据注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
 
 `Kafka Connect` 特性包括：
 * Kafka Connector 通用框架，提供统一的集成 API
