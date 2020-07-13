@@ -50,6 +50,8 @@ author: Jiangew
 
 Kafka 0.9+ 增加了一个新的特性 `Kafka Connect`，可以更方便的创建和管理数据流管道。它为 Kafka 和其它系统创建规模可扩展的、可信赖的流数据提供了一个简单的模型，通过`Connectors` 可以将大数据从其它系统导入到 Kafka 中，也可以从 Kafka 中导出到其它系统。Kafka Connect 可以将完整的存储系统中的数据注入到 Kafka 的 Topic 中，或者将服务器的系统监控指标注入到 Kafka，然后像正常的 Kafka 流处理机制一样进行数据流处理。而导出工作则是将数据从 Kafka Topic 中导出到其它数据存储系统、查询系统或者离线分析系统等，比如 MySQL、MongoDB、Elasticsearch、 Cassandra、Ignite 等。
 
+Kafka Consumer 和 Producer 都是 Develop 的工具，如果想用来做 Data Pipeline 或 ETL 工作并且同步大量的数据，同时还要对 Data Pipeline 做管理和监控，Kafka Connect 解决了这个广泛的需求。
+
 `Kafka Connect` 特性包括：
 * Kafka Connector 通用框架，提供统一的集成 API
 * 同时支持分布式模式和单机模式
@@ -185,9 +187,13 @@ errors.deadletterqueue.context.headers.enable = true
 
 ## 3. Kafka Connect Elasticsearch 实践
 
+当你需要 Connector 的时候，你可以选择去 Kafka 和 Confluent 社区选择优秀的开源 Connector，你也可以选择自己开发 Connector 为社区做贡献。
+
+我的需求是使用 Kafka Connect 做 Data Pipeline，把 Kafka 集群中的消息高并行低延迟的同步到 Elasticsearch 集群中，Confluent Hub 社区官方提供了很优秀的 Connector: `kafka-connect-elasticsearch`，我就不重复造轮子了，拿来即用。
+
 接下来梳理下 `kafka-connect-elasticsearch` 过程中的一些使用经验，如果是自己玩玩你可以使用 `Confluent` 全家桶，大家都知道 `Confluent` 是当初 Linkin 的几位 kafka 核心开发者创业成立的公司，致力于 kafka 的商业化，该团队基于 kafka 给社区贡献了几个优质的开源项目 `Schema Registry`、`Kafka Rest`、`KSQL`，还有很多 kafka connectors 组件。`Confluent` 包含了从 kafka 集群搭建到 connector 组件部署，再到 connect 监控的一站式集成，使用非常方便，但是核心的 `Confluent Control Center` 及周边支持是企业版才有的特性，免费版只能试用一段时间，而且功能特性还有限制，社区版功能更是甚少，所以准备自己搭建监控平台。
 
-先从 `Confluent Hub` 下载 `kafka-connect-elasticsearch` 组件，为了方便管理，建议跟 kafka connect 在相同目录下，我使用的 `kafka_2.12-2.3.1` 版本，目录结构如下：
+你可以实现自己所需要的 Connector，先从 `Confluent Hub` 下载 `kafka-connect-elasticsearch` 组件，为了方便管理，建议跟 kafka connect 在相同目录下，我使用的 `kafka_2.12-2.3.1` 版本，目录结构如下：
 
 ![Kafka 目录结构](../assets/images/post/20200707/kafka-dir-structure.jpg)
 
@@ -442,7 +448,7 @@ JMX_PORT=9999 bin/connect-standalone.sh config/connect-standalone.properties con
 
 ## 5. 使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics
 
-Prometheus 是一个监视工具，可以提取指标，使其成为图形，然后将其公开给 Alert Manager，后者可以使用多种方法发送警报。它从 HTTP 端点提取指标，该指标已添加到Prometheus 配置文件中。因此，我们需要一种以 Prometheus 理解的格式通过 HTTP 公开 Kafka Connect Metrics 的方法。
+Prometheus 是一个监控工具，可以提取指标，使其成为图形，然后将其公开给 Alert Manager，后者可以使用多种方法发送警报。它从 HTTP 端点提取指标，该指标已添加到Prometheus 配置文件中。因此，我们需要一种以 Prometheus 理解的格式通过 HTTP 公开 Kafka Connect Metrics 的方法。
 
 ### 5.1 Prometheus JMX Exporter
 
@@ -621,4 +627,5 @@ scrape_configs:
 * [Prometheus JMX Exporter](https://github.com/prometheus/jmx_exporter)
 * [Confluent Schema Registry](https://docs.confluent.io/current/schema-registry/connect.html#schemaregistry-kafka-connect)
 * [kafkacat Utility](https://docs.confluent.io/current/app-development/kafkacat-usage.html#kafkacat-usage)
+* [Kafka Connect Building Large-scale Low-latency Data Pipeline](https://www.confluent.io/blog/announcing-kafka-connect-building-large-scale-low-latency-data-pipelines/)
 
