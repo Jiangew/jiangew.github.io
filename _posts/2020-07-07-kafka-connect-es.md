@@ -33,12 +33,13 @@ author: Jiangew
     - [3.4.3 List active connectors on a worker](#343-list-active-connectors-on-a-worker)
     - [3.4.4 Create a new connector, returning the current connector info if successful. Return 409 (Conflict) if rebalance is in process.](#344-create-a-new-connector-returning-the-current-connector-info-if-successful-return-409-conflict-if-rebalance-is-in-process)
     - [3.4.5 Restart a connector (there is no output if the command is successful)](#345-restart-a-connector-there-is-no-output-if-the-command-is-successful)
-    - [3.4.6 Get connector tasks](#346-get-connector-tasks)
-    - [3.4.7 Restart a task (there is no output if the command is successful)](#347-restart-a-task-there-is-no-output-if-the-command-is-successful)
-    - [3.4.8 Pause a connector (there is no output if the command is successful)](#348-pause-a-connector-there-is-no-output-if-the-command-is-successful)
-    - [3.4.9 Resume a paused connector (there is no output if the command is successful)](#349-resume-a-paused-connector-there-is-no-output-if-the-command-is-successful)
-    - [3.4.10 Update the connector configuration, updates tasks from 1 to 2.](#3410-update-the-connector-configuration-updates-tasks-from-1-to-2)
+    - [3.4.6 Pause a connector (there is no output if the command is successful)](#346-pause-a-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.7 Resume a paused connector (there is no output if the command is successful)](#347-resume-a-paused-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.8 Deleting a connector (there is no output if the command is successful)](#348-deleting-a-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.9 Update the connector configuration, updates tasks from 1 to 2.](#349-update-the-connector-configuration-updates-tasks-from-1-to-2)
+    - [3.4.10 Get connector tasks](#3410-get-connector-tasks)
     - [3.4.11 Get connector tasks status](#3411-get-connector-tasks-status)
+    - [3.4.12 Restart a task (there is no output if the command is successful)](#3412-restart-a-task-there-is-no-output-if-the-command-is-successful)
 - [4. 使用 JMX 监控 Kafka Connect](#4-使用-jmx-监控-kafka-connect)
   - [4.1 使用 JConsole 查看 JMX Metrics](#41-使用-jconsole-查看-jmx-metrics)
 - [5. 使用 Prometheus JMX Exporter 收集 Kafka Connect JMX Metrics](#5-使用-prometheus-jmx-exporter-收集-kafka-connect-jmx-metrics)
@@ -307,15 +308,15 @@ curl localhost:8083/connectors | jq
 
 ```sh
 curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
-  "name": "elasticsearch-sink-test",
+  "name": "elasticsearch-sink",
   "config": {
         "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
         "type.name": "_doc",
         "behavior.on.malformed.documents": "warn",
         "behavior.on.null.values": "ignore",
-        "topics": "test-elasticsearch-sink",
+        "topics": "elasticsearch-sink",
         "tasks.max": "1",
-        "name": "elasticsearch-sink-test",
+        "name": "elasticsearch-sink",
         "connection.url": "http://127.0.0.1:9200",
         "key.ignore": "true",
         "schema.ignore": "true"
@@ -329,7 +330,42 @@ curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
 curl -X POST localhost:8083/connectors/elasticsearch-sink/restart
 ```
 
-#### 3.4.6 Get connector tasks
+#### 3.4.6 Pause a connector (there is no output if the command is successful)
+
+```sh
+curl -X PUT localhost:8083/connectors/elasticsearch-sink/pause
+```
+
+#### 3.4.7 Resume a paused connector (there is no output if the command is successful)
+
+```sh
+curl -X PUT localhost:8083/connectors/elasticsearch-sink/resume
+```
+
+#### 3.4.8 Deleting a connector (there is no output if the command is successful)
+
+```sh
+curl -X DELETE localhost:8083/connectors/elasticsearch-sink
+```
+
+#### 3.4.9 Update the connector configuration, updates tasks from 1 to 2.
+
+```sh
+curl -X PUT localhost:8083/connectors/elasticsearch-sink/config -H 'Content-Type: application/json' -d'{
+  "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+  "type.name": "_doc",
+  "behavior.on.malformed.documents": "warn",
+  "behavior.on.null.values": "ignore",
+  "topics": "elasticsearch-sink",
+  "tasks.max": "2",
+  "name": "elasticsearch-sink",
+  "connection.url": "http://127.0.0.1:9200",
+  "key.ignore": "true",
+  "schema.ignore": "true"
+}'
+```
+
+#### 3.4.10 Get connector tasks
 
 ```sh
 curl localhost:8083/connectors/elasticsearch-sink/tasks | jq
@@ -347,7 +383,7 @@ curl localhost:8083/connectors/elasticsearch-sink/tasks | jq
       "behavior.on.malformed.documents": "warn",
       "behavior.on.null.values": "ignore",
       "task.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkTask",
-      "topics": "test-elasticsearch-sink",
+      "topics": "elasticsearch-sink",
       "tasks.max": "1",
       "name": "elasticsearch-sink",
       "connection.url": "http://127.0.0.1:9200",
@@ -356,41 +392,6 @@ curl localhost:8083/connectors/elasticsearch-sink/tasks | jq
     }
   }
 ]
-```
-
-#### 3.4.7 Restart a task (there is no output if the command is successful)
-
-```sh
-curl -X POST localhost:8083/connectors/elasticsearch-sink/tasks/0/restart
-```
-
-#### 3.4.8 Pause a connector (there is no output if the command is successful)
-
-```sh
-curl -X PUT localhost:8083/connectors/elasticsearch-sink/pause
-```
-
-#### 3.4.9 Resume a paused connector (there is no output if the command is successful)
-
-```sh
-curl -X PUT localhost:8083/connectors/elasticsearch-sink/resume
-```
-
-#### 3.4.10 Update the connector configuration, updates tasks from 1 to 2.
-
-```sh
-curl -X PUT localhost:8083/connectors/elasticsearch-sink/config -H 'Content-Type: application/json' -d'{
-  "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
-  "type.name": "_doc",
-  "behavior.on.malformed.documents": "warn",
-  "behavior.on.null.values": "ignore",
-  "topics": "test-elasticsearch-sink",
-  "tasks.max": "2",
-  "name": "elasticsearch-sink",
-  "connection.url": "http://127.0.0.1:9200",
-  "key.ignore": "true",
-  "schema.ignore": "true"
-}'
 ```
 
 #### 3.4.11 Get connector tasks status
@@ -419,6 +420,12 @@ curl localhost:8083/connectors/elasticsearch-sink/status | jq
   ],
   "type": "sink"
 }
+```
+
+#### 3.4.12 Restart a task (there is no output if the command is successful)
+
+```sh
+curl -X POST localhost:8083/connectors/elasticsearch-sink/tasks/0/restart
 ```
 
 ## 4. 使用 JMX 监控 Kafka Connect
