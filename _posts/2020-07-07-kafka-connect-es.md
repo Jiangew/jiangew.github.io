@@ -35,7 +35,7 @@ author: Jiangew
     - [3.4.5 Restart a connector (there is no output if the command is successful)](#345-restart-a-connector-there-is-no-output-if-the-command-is-successful)
     - [3.4.6 Pause a connector (there is no output if the command is successful)](#346-pause-a-connector-there-is-no-output-if-the-command-is-successful)
     - [3.4.7 Resume a paused connector (there is no output if the command is successful)](#347-resume-a-paused-connector-there-is-no-output-if-the-command-is-successful)
-    - [3.4.8 Deleting a connector (there is no output if the command is successful)](#348-deleting-a-connector-there-is-no-output-if-the-command-is-successful)
+    - [3.4.8 Deleting a connector (no response printed if success)](#348-deleting-a-connector-no-response-printed-if-success)
     - [3.4.9 Update the connector configuration, updates tasks from 1 to 2.](#349-update-the-connector-configuration-updates-tasks-from-1-to-2)
     - [3.4.10 Get connector tasks](#3410-get-connector-tasks)
     - [3.4.11 Get connector tasks status](#3411-get-connector-tasks-status)
@@ -253,7 +253,9 @@ bin/connect-standalone.sh config/connect-standalone.properties connectors/kafka-
 
 ### 3.4 Monitoring Kafka Connect anf Connectors
 
-kafka connect 提供了 Rest API 用来监控 Connector 和 Task 状态。举几个栗子：
+Kafka Connect 提供了 Rest interface 用来监控 Connect 和 Connector，举几个栗子：
+
+Since Kafka Connect is intended to be run as a service, it also supports a REST API for managing connectors. By default this service runs on port 8083. When executed in distributed mode, the REST API will be the primary interface to the cluster. You can make requests to any cluster member, the REST API automatically forwards requests if required.
 
 #### 3.4.1 Get worker cluster ID, version, and git source code commit ID
 
@@ -318,7 +320,7 @@ curl -X POST localhost:8083/connectors -H 'Content-Type: application/json' -d'{
         "tasks.max": "1",
         "name": "elasticsearch-sink",
         "connection.url": "http://127.0.0.1:9200",
-        "key.ignore": "true",
+        "key.ignore": "false",
         "schema.ignore": "true"
     }
 }'
@@ -342,7 +344,7 @@ curl -X PUT localhost:8083/connectors/elasticsearch-sink/pause
 curl -X PUT localhost:8083/connectors/elasticsearch-sink/resume
 ```
 
-#### 3.4.8 Deleting a connector (there is no output if the command is successful)
+#### 3.4.8 Deleting a connector (no response printed if success)
 
 ```sh
 curl -X DELETE localhost:8083/connectors/elasticsearch-sink
@@ -360,7 +362,7 @@ curl -X PUT localhost:8083/connectors/elasticsearch-sink/config -H 'Content-Type
   "tasks.max": "2",
   "name": "elasticsearch-sink",
   "connection.url": "http://127.0.0.1:9200",
-  "key.ignore": "true",
+  "key.ignore": "false",
   "schema.ignore": "true"
 }'
 ```
