@@ -145,7 +145,7 @@ Connector 配置文件，如下：
 }
 ```
 
-查看 `Kafka Topic` 列表，如下：
+查看 `Kafka Topics` 列表，如下：
 ![topic rename](../assets/images/post/20200820/topic-rename.jpg)
 
 发现，修改源码生成 kafka topic 的命名格式生效了。通过`kafka manager`查看如下：
