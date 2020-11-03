@@ -1,5 +1,5 @@
 ---
-title: "基于 Kafka Connect 机制的流数据同步方案的探索与实践"
+title: "基于 Kafka Connect 的流式数据同步服务实现和监控体系搭建"
 layout: post
 date: 2020-07-07 11:10
 image: /assets/images/base/markdown.jpg

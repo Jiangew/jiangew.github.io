@@ -1,5 +1,5 @@
 ---
-title: "基于 Kafka Connect and Debezium Connector MySQL 流数据同步采坑之旅"
+title: "基于 Kafka Connect 的流式数据同步方案之 Debezium Connector MySQL 采坑之旅"
 layout: post
 date: 2020-08-20 22:10
 image: /assets/images/base/markdown.jpg
@@ -14,6 +14,15 @@ tag:
 category: blog
 author: Jiangew
 ---
+
+- [背景](#背景)
+- [遇到的问题](#遇到的问题)
+  - [基于开源项目打包无法被 Kafka Connect Plugins 机制加载](#基于开源项目打包无法被-kafka-connect-plugins-机制加载)
+  - [阅读 Kafka Connect Plugin 加载机制源码](#阅读-kafka-connect-plugin-加载机制源码)
+  - [尝试把修改源码的 class 文件重新更新到官方的 Release 包里](#尝试把修改源码的-class-文件重新更新到官方的-release-包里)
+  - [尝试比对官方包和基于开源项目打包的差异](#尝试比对官方包和基于开源项目打包的差异)
+  - [统一构建环境，重新构建 Connector Plugin 包](#统一构建环境重新构建-connector-plugin-包)
+- [总结](#总结)
 
 ## 背景
 
