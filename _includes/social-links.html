@@ -11,8 +11,14 @@
         </a>
     {% endif %}
 
-    {% if site.twitter %}
+    <!-- {% if site.twitter %}
         <a class="link" data-title="twitter.com/{{ site.twitter }}" href="http://twitter.com/{{ site.twitter }}" target="_blank">
+            <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+        </a>
+    {% endif %} -->
+
+    {% if site.twitter %}
+        <a class="link" data-title="linktr.ee/{{ site.twitter }}" href="http://linktr.ee/{{ site.twitter }}" target="_blank">
             <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
         </a>
     {% endif %}

@@ -26,12 +26,9 @@ disqus:
     categories: [blog, project] # only show disqus for posts that have these categories
 
 # social networks
-github: jiangew
-twitter: JamesiWork
-instagram: jiangew
-# facebook: facebook
-# stackoverflow: mystackoverflow
-# reddit: username
+#github: jiangew
+#instagram: jiangew
+twitter: jiangew
 
 authors:
     Ew Jiang:
@@ -39,7 +36,7 @@ authors:
         bio: ~ 帝都互联网圈一枚正在蜕变的程序猿 ~
         external-image: false
         picture: assets/images/base/profile.png
-        twitter: JamesiWork
+        twitter: traitapes
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
