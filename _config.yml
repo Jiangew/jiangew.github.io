@@ -7,7 +7,7 @@ description: ~ 帝都互联网圈一枚正在蜕变的程序猿 ~
 
 # if it's an external image, update below for true better with square images
 external-image: false
-picture: assets/images/base/profile.png
+picture: assets/images/base/profile.jpg
 
 url: https://jiangew.github.io
 
@@ -35,7 +35,7 @@ authors:
         name: Ew Jiang
         bio: ~ 帝都互联网圈一枚正在蜕变的程序猿 ~
         external-image: false
-        picture: assets/images/base/profile.png
+        picture: assets/images/base/profile.jpg
         twitter: traitapes
 
 # do you want a larger site? change the option below
